@@ -3,155 +3,153 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WeAreWeoo</title>
+<title>Weareweoo Team</title>
 <style>
-    * {box-sizing: border-box; margin:0; padding:0;}
-    body, html {
-        width: 100%;
-        height: 100%;
-        font-family: Tahoma, sans-serif;
-        background: url("hero.png") center/cover no-repeat;
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+/* کل صفحه */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Tahoma, sans-serif;
+  color: #fff;
+  direction: ltr;
+}
 
-    .hero-text {
-        text-align: center;
-        margin-top: 20vh;
-    }
+/* پس‌زمینه */
+body {
+  background: url('hero.png') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
 
-    .hero-text h1 {
-        font-size: 48px;
-        color: #fff;
-        text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-        margin-bottom: 15px;
-    }
+/* عنوان تیم */
+.team-title {
+  margin-top: 60px;
+  font-size: 48px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+  text-align: center;
+}
 
-    .hero-text p {
-        font-size: 20px;
-        color: #ddd;
-        text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
-    }
+/* جمله رازآلود */
+.team-subtitle {
+  margin-top: 10px;
+  font-size: 20px;
+  text-align: center;
+  color: #f5f5f5;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+}
 
-    .btn-play {
-        margin-top: 25px;
-        padding: 15px 30px;
-        font-size: 18px;
-        border-radius: 12px;
-        border: none;
-        background-color: #b30000;
-        color: #fff;
-        cursor: pointer;
-        transition: background 0.3s;
-    }
-    .btn-play:hover {background-color: #e60000;}
+/* دکمه رفتن به صفحه بازی‌ها */
+.button-play {
+  margin: 40px 0 20px 0;
+  padding: 14px 28px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  background-color: #b30000;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.button-play:hover {
+  background-color: #e60000;
+}
 
-    .team-section {
-        background: rgba(0,0,0,0.75);
-        margin-top: 50px;
-        padding: 25px;
-        border-radius: 14px;
-        max-width: 600px;
-        width: 90%;
-        direction: ltr;
-        text-align: left;
-    }
-    .team-section h2 {
-        margin-bottom: 12px;
-        font-size: 24px;
-        text-align: center;
-    }
-    .team-section p {
-        font-size: 16px;
-        line-height: 1.6;
-        color: #f1f1f1;
-    }
+/* باکس درباره تیم */
+.about-team {
+  background-color: rgba(0,0,0,0.75);
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 90%;
+  margin-bottom: 40px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #fff;
+}
 
-    .comments-section {
-        background: rgba(0,0,0,0.6);
-        margin-top: 30px;
-        padding: 20px;
-        border-radius: 12px;
-        max-width: 600px;
-        width: 90%;
-        direction: ltr;
-    }
-    .comments-section h2 {
-        text-align: center;
-        margin-bottom: 12px;
-        font-size: 20px;
-    }
-    .comments-section textarea {
-        width: 100%;
-        padding: 10px;
-        border-radius: 8px;
-        border: none;
-        font-size: 16px;
-        resize: none;
-    }
-    .comments-section button {
-        margin-top: 10px;
-        padding: 12px;
-        width: 100%;
-        border-radius: 8px;
-        border: none;
-        background: #b30000;
-        color: #fff;
-        font-size: 16px;
-        cursor: pointer;
-    }
-    .comments-section button:hover {background: #e60000;}
-    #commentsList p {
-        background: rgba(255,255,255,0.1);
-        padding: 8px;
-        border-radius: 6px;
-        margin-bottom: 8px;
-    }
+/* باکس نظرات */
+.comments-section {
+  width: 90%;
+  max-width: 600px;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.comment-box {
+  background-color: rgba(0,0,0,0.85);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  color: #fff;
+  text-align: left;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+}
+
+button.submit-comment {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #b30000;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+button.submit-comment:hover {
+  background-color: #e60000;
+}
 </style>
 </head>
+
 <body>
 
-<!-- بخش تصویر و متن اصلی -->
-<div class="hero-text">
-    <h1>weareweoo</h1>
-    <p>رازهایی در دل هر بازی نهفته است...</p>
-    <button class="btn-play" onclick="location.href='games.html'">مشاهده بازی‌ها</button>
+<!-- عنوان تیم -->
+<div class="team-title">weareweoo</div>
+<div class="team-subtitle">تیم سازنده بازی‌های معمایی و جنایی شما</div>
+
+<!-- دکمه رفتن به صفحه بازی‌ها -->
+<button class="button-play" onclick="location.href='games.html'">رفتن به صفحه بازی‌ها</button>
+
+<!-- درباره تیم -->
+<div class="about-team">
+ما یک گروه حرفه‌ای هستیم که عاشق خلق بازی‌های فکری و معمایی هستیم. هدف ما ارائه تجربه‌ای هیجان‌انگیز و جذاب است که هم سرگرم‌کننده باشد و هم ذهن شما را به چالش بکشد. هر بازی ما با دقت و خلاقیت طراحی شده تا لحظاتی پرهیجان و به‌یادماندنی بسازد.
 </div>
 
-<!-- بخش درباره تیم -->
-<div class="team-section">
-    <h2>درباره تیم</h2>
-    <p>
-    تیم ما، WeAreWeoo، از علاقه‌مندان به بازی‌های فکری و جنایی تشکیل شده است. 
-    هدف ما خلق تجربه‌های منحصر به فرد برای بازیکنان است که بتوانند مهارت حل معما و تفکر استراتژیک خود را تقویت کنند. 
-    هر بازی توسط تیم طراحی و تست شده تا جذابیت و هیجان آن تضمین شود. 
-    ما همچنین به دنبال ایجاد جامعه‌ای هستیم که بازیکنان بتوانند ایده‌ها و تجربه‌های خود را با ما به اشتراک بگذارند.
-    </p>
-</div>
-
-<!-- بخش ثبت و نمایش نظرات -->
+<!-- بخش نظرات -->
 <div class="comments-section">
-    <h2>نظرات شما</h2>
-    <textarea id="userComment" placeholder="نظر خود را اینجا بنویسید..." rows="4"></textarea>
-    <button onclick="addComment()">ثبت نظر</button>
-    <div id="commentsList" style="margin-top:20px; max-height:300px; overflow-y:auto;"></div>
+<h3>نظرات شما</h3>
+<textarea id="commentInput" placeholder="نظر خود را وارد کنید"></textarea>
+<button class="submit-comment" onclick="addComment()">ارسال نظر</button>
+
+<div id="commentsContainer"></div>
 </div>
 
 <script>
+// اضافه کردن نظر
 function addComment() {
-    const commentInput = document.getElementById('userComment');
-    const comment = commentInput.value.trim();
-    if(comment === '') return;
+  const input = document.getElementById("commentInput");
+  const text = input.value.trim();
+  if(text === "") return;
 
-    const commentsList = document.getElementById('commentsList');
+  const commentBox = document.createElement("div");
+  commentBox.className = "comment-box";
+  commentBox.innerText = text;
 
-    const newComment = document.createElement('p');
-    newComment.textContent = comment;
-
-    commentsList.appendChild(newComment);
-    commentInput.value = '';
+  document.getElementById("commentsContainer").appendChild(commentBox);
+  input.value = "";
 }
 </script>
 
