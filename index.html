@@ -4,145 +4,111 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>صفحه اصلی تیم</title>
+
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" type="text/css" />
+
 <style>
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: Tahoma, sans-serif;
-  direction: ltr;
+  font-family: 'Vazir', Tahoma, sans-serif;
+  background: #fff; /* زمینه ساده برای کل صفحه */
   color: #fff;
-}
-
-/* پس‌زمینه */
-body {
-  background: url('crime.jpg') no-repeat center center;
-  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+}
+
+/* container با پس‌زمینه عکس */
+.container {
+  width: 90%;
+  max-width: 500px;
+  margin-top: 50px;
+  padding: 20px;
+  background: url("crime.jpg") center/cover no-repeat;
+  border-radius: 15px;
+  text-align: center;
+  color: #fff;
+  animation: fadeIn 1.5s ease forwards;
+  position: relative;
+  z-index: 1;
+}
+
+/* overlay برای خوانایی متن روی عکس */
+.container::before {
+  content: "";
+  position: absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.5);
+  border-radius: 15px;
+  z-index: -1;
 }
 
 /* جمله بالای دکمه */
-.mysterious-text {
-  margin-top: 60px;
-  font-size: 24px;
-  text-align: center;
+.top-text {
+  font-size: 18px;
+  margin-bottom: 20px;
   color: #fff;
-  text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
-  max-width: 90%;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+  direction: ltr;
 }
 
-/* دکمه رفتن به بازی‌ها */
-.button-play {
-  margin: 40px 0 20px 0;
-  padding: 14px 28px;
-  font-size: 18px;
+/* دکمه رفتن به صفحه بازی‌ها */
+button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
   border: none;
   border-radius: 10px;
-  background-color: #b30000;
+  background: #b30000;
   color: #fff;
   cursor: pointer;
-  transition: 0.3s;
+  transition: transform 0.3s, background 0.3s;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 2;
 }
-.button-play:hover {
-  background-color: #e60000;
+button:hover {
+  background: #e60000;
+  transform: scale(1.05);
 }
 
-/* باکس درباره تیم */
+/* درباره تیم */
 .about-team {
-  background-color: rgba(0,0,0,0.75);
+  background: rgba(0,0,0,0.85);
   padding: 20px;
   border-radius: 12px;
-  max-width: 90%;
-  margin-bottom: 40px;
+  font-size: 16px;
+  margin-bottom: 30px;
   text-align: center;
-  font-size: 18px;
-  line-height: 1.6;
-  color: #fff;
+  direction: ltr;
+  line-height: 1.7;
 }
 
-/* بخش نظرات */
-.comments-section {
-  width: 90%;
-  max-width: 600px;
-  margin-bottom: 60px;
-  text-align: center;
-}
-
-.comment-box {
-  background-color: rgba(0,0,0,0.85);
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 15px;
-  color: #fff;
-  text-align: left;
-}
-
-input, textarea {
+/* باکس نظرات */
+.comments-box {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  border: none;
-  font-size: 16px;
+  max-width: 500px;
+  background: rgba(0,0,0,0.85);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 50px;
+  text-align: left;
+  direction: ltr;
 }
 
-button.submit-comment {
-  padding: 12px 20px;
-  border: none;
-  border-radius: 8px;
-  background-color: #b30000;
+.comments-box h3 {
+  margin-top: 0;
   color: #fff;
-  font-size: 16px;
-  cursor: pointer;
+  text-align: center;
 }
-button.submit-comment:hover {
-  background-color: #e60000;
+
+.comment-item {
+  background: rgba(50,50,50,0.8);
+  margin: 5px 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: #fff;
 }
-</style>
-</head>
-
-<body>
-
-<!-- جمله بالای دکمه -->
-<div class="mysterious-text">
-حقیقت همیشه پنهان نیست، گاهی فقط منتظر توست
-</div>
-
-<!-- دکمه رفتن به صفحه بازی‌ها -->
-<button class="button-play" onclick="location.href='games.html'">رفتن به صفحه بازی‌ها</button>
-
-<!-- درباره تیم -->
-<div class="about-team">
-ما یک گروه حرفه‌ای هستیم که عاشق خلق بازی‌های معمایی و جنایی هستیم. هدف ما ارائه تجربه‌ای هیجان‌انگیز و جذاب است که هم سرگرم‌کننده باشد و هم ذهن شما را به چالش بکشد. هر بازی ما با دقت و خلاقیت طراحی شده تا لحظاتی پرهیجان و به‌یادماندنی بسازد.
-</div>
-
-<!-- بخش نظرات -->
-<div class="comments-section">
-<h3>نظرات شما</h3>
-<textarea id="commentInput" placeholder="نظر خود را وارد کنید"></textarea>
-<button class="submit-comment" onclick="addComment()">ارسال نظر</button>
-
-<div id="commentsContainer"></div>
-</div>
-
-<script>
-// اضافه کردن نظر
-function addComment() {
-  const input = document.getElementById("commentInput");
-  const text = input.value.trim();
-  if(text === "") return;
-
-  const commentBox = document.createElement("div");
-  commentBox.className = "comment-box";
-  commentBox.innerText = text;
-
-  document.getElementById("commentsContainer").appendChild(commentBox);
-  input.value = "";
-}
-</script>
-
-</body>
-</html>
