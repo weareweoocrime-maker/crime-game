@@ -1,1 +1,118 @@
-sghl
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WeAreWeoo</title>
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Tahoma', sans-serif;
+    color: #fff;
+    background: url('hero.png') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.overlay {
+    background: rgba(0,0,0,0.6);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 3em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+    color: #ff4d4d;
+    text-shadow: 2px 2px 12px #000;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    margin-top: 15px;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+button {
+    margin-top: 25px;
+    padding: 14px 28px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 12px;
+    background: #b30000;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255,0,0,0.5);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #e60000;
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(255,0,0,0.7);
+}
+
+.team-section {
+    background: rgba(0,0,0,0.85);
+    width: 100%;
+    padding: 25px 20px;
+    box-sizing: border-box;
+}
+
+.team-section h2 {
+    margin-top: 0;
+    font-size: 2em;
+    color: #ff4d4d;
+    text-shadow: 1px 1px 8px #000;
+}
+
+.team-section p {
+    font-size: 1em;
+    line-height: 1.8;
+    text-align: justify;
+    color: #fff;
+}
+
+/* ریسپانسیو موبایل */
+@media (max-width: 600px) {
+    h1 { font-size: 2.2em; }
+    .subtitle { font-size: 1em; }
+    button { font-size: 1em; padding: 12px 20px; }
+    .team-section h2 { font-size: 1.5em; }
+    .team-section p { font-size: 0.95em; }
+}
+</style>
+</head>
+<body>
+
+<div class="overlay">
+    <h1>weareweoo</h1>
+    <div class="subtitle">جایی که ذهن شما به چالش کشیده می‌شود و رازها آشکار می‌شوند...</div>
+    <button onclick="location.href='games.html'">مشاهده بازی‌ها</button>
+</div>
+
+<div class="team-section">
+    <h2>درباره تیم ما</h2>
+    <p>
+    تیم <strong>WeAreWeoo</strong> از علاقه‌مندان و خلاقان حوزه بازی‌های فکری و جنایی تشکیل شده است. ما هدفمان ایجاد تجربه‌هایی است که ذهن و حواس بازیکن را همزمان درگیر کند و هیجان، تعلیق و ترس را در هم بیامیزد. هر بازی ما ترکیبی از داستان، معما، و چالش است؛
+    داستان‌هایی که بازیکن را وادار می‌کند فکر کند، حدس بزند و تصمیم بگیرد. ما نه تنها بازی می‌سازیم، بلکه تجربه‌ای خلق می‌کنیم که پس از پایان آن، اثرش هنوز در ذهن باقی می‌ماند.
+    با WeAreWeoo، هر بازی یک سفر ذهنی و احساسی است و هر بازیکن نقشی حیاتی در آن دارد.
+    </p>
+</div>
+
+</body>
+</html>
