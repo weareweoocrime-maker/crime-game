@@ -7,44 +7,36 @@
 <style>
 body {
   margin: 0;
-  padding: 0;
+  padding: 20px;
   font-family: Tahoma, sans-serif;
   background: #111;
   color: #fff;
   text-align: center;
 }
 
-.container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
-}
-
-.images-row {
+.game-images {
   display: flex;
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
-.images-row img {
+.game-images img {
   width: 45%;
   max-width: 400px;
   border-radius: 15px;
+  display: block;
 }
 
-.summary {
-  margin-top: 20px;
+.game-summary {
   font-size: 16px;
-  line-height: 1.6;
   direction: ltr;
-  text-align: left;
+  margin-bottom: 20px;
 }
 
-/* دکمه ثبت سفارش */
 .order-btn {
-  margin-top: 25px;
-  padding: 14px 25px;
+  padding: 15px 25px;
   font-size: 16px;
   border: none;
   border-radius: 10px;
@@ -60,20 +52,18 @@ body {
 </head>
 <body>
 
-<div class="container">
+<h2>جزئیات بازی</h2>
 
-  <div class="images-row">
-    <img src="before.png" alt="قبل از فردا">
-    <img src="Sam.png" alt="Sam">
-  </div>
-
-  <div class="summary">
-    متن خلاصه بازی از چپ به راست
-  </div>
-
-  <button class="order-btn" onclick="location.href='order.html'">ثبت سفارش</button>
-
+<div class="game-images">
+  <img src="before.png" alt="پرونده قبل از فردا">
+  <img src="sam.png" alt="تصویر Sam">
 </div>
+
+<div class="game-summary">
+متن خلاصه بازی: این بازی شامل یک پرونده جنایی است که بازیکن باید با دنبال کردن سرنخ‌ها و حل معماها، حقیقت را کشف کند.
+</div>
+
+<button class="order-btn" onclick="location.href='order.html'">ثبت سفارش</button>
 
 </body>
 </html>
