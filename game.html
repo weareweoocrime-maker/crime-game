@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>پرونده جنایی: قبل از فردا</title>
+<title>صفحه بازی‌ها</title>
 <style>
 body {
   margin: 0;
@@ -15,68 +15,58 @@ body {
 }
 
 .container {
-  max-width: 700px;
+  max-width: 800px;
   margin: 40px auto;
   padding: 20px;
-  background: rgba(0,0,0,0.75);
+}
+
+.game-card {
+  position: relative;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 400px;
+}
+
+.game-card img {
+  width: 100%;
   border-radius: 15px;
 }
 
-.main-img {
-  width: 100%;
-  border-radius: 14px;
-}
-
-.title-buy {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 15px 0;
-  gap: 15px;
-}
-
-.title {
-  font-size: 24px;
-  font-style: italic; /* تحریری */
-  direction: ltr;
-}
-
-.buy-btn {
-  padding: 10px 20px;
-  background: #b30000;
+.game-card .title {
+  margin-top: 10px;
+  font-family: "Tahoma", cursive;
+  font-size: 20px;
   color: #fff;
-  border: none;
-  border-radius: 10px;
+  text-align: center;
+}
+
+.cart {
+  margin-top: 15px;
+  width: 50px;
+  height: 50px;
+  background: url('cart.png') no-repeat center center;
+  background-size: contain;
   cursor: pointer;
-}
-
-.buy-btn:hover {
-  background: #e60000;
-}
-
-.summary {
-  font-size: 16px;
-  line-height: 1.6;
-  margin: 15px 0;
-  direction: ltr;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
 </head>
 <body>
 
 <div class="container">
-  <img src="before.png" alt="پرونده قبل از فردا" class="main-img">
-  
-  <div class="title-buy">
+  <div class="game-card">
+    <img src="before.png" alt="پرونده قبل از فردا" onclick="goToDetail()">
     <div class="title">پرونده جنایی قبل از فردا</div>
-    <button class="buy-btn">🛒 خرید</button>
-  </div>
-  
-  <div class="summary">
-    این بازی یک تجربه جنایی و معمایی است که شما را در مسیر حل پرونده‌ای پیچیده قرار می‌دهد.  
-    با پیدا کردن سرنخ‌ها، تحلیل شواهد و تصمیم‌گیری‌های درست، می‌توانید حقیقت را کشف کنید و پرونده را حل کنید.
+    <div class="cart" onclick="goToDetail()"></div>
   </div>
 </div>
+
+<script>
+function goToDetail() {
+  window.location.href = "game_detail.html";
+}
+</script>
 
 </body>
 </html>
