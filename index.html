@@ -3,99 +3,61 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>صفحه اصلی</title>
+<title>صفحه اصلی Weareweoo</title>
 <style>
-body{
-  margin:0;
+body {
+  margin: 0;
+  padding: 0;
   font-family: Tahoma, sans-serif;
-  background:#000;
-  color:#fff;
-}
-.container{
-  max-width: 600px;
-  margin:auto;
-  padding:20px;
-  text-align:center;
-}
-h1{
-  margin-bottom:10px;
-}
-p{
-  margin-bottom:20px;
-}
-button{
-  padding:12px 20px;
-  font-size:16px;
-  border:none;
-  border-radius:8px;
-  background:#b30000;
-  color:#fff;
-  cursor:pointer;
-}
-button:hover{
-  background:#e60000;
+  background: #111;
+  color: #fff;
+  text-align: center;
 }
 
-/* باکس نظرات */
-#commentsBox{
-  background:#111;
-  padding:15px;
-  border-radius:12px;
-  margin-top:30px;
-  text-align:left;
-  max-height:300px;
-  overflow-y:auto;
+/* جمله بالای دکمه */
+.header-text {
+  margin-top: 40px;
+  font-size: 22px;
+  font-weight: bold;
+  direction: ltr;
+  color: #fff;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
 }
-.comment{
-  background:#222;
-  padding:10px;
-  border-radius:8px;
-  margin-bottom:10px;
-}
-input, textarea{
-  width:100%;
-  padding:10px;
-  margin-top:10px;
-  border-radius:8px;
-  border:none;
-  font-size:14px;
-}
-</style>
-</head>
-<body>
 
-<div class="container">
-  <h1>حقیقت همیشه پنهان نیست، گاهی فقط منتظر توست</h1>
-  
-  <button onclick="location.href='games.html'">رفتن به صفحه بازی‌ها</button>
-  
-  <h2>درباره تیم</h2>
-  <p style="direction:ltr; text-align:center;">
-    تیم ما "WeAreWeoo" با هدف خلق بازی‌های فکری جنایی و معمایی فعالیت می‌کند. بازی‌هایمان ترکیبی از داستان‌های رازآلود، معماهای هیجان‌انگیز و تجربه‌ای چالش‌برانگیز برای کاربران است.
-  </p>
-  
-  <!-- باکس نظرات -->
-  <h2>نظرات شما</h2>
-  <textarea id="commentInput" placeholder="نظر خود را اینجا بنویسید"></textarea>
-  <button onclick="addComment()">ثبت نظر</button>
-  
-  <div id="commentsBox"></div>
-</div>
-
-<script>
-function addComment(){
-  const input = document.getElementById('commentInput');
-  const text = input.value.trim();
-  if(text === '') return;
-  
-  const box = document.getElementById('commentsBox');
-  const div = document.createElement('div');
-  div.classList.add('comment');
-  div.innerText = text;
-  box.appendChild(div);
-  input.value = '';
+/* دکمه با عکس */
+.game-box {
+  position: relative;
+  margin: 40px auto 20px;
+  width: 90%;
+  max-width: 400px;
+  cursor: pointer;
 }
-</script>
+.game-box img {
+  width: 100%;
+  border-radius: 15px;
+  display: block;
+}
+.game-box button {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background: #b30000;
+  color: #fff;
+  cursor: pointer;
+}
+.game-box button:hover {
+  background: #e60000;
+}
 
-</body>
-</html>
+/* درباره تیم */
+.team {
+  margin: 30px auto 20px;
+  width: 90%;
+  max-width: 700px;
+  background: rgba(0,0,0,0.75);
+  padding: 20px;
