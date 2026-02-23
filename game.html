@@ -1,1 +1,63 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>صفحه بازی‌ها</title>
+<style>
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Tahoma, sans-serif;
+    background-color: #0a0a0a;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.game-card {
+    width: 90%;
+    max-width: 400px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.game-card img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.7);
+    transition: transform 0.3s;
+}
+
+.game-card img:hover {
+    transform: scale(1.05);
+}
+
+.game-name {
+    font-family: "Tahoma", sans-serif;
+    font-size: 22px;
+    margin-top: 10px;
+    direction: ltr;
+    font-style: italic;
+}
+</style>
+</head>
+<body>
+
+<h2>مجموعه بازی‌ها</h2>
+
+<!-- کارت بازی -->
+<div class="game-card" onclick="location.href='game_detail.html'">
+    <img src="before.png" alt="بازی قبل از فردا">
+    <div class="game-name">قبل از فردا</div>
+</div>
+
+</body>
+</html>
