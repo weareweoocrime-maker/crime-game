@@ -3,21 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Weareweoo Team</title>
+<title>صفحه اصلی تیم</title>
 <style>
-/* کل صفحه */
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
   font-family: Tahoma, sans-serif;
-  color: #fff;
   direction: ltr;
+  color: #fff;
 }
 
 /* پس‌زمینه */
 body {
-  background: url('hero.png') no-repeat center center;
+  background: url('crime.jpg') no-repeat center center;
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -25,26 +24,17 @@ body {
   justify-content: flex-start;
 }
 
-/* عنوان تیم */
-.team-title {
+/* جمله بالای دکمه */
+.mysterious-text {
   margin-top: 60px;
-  font-size: 48px;
-  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
   color: #fff;
-  text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
-  text-align: center;
-}
-
-/* جمله رازآلود */
-.team-subtitle {
-  margin-top: 10px;
-  font-size: 20px;
-  text-align: center;
-  color: #f5f5f5;
   text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+  max-width: 90%;
 }
 
-/* دکمه رفتن به صفحه بازی‌ها */
+/* دکمه رفتن به بازی‌ها */
 .button-play {
   margin: 40px 0 20px 0;
   padding: 14px 28px;
@@ -73,7 +63,7 @@ body {
   color: #fff;
 }
 
-/* باکس نظرات */
+/* بخش نظرات */
 .comments-section {
   width: 90%;
   max-width: 600px;
@@ -116,16 +106,17 @@ button.submit-comment:hover {
 
 <body>
 
-<!-- عنوان تیم -->
-<div class="team-title">weareweoo</div>
-<div class="team-subtitle">تیم سازنده بازی‌های معمایی و جنایی شما</div>
+<!-- جمله بالای دکمه -->
+<div class="mysterious-text">
+حقیقت همیشه پنهان نیست، گاهی فقط منتظر توست
+</div>
 
 <!-- دکمه رفتن به صفحه بازی‌ها -->
 <button class="button-play" onclick="location.href='games.html'">رفتن به صفحه بازی‌ها</button>
 
 <!-- درباره تیم -->
 <div class="about-team">
-ما یک گروه حرفه‌ای هستیم که عاشق خلق بازی‌های فکری و معمایی هستیم. هدف ما ارائه تجربه‌ای هیجان‌انگیز و جذاب است که هم سرگرم‌کننده باشد و هم ذهن شما را به چالش بکشد. هر بازی ما با دقت و خلاقیت طراحی شده تا لحظاتی پرهیجان و به‌یادماندنی بسازد.
+ما یک گروه حرفه‌ای هستیم که عاشق خلق بازی‌های معمایی و جنایی هستیم. هدف ما ارائه تجربه‌ای هیجان‌انگیز و جذاب است که هم سرگرم‌کننده باشد و هم ذهن شما را به چالش بکشد. هر بازی ما با دقت و خلاقیت طراحی شده تا لحظاتی پرهیجان و به‌یادماندنی بسازد.
 </div>
 
 <!-- بخش نظرات -->
