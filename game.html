@@ -3,59 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>جزئیات بازی</title>
+<title>صفحه بازی‌ها</title>
 <style>
-body{
-  margin:0;
-  font-family:Tahoma,sans-serif;
-  background:#000;
-  color:#fff;
-  text-align:center;
+body {
+  margin: 0;
+  padding: 20px 0;
+  font-family: Tahoma, sans-serif;
+  background: #111;
+  color: #fff;
+  text-align: center;
 }
-.container{
-  max-width:700px;
-  margin:auto;
-  padding:20px;
+
+/* باکس بازی */
+.game-item {
+  margin: 20px auto;
+  width: 90%;
+  max-width: 400px;
+  cursor: pointer;
 }
-img{
-  width:100%;
-  max-width:400px;
-  border-radius:12px;
-  margin-top:20px;
+.game-item img {
+  width: 100%;
+  border-radius: 15px;
+  display: block;
 }
-.game-summary{
-  margin-top:15px;
-  font-size:16px;
-  text-align:justify;
-}
-.buy-btn{
-  margin-top:20px;
-  padding:12px 20px;
-  font-size:16px;
-  border:none;
-  border-radius:8px;
-  background:#b30000;
-  color:#fff;
-  cursor:pointer;
-}
-.buy-btn:hover{
-  background:#e60000;
+.game-item .game-title {
+  margin-top: 10px;
+  font-size: 22px;
+  font-family: "Vazir", cursive; /* فونت تحریری */
+  direction: ltr;
+  color: #fff;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
 }
 </style>
 </head>
 <body>
 
-<div class="container">
-  <h1>جزئیات بازی: قبل از فردا</h1>
-  
-  <img src="before.png" alt="قبل از فردا">
-  <img src="before.png" alt="قبل از فردا">
+<h2>پرونده‌های مختلف</h2>
 
-  <div class="game-summary">
-    این بازی یک داستان جنایی معمایی است که بازیکن باید با حل معماها و جمع‌آوری سرنخ‌ها پرونده را پیش ببرد. چالش‌ها و تصمیمات بازیکن، مسیر داستان را تغییر می‌دهند.
-  </div>
-  
-  <button class="buy-btn">خرید بازی</button>
+<div class="game-item" onclick="location.href='game_detail.html'">
+  <img src="before.png" alt="پرونده قبل از فردا">
+  <div class="game-title">قبل از فردا</div>
 </div>
 
 </body>
