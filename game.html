@@ -3,46 +3,79 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>صفحه بازی‌ها</title>
+<title>پرونده جنایی: قبل از فردا</title>
 <style>
 body {
   margin: 0;
-  padding: 20px 0;
+  padding: 0;
   font-family: Tahoma, sans-serif;
   background: #111;
   color: #fff;
   text-align: center;
 }
 
-/* باکس بازی */
-.game-item {
-  margin: 20px auto;
-  width: 90%;
-  max-width: 400px;
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(0,0,0,0.75);
+  border-radius: 15px;
+}
+
+.main-img {
+  width: 100%;
+  border-radius: 14px;
+}
+
+.title-buy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+  gap: 15px;
+}
+
+.title {
+  font-size: 24px;
+  font-style: italic; /* تحریری */
+  direction: ltr;
+}
+
+.buy-btn {
+  padding: 10px 20px;
+  background: #b30000;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
 }
-.game-item img {
-  width: 100%;
-  border-radius: 15px;
-  display: block;
+
+.buy-btn:hover {
+  background: #e60000;
 }
-.game-item .game-title {
-  margin-top: 10px;
-  font-size: 22px;
-  font-family: "Vazir", cursive; /* فونت تحریری */
+
+.summary {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 15px 0;
   direction: ltr;
-  color: #fff;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
 }
 </style>
 </head>
 <body>
 
-<h2>پرونده‌های مختلف</h2>
-
-<div class="game-item" onclick="location.href='game_detail.html'">
-  <img src="before.png" alt="پرونده قبل از فردا">
-  <div class="game-title">قبل از فردا</div>
+<div class="container">
+  <img src="before.png" alt="پرونده قبل از فردا" class="main-img">
+  
+  <div class="title-buy">
+    <div class="title">پرونده جنایی قبل از فردا</div>
+    <button class="buy-btn">🛒 خرید</button>
+  </div>
+  
+  <div class="summary">
+    این بازی یک تجربه جنایی و معمایی است که شما را در مسیر حل پرونده‌ای پیچیده قرار می‌دهد.  
+    با پیدا کردن سرنخ‌ها، تحلیل شواهد و تصمیم‌گیری‌های درست، می‌توانید حقیقت را کشف کنید و پرونده را حل کنید.
+  </div>
 </div>
 
 </body>
