@@ -3,128 +3,98 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>صفحه اصلی تیم</title>
+<title>صفحه اصلی</title>
 <style>
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: Tahoma, sans-serif;
-    color: #fff;
-}
-
 body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background-color: #0a0a0a;
-    padding: 20px;
+  margin:0;
+  font-family: Tahoma, sans-serif;
+  background:#000;
+  color:#fff;
+}
+.container{
+  max-width: 600px;
+  margin:auto;
+  padding:20px;
+  text-align:center;
+}
+h1{
+  margin-bottom:10px;
+}
+p{
+  margin-bottom:20px;
+}
+button{
+  padding:12px 20px;
+  font-size:16px;
+  border:none;
+  border-radius:8px;
+  background:#b30000;
+  color:#fff;
+  cursor:pointer;
+}
+button:hover{
+  background:#e60000;
 }
 
-.container {
-    width: 90%;
-    max-width: 500px;
-    text-align: center;
+/* باکس نظرات */
+#commentsBox{
+  background:#111;
+  padding:15px;
+  border-radius:12px;
+  margin-top:30px;
+  text-align:left;
+  max-height:300px;
+  overflow-y:auto;
 }
-
-.header-img {
-    width: 100%;
-    border-radius: 15px;
-    margin-bottom: 20px;
+.comment{
+  background:#222;
+  padding:10px;
+  border-radius:8px;
+  margin-bottom:10px;
 }
-
-.mysterious-text {
-    font-size: 20px;
-    margin-bottom: 20px;
-    direction: ltr;
-    text-align: center;
-    font-style: italic;
-}
-
-button {
-    width: 100%;
-    padding: 14px;
-    font-size: 16px;
-    border: none;
-    border-radius: 10px;
-    background: #b30000;
-    color: #fff;
-    cursor: pointer;
-    margin-bottom: 25px;
-}
-
-button:hover {
-    background: #e60000;
-}
-
-.team-text {
-    font-size: 16px;
-    line-height: 1.6;
-    background: rgba(0,0,0,0.7);
-    padding: 15px;
-    border-radius: 12px;
-    direction: ltr;
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.comments-box {
-    width: 100%;
-    background: #000;
-    padding: 15px;
-    border-radius: 12px;
-    text-align: left;
-    max-height: 200px;
-    overflow-y: auto;
-}
-.comments-box h3 {
-    text-align: center;
+input, textarea{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+  border-radius:8px;
+  border:none;
+  font-size:14px;
 }
 </style>
 </head>
 <body>
 
 <div class="container">
-
-    <!-- عکس پرونده -->
-    <img src="crime.jpg" class="header-img" alt="پرونده جنایی">
-
-    <!-- جمله رازآلود -->
-    <div class="mysterious-text">
-        حقیقت همیشه پنهان نیست؛ گاهی فقط منتظر توست
-    </div>
-
-    <!-- دکمه رفتن به صفحه بازی‌ها -->
-    <button onclick="location.href='games.html'">رفتن به صفحه بازی‌ها</button>
-
-    <!-- درباره تیم -->
-    <div class="team-text">
-        تیم ما، WeAreWeoo، گروهی از عاشقان بازی‌های فکری و جنایی است. هدف ما خلق تجربه‌های هیجان‌انگیز و معمایی برای بازیکنان است و هر بازی، داستانی پیچیده و پر از رمز و راز دارد.
-    </div>
-
-    <!-- باکس نظرات -->
-    <div class="comments-box" id="comments-box">
-        <h3>نظرات شما</h3>
-        <div id="comments-list"></div>
-    </div>
-
+  <h1>حقیقت همیشه پنهان نیست، گاهی فقط منتظر توست</h1>
+  
+  <button onclick="location.href='games.html'">رفتن به صفحه بازی‌ها</button>
+  
+  <h2>درباره تیم</h2>
+  <p style="direction:ltr; text-align:center;">
+    تیم ما "WeAreWeoo" با هدف خلق بازی‌های فکری جنایی و معمایی فعالیت می‌کند. بازی‌هایمان ترکیبی از داستان‌های رازآلود، معماهای هیجان‌انگیز و تجربه‌ای چالش‌برانگیز برای کاربران است.
+  </p>
+  
+  <!-- باکس نظرات -->
+  <h2>نظرات شما</h2>
+  <textarea id="commentInput" placeholder="نظر خود را اینجا بنویسید"></textarea>
+  <button onclick="addComment()">ثبت نظر</button>
+  
+  <div id="commentsBox"></div>
 </div>
 
 <script>
-// نمونه ذخیره نظرات محلی (Local Storage)
-function addComment(comment){
-    const list = document.getElementById('comments-list');
-    const div = document.createElement('div');
-    div.style.borderBottom = "1px solid #444";
-    div.style.padding = "5px 0";
-    div.innerText = comment;
-    list.appendChild(div);
+function addComment(){
+  const input = document.getElementById('commentInput');
+  const text = input.value.trim();
+  if(text === '') return;
+  
+  const box = document.getElementById('commentsBox');
+  const div = document.createElement('div');
+  div.classList.add('comment');
+  div.innerText = text;
+  box.appendChild(div);
+  input.value = '';
 }
-
-// تست: اضافه کردن نمونه نظر
-addComment("عالی بود!");
-addComment("خیلی جذاب بود!");
 </script>
 
 </body>
