@@ -14,59 +14,55 @@ body {
   text-align: center;
 }
 
-.container {
-  max-width: 800px;
+.game-container {
+  max-width: 500px;
   margin: 40px auto;
   padding: 20px;
 }
 
-.game-card {
+.game-box {
   position: relative;
-  margin: 20px auto;
-  width: 90%;
-  max-width: 400px;
+  margin-bottom: 20px;
 }
 
-.game-card img {
+.game-box img {
   width: 100%;
   border-radius: 15px;
+  display: block;
 }
 
-.game-card .title {
+.game-title {
   margin-top: 10px;
-  font-family: "Tahoma", cursive;
-  font-size: 20px;
-  color: #fff;
-  text-align: center;
+  font-size: 18px;
+  font-family: 'Tahoma', sans-serif; /* می‌تونیم بعداً تحریری هم بکنیم */
+  font-weight: bold;
 }
 
-.cart {
-  margin-top: 15px;
-  width: 50px;
-  height: 50px;
-  background: url('cart.png') no-repeat center center;
-  background-size: contain;
+.cart-btn {
+  margin-top: 12px;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background: #b30000;
+  color: #fff;
   cursor: pointer;
-  margin-left: auto;
-  margin-right: auto;
+}
+
+.cart-btn:hover {
+  background: #e60000;
 }
 </style>
 </head>
 <body>
 
-<div class="container">
-  <div class="game-card">
-    <img src="before.png" alt="پرونده قبل از فردا" onclick="goToDetail()">
-    <div class="title">پرونده جنایی قبل از فردا</div>
-    <div class="cart" onclick="goToDetail()"></div>
+<div class="game-container">
+  <div class="game-box">
+    <img src="before.png" alt="پرونده قبل از فردا">
+    <div class="game-title">پرونده جنایی قبل از فردا</div>
+    <button class="cart-btn" onclick="location.href='game_detail.html'"></button>
   </div>
 </div>
-
-<script>
-function goToDetail() {
-  window.location.href = "game_detail.html";
-}
-</script>
 
 </body>
 </html>
