@@ -3,67 +3,77 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>جزئیات بازی</title>
+<title>جزئیات بازی – پرونده جنایی قبل از فردا</title>
 <style>
 body {
   margin: 0;
-  padding: 20px;
+  padding: 0;
   font-family: Tahoma, sans-serif;
   background: #111;
   color: #fff;
   text-align: center;
 }
 
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  background: rgba(0,0,0,0.85);
+  padding: 25px;
+  border-radius: 15px;
+}
+
+/* تصاویر بازی */
 .game-images {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   gap: 20px;
-  flex-wrap: wrap;
   margin-bottom: 20px;
 }
 
 .game-images img {
-  width: 45%;
-  max-width: 400px;
-  border-radius: 15px;
-  display: block;
+  width: 48%;
+  border-radius: 12px;
 }
 
+/* خلاصه بازی */
 .game-summary {
-  font-size: 16px;
-  direction: ltr;
+  font-size: 15px;
+  text-align: left;
   margin-bottom: 20px;
 }
 
-.order-btn {
-  padding: 15px 25px;
-  font-size: 16px;
+/* دکمه ثبت سفارش */
+button {
+  padding: 12px 25px;
   border: none;
   border-radius: 10px;
   background: #b30000;
   color: #fff;
+  font-size: 16px;
   cursor: pointer;
 }
 
-.order-btn:hover {
+button:hover {
   background: #e60000;
 }
 </style>
 </head>
 <body>
 
-<h2>جزئیات بازی</h2>
+<div class="container">
+  <h2>پرونده جنایی قبل از فردا</h2>
+  
+  <div class="game-images">
+    <img src="before.png" alt="Before">
+    <img src="Sam.png" alt="Sam">
+  </div>
 
-<div class="game-images">
-  <img src="before.png" alt="پرونده قبل از فردا">
-  <img src="sam.png" alt="تصویر Sam">
+  <div class="game-summary">
+  دختری با کنجکاوی وارد یک سایت مخفی و مرموز می‌شود. سایتی که ظاهراً هیچ ارتباطی با دنیای واقعی ندارد، اما همه چیز از آنجا شروع می‌شود. پس از ورود به این دنیای تاریک، اطلاعاتی که نباید به‌راحتی دست یافت، به دست افرادی می‌افتد که هیچ چیزی را نمی‌توانند فراموش کنند. چند روز بعد، دختر ناپدید می‌شود. هیچ سرنخی، هیچ نشانه‌ای، فقط یک تماس کوتاه و یک پیام مرموز. رازهای پشت پرده این سایت، چیزی بیشتر از یک جرم ساده است؛ چیزی که برای همیشه در تاریکی باقی خواهد ماند.
+  </div>
+
+  <button onclick="location.href='order.html'">ثبت سفارش</button>
 </div>
-
-<div class="game-summary">
-متن خلاصه بازی: این بازی شامل یک پرونده جنایی است که بازیکن باید با دنبال کردن سرنخ‌ها و حل معماها، حقیقت را کشف کند.
-</div>
-
-<button class="order-btn" onclick="location.href='order.html'">ثبت سفارش</button>
 
 </body>
 </html>
