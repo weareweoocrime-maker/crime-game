@@ -89,23 +89,32 @@ body {
   animation-delay: 0.8s;
 }
 
-/* باکس نظرات */
+/* باکس نظرات حرفه‌ای */
 .comments-box {
   margin: 30px auto;
   width: 90%;
   max-width: 700px;
-  background: #000;
-  padding: 15px;
-  border-radius: 12px;
+  background: #111;
+  padding: 20px;
+  border-radius: 15px;
   text-align: left;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
   opacity: 0;
   animation: fadeInUp 1.5s forwards;
   animation-delay: 1.1s;
 }
 
-.comments-box input, .comments-box button {
-  width: 100%;
-  margin-top: 10px;
+/* فرم نظرات */
+.name-input {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.name-input input, #commentInput {
+  flex: 1;
+  min-width: 140px;
   padding: 10px;
   border-radius: 8px;
   border: none;
@@ -113,32 +122,69 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  background: #222;
+  color: #fff;
+}
+#commentInput {
+  width: 100%;
+  height: 60px;
+  resize: none;
 }
 .comments-box button {
   background: #b30000;
   color: #fff;
-  cursor: pointer;
-}
-.comment-item {
-  background: #222;
-  margin-top: 10px;
-  padding: 10px;
+  padding: 12px;
+  font-size: 15px;
+  border: none;
   border-radius: 8px;
+  width: 150px;
+  display: block;
+  margin: 10px auto 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.comments-box button:hover {
+  background: #e60000;
+  transform: scale(1.05);
+}
+
+/* نظرات */
+.comment-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #222;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 10px;
   word-wrap: break-word;
   opacity: 0;
   animation: fadeInUp 1s forwards;
 }
 
-/* دو فیلد جدید برای نام و نام خانوادگی */
-.name-input {
+/* آواتار حروف اول اسم */
+.comment-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #b30000;
+  color: #fff;
   display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center; /* وسط چین کردن */
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  flex-shrink: 0;
+  font-size: 16px;
 }
-.name-input input {
+.comment-content {
   flex: 1;
-  min-width: 140px;
+}
+.comment-content strong {
+  display: block;
+}
+.comment-content em {
+  font-size: 12px;
+  color: #aaa;
 }
 </style>
 </head>
@@ -165,69 +211,93 @@ body {
   <input type="text" id="firstName" placeholder="نام">
   <input type="text" id="lastName" placeholder="نام خانوادگی">
 </div>
-<input type="text" id="commentInput" placeholder="نظر خود را بنویسید...">
-<button onclick="addComment()">ارسال نظر</button>
+<textarea id="commentInput" placeholder="نظر خود را بنویسید..."></textarea>
+<button id="sendBtn" onclick="addComment()">ارسال نظر</button>
 <div id="commentsList"></div>
 </div>
 
 <script>
-// تابع برای تبدیل زمان به ساعت ایران
+// زمان ایران
 function getIranTime() {
   const now = new Date();
-  const iranOffset = 3.5 * 60; // +3:30
-  const localOffset = now.getTimezoneOffset(); // دقیقه
+  const iranOffset = 3.5 * 60;
+  const localOffset = now.getTimezoneOffset();
   const diff = iranOffset + localOffset;
   now.setMinutes(now.getMinutes() + diff);
   const day = String(now.getDate()).padStart(2, '0');
-  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const month = String(now.getMonth()+1).padStart(2,'0');
   const year = now.getFullYear();
-  const hour = String(now.getHours()).padStart(2, '0');
-  const minute = String(now.getMinutes()).padStart(2, '0')
-  ;
+  const hour = String(now.getHours()).padStart(2,'0');
+  const minute = String(now.getMinutes()).padStart(2,'0');
   return `${day}/${month}/${year} ${hour}:${minute}`;
 }
 
-// ذخیره و بارگذاری نظرات با localStorage
+// بارگذاری نظرات از localStorage
 function loadComments() {
   const saved = localStorage.getItem("comments");
   if(saved) {
     const comments = JSON.parse(saved);
     const list = document.getElementById("commentsList");
     comments.reverse().forEach(c => {
-      const commentDiv = document.createElement("div");
-      commentDiv.classList.add("comment-item", "fade-in");
-      commentDiv.innerHTML = `<strong>${c.first} ${c.last}</strong> <em>(${c.date})</em>: ${c.text}`;
+      const commentDiv = createCommentDiv(c.first, c.last, c.text, c.date);
       list.prepend(commentDiv);
     });
   }
 }
 
+// ساخت div هر نظر حرفه‌ای
+function createCommentDiv(first, last, text, date) {
+  const div = document.createElement("div");
+  div.classList.add("comment-item", "fade-in");
+
+  // آواتار با حروف اول
+  const avatar = document.createElement("div");
+  avatar.className = "comment-avatar";
+  avatar.innerText = first[0].toUpperCase() + (last[0] ? last[0].toUpperCase() : '');
+
+  // محتوا
+  const content = document.createElement("div");
+  content.className = "comment-content";
+  content.innerHTML = `<strong>${first} ${last}</strong><em>${date}</em><p>${text}</p>`;
+
+  div.appendChild(avatar);
+  div.appendChild(content);
+  return div;
+}
+
+// اضافه کردن نظر
 function addComment() {
+  const btn = document.getElementById("sendBtn");
+  btn.disabled = true;
+  btn.innerText = "در حال ارسال...";
+
   const first = document.getElementById("firstName").value.trim();
   const last = document.getElementById("lastName").value.trim();
   const text = document.getElementById("commentInput").value.trim();
-  if(!first || !last || !text) return; // همه فیلدها باید پر شوند
+  if(!first || !last || !text) {
+    btn.disabled = false;
+    btn.innerText = "ارسال نظر";
+    return;
+  }
 
   const dateStr = getIranTime();
-
-  const commentDiv = document.createElement("div");
-  commentDiv.classList.add("comment-item", "fade-in");
-  commentDiv.innerHTML = `<strong>${first} ${last}</strong> <em>(${dateStr})</em>: ${text}`;
+  const commentDiv = createCommentDiv(first, last, text, dateStr);
   document.getElementById("commentsList").prepend(commentDiv);
 
-  // ذخیره نظر در localStorage
+  // ذخیره در localStorage
   let saved = localStorage.getItem("comments");
   let comments = saved ? JSON.parse(saved) : [];
   comments.push({first, last, text, date: dateStr});
   localStorage.setItem("comments", JSON.stringify(comments));
 
-  // پاک کردن فیلدها بعد از ارسال
+  // پاک کردن فیلدها
   document.getElementById("firstName").value = "";
   document.getElementById("lastName").value = "";
   document.getElementById("commentInput").value = "";
+  btn.disabled = false;
+  btn.innerText = "ارسال نظر";
 }
 
-// بارگذاری نظرات هنگام باز کردن سایت
 window.onload = loadComments;
 </script>
 
