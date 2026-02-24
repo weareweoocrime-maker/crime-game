@@ -184,3 +184,16 @@ function addComment() {
 
   const commentDiv = document.createElement("div");
   commentDiv.classList.add(
+"comment-item", "fade-in");
+  commentDiv.innerHTML = `<strong>${first} ${last}</strong> <em>(${dateStr})</em>: ${text}`;
+  document.getElementById("commentsList").prepend(commentDiv);
+
+  // پاک کردن فیلدها بعد از ارسال
+  document.getElementById("firstName").value = "";
+  document.getElementById("lastName").value = "";
+  document.getElementById("commentInput").value = "";
+}
+</script>
+
+</body>
+</html>
