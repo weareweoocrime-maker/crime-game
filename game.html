@@ -5,27 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Game Page</title>
 <style>
+  /* پس‌زمینه کل صفحه */
   body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f5f0e6; /* رنگ پس‌زمینه کاهی */
+    background: url('heroo.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
     overflow-x: hidden;
   }
 
+  /* کانتینر اصلی */
   .container {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    padding: 20px;
     min-height: 100vh;
-    padding: 50px;
     opacity: 0;
-    animation: fadeIn 2s forwards;
+    animation: fadeIn 1.5s forwards;
   }
 
+  /* تصویر سمت چپ (ولی در موبایل بالاتر) */
   .image-left {
-    flex: 1;
-    max-width: 50%;
-    padding-right: 30px;
+    width: 100%;
+    max-width: 400px; /* بزرگتر برای موبایل */
+    margin-bottom: 20px;
   }
 
   .image-left img {
@@ -35,31 +40,31 @@
     object-fit: cover;
   }
 
-  .text-right {
-    flex: 1;
-    color: #222;
-    font-size: 18px;
-    line-height: 1.6;
+  /* جمله پایین تصویر */
+  .caption {
     font-weight: bold;
-    opacity: 0;
-    animation: textFadeIn 3s forwards 1s; /* تأخیر 1 ثانیه قبل از نمایش متن */
-  }
-
-  @keyframes fadeIn {
-    to { opacity: 1; }
-  }
-
-  @keyframes textFadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
-
-  .bottom-section {
     text-align: center;
-    margin-top: 50px;
+    margin-bottom: 30px;
+    font-size: 16px;
+    opacity: 0;
+    animation: fadeInText 2s forwards 1s;
   }
 
-  .bottom-section button {
+  /* متن سمت راست (زیر تصویر) */
+  .text-right {
+    font-weight: bold;
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeInText 2s forwards 2s;
+    text-align: right;
+  }
+
+  /* دکمه سبد خرید */
+  .cart-button {
+    display: block;
+    margin: 30px auto 0 auto; /* وسط صفحه، پایین متن */
     padding: 15px 30px;
     font-size: 16px;
     font-weight: bold;
@@ -68,7 +73,40 @@
     color: #fff;
     border: none;
     border-radius: 5px;
-    margin-top: 20px; /* پایین‌تر از متن */
+  }
+
+  /* انیمیشن‌ها */
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+  @keyframes fadeInText {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  /* ریسپانسیو برای موبایل */
+  @media (min-width: 768px) {
+    .container {
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .image-left {
+      margin-bottom: 0;
+      margin-right: 20px;
+      max-width: 50%;
+    }
+
+    .text-right {
+      text-align: left;
+      font-size: 18px;
+    }
+
+    .caption {
+      text-align: left;
+      font-size: 18px;
+    }
   }
 </style>
 </head>
@@ -76,8 +114,9 @@
 
 <div class="container">
   <div class="image-left">
-    <img src="ana.png" alt="Game Image">
+    <img src="anaa.png" alt="Game Image">
   </div>
+  <p class="caption">پرونده جنایی قبل از فردا</p>
   <div class="text-right">
     <p>درباره بازی<br>
     به دنیایی وارد شوید که هر گوشه‌اش رازآلود است و هیچ چیزی آن‌طور که به نظر می‌رسد نیست. در این پروندهٔ جنایی، شما تنها بازیکن نیستید؛ شما کارآگاه، شاهد و متهمی هستید که باید حقایق تاریک را از میان لایه‌های دروغ، رمز و اسرار کشف کنید.</p>
@@ -86,10 +125,7 @@
   </div>
 </div>
 
-<div class="bottom-section">
-  <p>پرونده جنایی قبل از فردا</p>
-  <button>خریده</button>
-</div>
+<button class="cart-button">سبد خرید</button>
 
 </body>
 </html>
