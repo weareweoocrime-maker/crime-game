@@ -5,17 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Game Page</title>
 <style>
-  /* پس‌زمینه کل صفحه */
   body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: url('heroo.png') no-repeat center center fixed;
+    background: url('heroo.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
     overflow-x: hidden;
   }
 
-  /* کانتینر اصلی */
   .container {
     display: flex;
     flex-direction: column;
@@ -26,11 +24,10 @@
     animation: fadeIn 1.5s forwards;
   }
 
-  /* تصویر سمت چپ (ولی در موبایل بالاتر) */
   .image-left {
     width: 100%;
-    max-width: 400px; /* بزرگتر برای موبایل */
-    margin-bottom: 20px;
+    max-width: 400px;
+    margin-bottom: 15px;
   }
 
   .image-left img {
@@ -40,17 +37,15 @@
     object-fit: cover;
   }
 
-  /* جمله پایین تصویر */
   .caption {
     font-weight: bold;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     font-size: 16px;
     opacity: 0;
     animation: fadeInText 2s forwards 1s;
   }
 
-  /* متن سمت راست (زیر تصویر) */
   .text-right {
     font-weight: bold;
     color: #fff;
@@ -59,12 +54,12 @@
     opacity: 0;
     animation: fadeInText 2s forwards 2s;
     text-align: right;
+    max-width: 400px;
   }
 
-  /* دکمه سبد خرید */
   .cart-button {
-    display: block;
-    margin: 30px auto 0 auto; /* وسط صفحه، پایین متن */
+    display: inline-block;
+    margin: 25px auto 0 auto;
     padding: 15px 30px;
     font-size: 16px;
     font-weight: bold;
@@ -73,9 +68,9 @@
     color: #fff;
     border: none;
     border-radius: 5px;
+    text-decoration: none;
   }
 
-  /* انیمیشن‌ها */
   @keyframes fadeIn {
     to { opacity: 1; }
   }
@@ -85,7 +80,7 @@
     100% { opacity: 1; }
   }
 
-  /* ریسپانسیو برای موبایل */
+  /* ریسپانسیو موبایل */
   @media (min-width: 768px) {
     .container {
       flex-direction: row;
@@ -101,6 +96,7 @@
     .text-right {
       text-align: left;
       font-size: 18px;
+      max-width: 50%;
     }
 
     .caption {
@@ -115,17 +111,18 @@
 <div class="container">
   <div class="image-left">
     <img src="anaa.png" alt="Game Image">
+    <p class="caption">پرونده جنایی قبل از فردا</p>
   </div>
-  <p class="caption">پرونده جنایی قبل از فردا</p>
+
   <div class="text-right">
     <p>درباره بازی<br>
     به دنیایی وارد شوید که هر گوشه‌اش رازآلود است و هیچ چیزی آن‌طور که به نظر می‌رسد نیست. در این پروندهٔ جنایی، شما تنها بازیکن نیستید؛ شما کارآگاه، شاهد و متهمی هستید که باید حقایق تاریک را از میان لایه‌های دروغ، رمز و اسرار کشف کنید.</p>
     <p>هر اتاق، هر شیء و هر نوشته، سرنخی است که ذهن شما را به چالش می‌کشد. یک جعبه چوبی مخفی، یک دفترچه پنهان، یا یک تابلو قدیمی – همه ممکن است کلید حل معما باشند. اما مواظب باشید: هر قدم اشتباه شما را در مسیر خطر و توطئه‌های غیرمنتظره می‌برد.</p>
     <p>آیا آماده‌اید پرده از رازهای تاریک بردارید؟ در این بازی، هیچ چیز امن نیست، هیچ چیزی ساده نیست، و هیچ پاسخی آن‌طور که فکر می‌کنید، آشکار نمی‌شود. فقط کسانی که با دقت، شجاعت و ذکاوت به دنبال حقیقت بروند، می‌توانند پایان شوکه‌کنندهٔ پرونده را کشف کنند.</p>
+
+    <a href="game_detail.html" class="cart-button">🛒 سبد خرید</a>
   </div>
 </div>
-
-<button class="cart-button">سبد خرید</button>
 
 </body>
 </html>
