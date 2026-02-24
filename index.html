@@ -110,6 +110,9 @@ body {
   border-radius: 8px;
   border: none;
   font-size: 14px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .comments-box button {
   background: #b30000;
@@ -131,12 +134,12 @@ body {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  justify-content: center; /* وسط چین کردن */
 }
 .name-input input {
   flex: 1;
   min-width: 140px;
 }
-
 </style>
 </head>
 <body>
@@ -168,31 +171,64 @@ body {
 </div>
 
 <script>
-// تابع اضافه کردن نظر
+// تابع برای تبدیل زمان به ساعت ایران
+function getIranTime() {
+  const now = new Date();
+  const iranOffset = 3.5 * 60; // +3:30
+  const localOffset = now.getTimezoneOffset(); // دقیقه
+  const diff = iranOffset + localOffset;
+  now.setMinutes(now.getMinutes() + diff);
+  const day = String(now.getDate()).padStart(2, '0');
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const year = now.getFullYear();
+  const hour = String(now.getHours()).padStart(2, '0');
+  const minute = String(now.getMinutes()).padStart(2, '0')
+  ;
+  return `${day}/${month}/${year} ${hour}:${minute}`;
+}
+
+// ذخیره و بارگذاری نظرات با localStorage
+function loadComments() {
+  const saved = localStorage.getItem("comments");
+  if(saved) {
+    const comments = JSON.parse(saved);
+    const list = document.getElementById("commentsList");
+    comments.reverse().forEach(c => {
+      const commentDiv = document.createElement("div");
+      commentDiv.classList.add("comment-item", "fade-in");
+      commentDiv.innerHTML = `<strong>${c.first} ${c.last}</strong> <em>(${c.date})</em>: ${c.text}`;
+      list.prepend(commentDiv);
+    });
+  }
+}
+
 function addComment() {
   const first = document.getElementById("firstName").value.trim();
   const last = document.getElementById("lastName").value.trim();
   const text = document.getElementById("commentInput").value.trim();
   if(!first || !last || !text) return; // همه فیلدها باید پر شوند
 
-  // گرفتن تاریخ امروز
-  const now = new Date();
-  const day = String(now.getDate()).padStart(2, '0');
-  const month = String(now.getMonth() + 1).padStart(2, '0');
-  const year = now.getFullYear();
-  const dateStr = `${day}/${month}/${year}`;
+  const dateStr = getIranTime();
 
   const commentDiv = document.createElement("div");
-  commentDiv.classList.add(
-"comment-item", "fade-in");
+  commentDiv.classList.add("comment-item", "fade-in");
   commentDiv.innerHTML = `<strong>${first} ${last}</strong> <em>(${dateStr})</em>: ${text}`;
   document.getElementById("commentsList").prepend(commentDiv);
+
+  // ذخیره نظر در localStorage
+  let saved = localStorage.getItem("comments");
+  let comments = saved ? JSON.parse(saved) : [];
+  comments.push({first, last, text, date: dateStr});
+  localStorage.setItem("comments", JSON.stringify(comments));
 
   // پاک کردن فیلدها بعد از ارسال
   document.getElementById("firstName").value = "";
   document.getElementById("lastName").value = "";
   document.getElementById("commentInput").value = "";
 }
+
+// بارگذاری نظرات هنگام باز کردن سایت
+window.onload = loadComments;
 </script>
 
 </body>
