@@ -6,126 +6,138 @@
 <title>ثبت سفارش – پرونده جنایی قبل از فردا</title>
 <style>
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Tahoma, sans-serif;
-  background: #111;
-  color: #fff;
-  text-align: center;
+margin: 0;
+padding: 0;
+font-family: Tahoma, sans-serif;
+background: #111 url('sadd.jpg') no-repeat center center;
+background-size: cover;
+color: #fff;
+text-align: center;
 }
 
 .container {
-  max-width: 500px;
-  margin: 40px auto;
-  background: rgba(0,0,0,0.85);
-  padding: 25px;
-  border-radius: 15px;
+max-width: 500px;
+margin: 40px auto;
+background: rgba(0,0,0,0.85);
+padding: 25px;
+border-radius: 15px;
 }
 
 h2 {
-  margin-bottom: 20px;
+margin-bottom: 20px;
 }
 
-.product-img {
-  width: 100%;
-  border-radius: 12px;
-  margin-bottom: 15px;
+/* تصاویر محصول کنار هم */
+.product-img-wrapper {
+display: flex;
+justify-content: center;
+gap: 10px;
+margin-bottom: 15px;
+}
+
+.product-img-wrapper img {
+width: 48%;
+border-radius: 12px;
 }
 
 .product-title {
-  font-size: 22px;
-  margin-bottom: 10px;
+font-size: 22px;
+margin-bottom: 10px;
 }
 
 .product-price {
-  font-size: 18px;
-  color: #b30000;
-  margin-bottom: 15px;
+font-size: 18px;
+color: #b30000;
+margin-bottom: 15px;
 }
 
 .product-summary {
-  font-size: 15px;
-  margin-bottom: 20px;
-  text-align: left;
+font-size: 15px;
+margin-bottom: 20px;
+text-align: left;
 }
 
 /* فرم سفارش */
 form {
-  display: flex;
-  flex-direction: column;
+display: flex;
+flex-direction: column;
 }
 
 form input, form select, form button {
-  margin-top: 10px;
-  padding: 12px;
-  border-radius: 8px;
-  border: none;
-  font-size: 14px;
+margin-top: 10px;
+padding: 12px;
+border-radius: 8px;
+border: none;
+font-size: 14px;
 }
 
 form input, form select {
-  width: 100%;
+width: 100%;
 }
 
 form button {
-  background: #b30000;
-  color: #fff;
-  cursor: pointer;
-  font-size: 16px;
+background: #b30000;
+color: #fff;
+cursor: pointer;
+font-size: 16px;
 }
 
 form button:hover {
-  background: #e60000;
+background: #e60000;
 }
 
 /* پیام تایید */
 #successMsg {
-  margin-top: 15px;
-  font-size: 16px;
-  color: lightgreen;
+margin-top: 15px;
+font-size: 16px;
+color: lightgreen;
 }
 </style>
 </head>
 <body>
 
 <div class="container">
-  <h2>ثبت سفارش</h2>
-  
-  <!-- محصول -->
-  <img src="before.png" alt="پرونده جنایی قبل از فردا" class="product-img">
-  <div class="product-title">پرونده جنایی قبل از فردا</div>
-  <div class="product-price">قیمت: 270,000 تومان</div>
-  <div class="product-summary">
-  متن از چپ به راست: این بازی شامل داستانی منحصر به فرد، سرنخ‌های پنهان و چالش‌های ذهنی است که باعث می‌شود بازیکنان با هیجان به دنبال حقیقت بروند.
-  </div>
-  
-  <!-- فرم سفارش -->
-  <form id="orderForm" onsubmit="submitOrder(event)">
-    <input type="text" id="name" placeholder="نام و نام خانوادگی" required>
-    <input type="tel" id="phone" placeholder="شماره تماس" required>
-    <input type="email" id="email" placeholder="ایمیل" required>
-    <input type="text" id="address" placeholder="آدرس ارسال" required>
-    <select id="payment" required>
-      <option value="">روش پرداخت</option>
-      <option value="card">کارت بانکی (زرین پال)</option>
-    </select>
-    <button type="submit">ثبت سفارش</button>
-  </form>
+<h2>ثبت سفارش</h2>
 
-  <div id="successMsg"></div>
+<!-- محصول: دو عکس کنار هم -->
+<div class="product-img-wrapper">
+<img src="anaa.png" alt="پرونده جنایی قبل از فردا - anaa">
+<img src="lulu.png" alt="پرونده جنایی قبل از فردا - lulu">
+</div>
+
+<div class="product-title">پرونده جنایی قبل از فردا</div>
+<div class="product-price">قیمت: 270,000 تومان</div>
+<div class="product-summary">
+متن از چپ به راست: این بازی شامل داستانی منحصر به فرد، سرنخ‌های پنهان و چالش‌های ذهنی است که باعث می‌شود بازیکنان با هیجان به دنبال حقیقت بروند.
+</div>
+
+<!-- فرم سفارش -->
+<form id="orderForm" onsubmit="submitOrder(event)">
+<input type="text" id="name" placeholder="نام و نام خانوادگی" required>
+<input type="tel" id="phone" placeholder="شماره تماس" required>
+<input type="email" id="email" placeholder="ایمیل" required>
+<input type="text" id="address" placeholder="آدرس ارسال" required>
+<select id="payment" required>
+<option value="">روش پرداخت</option>
+<option value="card">کارت بانکی (زرین پال)</option>
+</select>
+<button type="submit">ثبت سفارش</button>
+</form>
+
+<div id="successMsg"></div>
 </div>
 
 <script>
 function submitOrder(event) {
-  event.preventDefault();
+event.preventDefault();
 
-  const name = document.getElementById('name').value;
-  const phone = document.getElementById('phone').value;
-  const email = document.getElementById('email').value;
-  const address = document.getElementById('address').value;
-  const payment = document.getElementById('payment').value;
+const name = document.getElementById('name').value;
+const phone = document.getElementById('phone').value;
+const email = document.getElementById('email').value;
+const address = document.getElementById('address').value;
+const payment = document.getElementById('payment').value;
 
-  if(payment === "card") {
+if(payment === "card") {
     // داده‌های پرداخت به زرین پال
     const merchantID = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"; // اینو با Merchant ID واقعی خودت جایگزین کن
     const amount = 270000; // قیمت به ریال
@@ -137,9 +149,9 @@ function submitOrder(event) {
     const zpURL = `https://www.zarinpal.com/pg/StartPay/${merchantID}?amount=${amount}&email=${emailEnc}&mobile=${mobileEnc}&description=${description}&callback_url=${encodeURIComponent(window.location.origin + "/order_success.html")}`;
 
     window.location.href = zpURL;
-  } else {
+} else {
     document.getElementById('successMsg').innerText = "لطفاً روش پرداخت را انتخاب کنید.";
-  }
+}
 }
 </script>
 
