@@ -14,6 +14,15 @@ body {
   text-align: center;
 }
 
+/* انیمیشن fade-in */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
 /* جمله بالای دکمه */
 .header-text {
   margin-top: 40px;
@@ -22,6 +31,8 @@ body {
   direction: ltr;
   color: #fff;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+  opacity: 0;
+  animation: fadeIn 1.5s forwards;
 }
 
 /* دکمه با عکس */
@@ -65,6 +76,8 @@ body {
   direction: ltr;
   font-size: 16px;
   line-height: 1.6;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
 }
 
 /* باکس نظرات */
@@ -97,7 +110,21 @@ body {
   padding: 10px;
   border-radius: 8px;
   word-wrap: break-word;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
 }
+
+/* دو فیلد جدید برای نام و نام خانوادگی */
+.name-input {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.name-input input {
+  flex: 1;
+  min-width: 140px;
+}
+
 </style>
 </head>
 <body>
@@ -106,19 +133,23 @@ body {
 حقیقت همیشه پنهان نیست، گاهی فقط منتظر توست
 </div>
 
-<div class="game-box" onclick="location.href='game.html'">
-  <img src="crime.jpg" alt="پرونده‌های بازی">
-  <button>رفتن به صفحه بازی‌ها</button>
+<div class="game-box fade-in" onclick="location.href='game.html'">
+<img src="crime.jpg" alt="پرونده‌های بازی">
+<button>رفتن به صفحه بازی‌ها</button>
 </div>
 
 <div class="team">
-تیم Weareweoo با هدف ساخت بازی‌های فکری و جنایی ایجاد شده است.  
-تمرکز ما ارائه تجربه‌ای هیجان‌انگیز، معمایی و جذاب برای بازیکنان است.  
+تیم Weareweoo با هدف ساخت بازی‌های فکری و جنایی ایجاد شده است.
+تمرکز ما ارائه تجربه‌ای هیجان‌انگیز، معمایی و جذاب برای بازیکنان است.
 هر بازی شامل داستانی منحصر به فرد، سرنخ‌های پنهان و چالش‌های ذهنی است که باعث می‌شود بازیکنان با هیجان به دنبال حقیقت بروند.
 </div>
 
 <div class="comments-box">
 <h3>نظرات شما</h3>
+<div class="name-input">
+  <input type="text" id="firstName" placeholder="نام">
+  <input type="text" id="lastName" placeholder="نام خانوادگی">
+</div>
 <input type="text" id="commentInput" placeholder="نظر خود را بنویسید...">
 <button onclick="addComment()">ارسال نظر</button>
 <div id="commentsList"></div>
@@ -126,14 +157,18 @@ body {
 
 <script>
 function addComment() {
-  const input = document.getElementById("commentInput");
-  const text = input.value.trim();
-  if(text === "") return;
+  const first = document.getElementById("firstName").value.trim();
+  const last = document.getElementById("lastName").value.trim();
+  const text = document.getElementById("commentInput").value.trim();
+  if(!first || !last || !text) return; // همه فیلدها باید پر شوند
   const commentDiv = document.createElement("div");
-  commentDiv.classList.add("comment-item");
-  commentDiv.innerText = text;
+  commentDiv.classList.add("comment-item", "fade-in");
+  commentDiv.innerHTML = `<strong>${first} ${last}:</strong> ${text}`;
   document.getElementById("commentsList").prepend(commentDiv);
-  input.value = "";
+  // پاک کردن فیلدها بعد از ارسال
+  document.getElementById("firstName").value = "";
+  document.getElementById("lastName").value = "";
+  document.getElementById("commentInput").value = "";
 }
 </script>
 
