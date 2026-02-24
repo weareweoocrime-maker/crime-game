@@ -3,76 +3,92 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>صفحه بازی‌ها</title>
+<title>Game Page</title>
 <style>
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Tahoma, sans-serif;
-  background: url("heroo.jpg") center/cover no-repeat; /* عکس پس زمینه اضافه شد */
-  color: #fff;
-  text-align: center;
-}
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f0e6; /* رنگ پس‌زمینه کاهی */
+    overflow-x: hidden;
+  }
 
-/* باکس بازی */
-.game-box {
-  position: relative;
-  margin: 40px auto 20px;
-  width: 90%;
-  max-width: 400px;
-  cursor: pointer;
-}
-.game-box img {
-  width: 100%;
-  border-radius: 15px;
-  display: block;
-}
-.game-box button {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 12px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 10px;
-  background: #b30000;
-  color: #fff;
-  cursor: pointer;
-}
-.game-box button:hover {
-  background: #e60000;
-}
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 50px;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+  }
 
-/* عنوان زیر تصویر */
-.game-title {
-  margin-top: 10px;
-  font-size: 20px;
-  font-family: "B Nazanin", Tahoma, sans-serif; /* فونت تحریری */
-}
+  .image-left {
+    flex: 1;
+    max-width: 50%;
+    padding-right: 30px;
+  }
 
-/* دکمه سبد خرید */
-.cart-btn {
-  margin-top: 15px;
-  padding: 12px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 10px;
-  background: #b30000;
-  color: #fff;
-  cursor: pointer;
-}
-.cart-btn:hover {
-  background: #e60000;
-}
+  .image-left img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .text-right {
+    flex: 1;
+    color: #222;
+    font-size: 18px;
+    line-height: 1.6;
+    font-weight: bold;
+    opacity: 0;
+    animation: textFadeIn 3s forwards 1s; /* تأخیر 1 ثانیه قبل از نمایش متن */
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+  @keyframes textFadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  .bottom-section {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .bottom-section button {
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #cc0000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px; /* پایین‌تر از متن */
+  }
 </style>
 </head>
 <body>
 
-<div class="game-box">
-  <img src="before.png" alt="پرونده جنایی قبل از فردا">
-  <div class="game-title">پرونده جنایی قبل از فردا</div>
-  <button class="cart-btn" onclick="location.href='game_detail.html'">🛒</button>
+<div class="container">
+  <div class="image-left">
+    <img src="ana.png" alt="Game Image">
+  </div>
+  <div class="text-right">
+    <p>درباره بازی<br>
+    به دنیایی وارد شوید که هر گوشه‌اش رازآلود است و هیچ چیزی آن‌طور که به نظر می‌رسد نیست. در این پروندهٔ جنایی، شما تنها بازیکن نیستید؛ شما کارآگاه، شاهد و متهمی هستید که باید حقایق تاریک را از میان لایه‌های دروغ، رمز و اسرار کشف کنید.</p>
+    <p>هر اتاق، هر شیء و هر نوشته، سرنخی است که ذهن شما را به چالش می‌کشد. یک جعبه چوبی مخفی، یک دفترچه پنهان، یا یک تابلو قدیمی – همه ممکن است کلید حل معما باشند. اما مواظب باشید: هر قدم اشتباه شما را در مسیر خطر و توطئه‌های غیرمنتظره می‌برد.</p>
+    <p>آیا آماده‌اید پرده از رازهای تاریک بردارید؟ در این بازی، هیچ چیز امن نیست، هیچ چیزی ساده نیست، و هیچ پاسخی آن‌طور که فکر می‌کنید، آشکار نمی‌شود. فقط کسانی که با دقت، شجاعت و ذکاوت به دنبال حقیقت بروند، می‌توانند پایان شوکه‌کنندهٔ پرونده را کشف کنند.</p>
+  </div>
+</div>
+
+<div class="bottom-section">
+  <p>پرونده جنایی قبل از فردا</p>
+  <button>خریده</button>
 </div>
 
 </body>
