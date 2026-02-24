@@ -1,305 +1,97 @@
-<!DOCTYPE html>
-<html lang="fa">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>صفحه اصلی Weareweoo</title>
-<style>
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Tahoma, sans-serif;
-  background: #111;
-  color: #fff;
-  text-align: center;
-}
+<!-- جایگذاری درست بالای باکس نظرات -->
+<div class="unique-box">
+  <h3>چرا پرونده‌های ما متفاوت هستند؟</h3>
+  <ul>
+    <li><span class="icon">🖌️</span><strong>ساخت دست‌ساز و اختصاصی</strong>
+      <ul>
+        <li>تیم ما کوچک اما خلاق است و تمام مراحل طراحی را شخصاً انجام می‌دهد.</li>
+        <li>هر پرونده، از گرافیک تا طراحی معماها، کاملاً دست‌ساز و منحصربه‌فرد است.</li>
+      </ul>
+    </li>
+    <li><span class="icon">🧩</span><strong>معماهای طراحی‌شده با دقت</strong>
+      <ul>
+        <li>تمام معماها توسط تیم ما خلق شده و بارها بازنگری شده‌اند تا تجربه‌ای چالش‌برانگیز و لذت‌بخش ارائه دهند.</li>
+        <li>هیچ معمای تکراری یا کپی‌شده‌ای در پرونده‌ها وجود ندارد؛ هر معما تجربه‌ای تازه و هیجان‌انگیز است.</li>
+      </ul>
+    </li>
+    <li><span class="icon">📖</span><strong>داستانی کاملاً متفاوت و شوکه‌کننده</strong>
+      <ul>
+        <li>داستان‌ها الهام‌گرفته از هیچ پرونده یا اثر دیگری نیستند.</li>
+        <li>هر پرونده، روایت مخصوص خود را دارد و با پایان‌های غیرمنتظره، بازیکن را شگفت‌زده می‌کند.</li>
+        <li>اینجا خبری از داستان‌های ساده یا پیش‌پاافتاده نیست؛ هر پرونده یک تجربهٔ واقعی و ماندگار است.</li>
+      </ul>
+    </li>
+    <li><span class="icon">🌟</span><strong>تجربه‌ای کامل و جذاب</strong>
+      <ul>
+        <li>از طراحی محیط تا جزییات کوچک هر پرونده، همه چیز برای جذابیت و غرق شدن شما در داستان برنامه‌ریزی شده است.</li>
+        <li>هدف ما این است که هر بازیکن نه فقط معما حل کند، بلکه وارد دنیای منحصر به‌فرد پرونده شود و با هر مرحله هیجان و تعلیق را تجربه کند.</li>
+      </ul>
+    </li>
+  </ul>
+</div>
 
-/* انیمیشن fade-in با تاخیر */
-.fade-in {
+<style>
+.unique-box {
+  max-width: 700px;
+  margin: 30px auto;
+  background: rgba(0,0,0,0.85);
+  padding: 25px 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.7;
   opacity: 0;
-  transform: translateY(20px);
+  animation: fadeInUp 1.5s forwards;
+  animation-delay: 0.2s;
+}
+.unique-box h3 {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #b30000;
+  padding-bottom: 5px;
+}
+.unique-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.unique-box > ul > li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+  opacity: 0;
   animation: fadeInUp 1s forwards;
 }
+.unique-box > ul > li:nth-child(1) { animation-delay: 0.4s; }
+.unique-box > ul > li:nth-child(2) { animation-delay: 0.6s; }
+.unique-box > ul > li:nth-child(3) { animation-delay: 0.8s; }
+.unique-box > ul > li:nth-child(4) { animation-delay: 1s; }
+
+.unique-box .icon {
+  flex-shrink: 0;
+  font-size: 20px;
+  margin-top: 2px;
+}
+
+/* انیمیشن fade-in */
 @keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* جمله بالای دکمه */
-.header-text {
-  margin-top: 40px;
-  font-size: 22px;
-  font-weight: bold;
-  direction: ltr;
-  color: #fff;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-  opacity: 0;
-  animation: fadeInUp 1.5s forwards;
-  animation-delay: 0.2s;
-}
-
-/* دکمه با عکس */
-.game-box {
-  position: relative;
-  margin: 40px auto 20px;
-  width: 90%;
-  max-width: 400px;
-  cursor: pointer;
-  opacity: 0;
-  animation: fadeInUp 1.5s forwards;
-  animation-delay: 0.5s;
-}
-.game-box img {
-  width: 100%;
-  border-radius: 15px;
-  display: block;
-}
-.game-box button {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 12px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 10px;
-  background: #b30000;
-  color: #fff;
-  cursor: pointer;
-}
-.game-box button:hover {
-  background: #e60000;
-}
-
-/* درباره تیم */
-.team {
-  margin: 30px auto 20px;
-  width: 90%;
-  max-width: 700px;
-  background: rgba(0,0,0,0.75);
-  padding: 20px;
-  border-radius: 12px;
-  direction: ltr;
-  font-size: 16px;
-  line-height: 1.6;
-  opacity: 0;
-  animation: fadeInUp 1.5s forwards;
-  animation-delay: 0.8s;
-}
-
-/* باکس نظرات حرفه‌ای */
-.comments-box {
-  margin: 30px auto;
-  width: 90%;
-  max-width: 700px;
-  background: #111;
-  padding: 20px;
-  border-radius: 15px;
-  text-align: left;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-  opacity: 0;
-  animation: fadeInUp 1.5s forwards;
-  animation-delay: 1.1s;
-}
-
-/* فرم نظرات */
-.name-input {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-.name-input input, #commentInput {
-  flex: 1;
-  min-width: 140px;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  font-size: 14px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  background: #222;
-  color: #fff;
-}
-#commentInput {
-  width: 100%;
-  height: 60px;
-  resize: none;
-}
-.comments-box button {
-  background: #b30000;
-  color: #fff;
-  padding: 12px;
-  font-size: 15px;
-  border: none;
-  border-radius: 8px;
-  width: 150px;
-  display: block;
-  margin: 10px auto 0;
-  cursor: pointer;
+/* افکت hover روی هر مورد */
+.unique-box li:hover {
+  transform: translateX(5px);
   transition: all 0.3s ease;
-}
-.comments-box button:hover {
-  background: #e60000;
-  transform: scale(1.05);
-}
-
-/* نظرات */
-.comment-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  background: #222;
-  margin-top: 15px;
-  padding: 10px;
-  border-radius: 10px;
-  word-wrap: break-word;
-  opacity: 0;
-  animation: fadeInUp 1s forwards;
-}
-
-/* آواتار حروف اول اسم */
-.comment-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #b30000;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  flex-shrink: 0;
-  font-size: 16px;
-}
-.comment-content {
-  flex: 1;
-}
-.comment-content strong {
-  display: block;
-}
-.comment-content em {
-  font-size: 12px;
-  color: #aaa;
+  color: #b30000;
 }
 </style>
-</head>
-<body>
-
-<div class="header-text">
-حقیقت همیشه پنهان نیست، گاهی فقط منتظر توست
-</div>
-
-<div class="game-box fade-in" onclick="location.href='game.html'">
-<img src="crime.jpg" alt="پرونده‌های بازی">
-<button>رفتن به صفحه بازی‌ها</button>
-</div>
-
-<div class="team">
-تیم Weareweoo با هدف ساخت بازی‌های فکری و جنایی ایجاد شده است.
-تمرکز ما ارائه تجربه‌ای هیجان‌انگیز، معمایی و جذاب برای بازیکنان است.
-هر بازی شامل داستانی منحصر به فرد، سرنخ‌های پنهان و چالش‌های ذهنی است که باعث می‌شود بازیکنان با هیجان به دنبال حقیقت بروند.
-</div>
-
-<div class="comments-box">
-<h3>نظرات شما</h3>
-<div class="name-input">
-  <input type="text" id="firstName" placeholder="نام">
-  <input type="text" id="lastName" placeholder="نام خانوادگی">
-</div>
-<textarea id="commentInput" placeholder="نظر خود را بنویسید..."></textarea>
-<button id="sendBtn" onclick="addComment()">ارسال نظر</button>
-<div id="commentsList"></div>
-</div>
-
-<script>
-// زمان ایران
-function getIranTime() {
-  const now = new Date();
-  const iranOffset = 3.5 * 60;
-  const localOffset = now.getTimezoneOffset();
-  const diff = iranOffset + localOffset;
-  now.setMinutes(now.getMinutes() + diff);
-  const day = String(now.getDate()).padStart(2, '0');
-  const month = String(now.getMonth()+1).padStart(2,'0');
-  const year = now.getFullYear();
-  const hour = String(now.getHours()).padStart(2,'0');
-  const minute = String(now.getMinutes()).padStart(2,'0');
-  return `${day}/${month}/${year} ${hour}:${minute}`;
-}
-
-// بارگذاری نظرات از localStorage
-function loadComments() {
-  const saved = localStorage.getItem("comments");
-  if(saved) {
-    const comments = JSON.parse(saved);
-    const list = document.getElementById("commentsList");
-    comments.reverse().forEach(c => {
-      const commentDiv = createCommentDiv(c.first, c.last, c.text, c.date);
-      list.prepend(commentDiv);
-    });
-  }
-}
-
-// ساخت div هر نظر حرفه‌ای
-function createCommentDiv(first, last, text, date) {
-  const div = document.createElement("div");
-  div.classList.add("comment-item", "fade-in");
-
-  // آواتار با حروف اول
-  const avatar = document.createElement("div");
-  avatar.className = "comment-avatar";
-  avatar.innerText = first[0].toUpperCase() + (last[0] ? last[0].toUpperCase() : '');
-
-  // محتوا
-  const content = document.createElement("div");
-  content.className = "comment-content";
-  content.innerHTML = `<strong>${first} ${last}</strong><em>${date}</em><p>${text}</p>`;
-
-  div.appendChild(avatar);
-  div.appendChild(content);
-  return div;
-}
-
-// اضافه کردن نظر
-function addComment() {
-  const btn = document.getElementById("sendBtn");
-  btn.disabled = true;
-  btn.innerText = "در حال ارسال...";
-
-  const first = document.getElementById("firstName").value.trim();
-  const last = document.getElementById("lastName").value.trim();
-  const text = document.getElementById("commentInput").value.trim();
-  if(!first || !last || !text) {
-    btn.disabled = false;
-    btn.innerText = "ارسال نظر";
-    return;
-  }
-
-  const dateStr = getIranTime();
-  const commentDiv = createCommentDiv(first, last, text, dateStr);
-  document.getElementById("commentsList").prepend(commentDiv);
-
-  // ذخیره در localStorage
-  let saved = localStorage.getItem("comments");
-  let comments = saved ? JSON.parse(saved) : [];
-  comments.push({first, last, text, date: dateStr});
-  localStorage.setItem("comments", JSON.stringify(comments));
-
-  // پاک کردن فیلدها
-  document.getElementById("firstName").value = "";
-  document.getElementById("lastName").value = "";
-  document.getElementById("commentInput").value = "";
-  btn.disabled = false;
-  btn.innerText = "ارسال نظر";
-}
-
-window.onload = loadComments;
-</script>
-
-</body>
-</html>
