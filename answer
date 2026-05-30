@@ -1,0 +1,23 @@
+attempts++;
+        document.getElementById("attempts").innerText = attempts;
+
+        message.className = "message error";
+        message.innerText = "✗ پاسخ غلط است";
+
+        box.classList.remove("shake");
+        void box.offsetWidth;
+        box.classList.add("shake");
+    }
+}
+
+document.getElementById("answer").addEventListener("keypress",function(e){
+
+    if(e.key === "Enter"){
+        checkAnswer();
+    }
+
+});
+</script>
+
+</body>
+</html>
