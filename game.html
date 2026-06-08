@@ -1,129 +1,320 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Game Page</title>
+<title>مرکز بایگانی پرونده‌های جنایی</title>
+
 <style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: url('heroo.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #fff;
-    overflow-x: hidden;
-  }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    min-height: 100vh;
-    opacity: 0;
-    animation: fadeIn 1.5s forwards;
-  }
+body{
+font-family:tahoma,sans-serif;
+background:url('heroo.jpg') center center/cover fixed;
+color:#fff;
+overflow-x:hidden;
+}
 
-  .image-left {
-    display: flex; /* برای قرار گرفتن دو عکس کنار هم */
-    width: 100%;
-    max-width: 400px;
-    margin-bottom: 15px;
-    gap: 10px; /* فاصله کوچک بین دو عکس */
-  }
+.overlay{
+background:rgba(0,0,0,.82);
+min-height:100vh;
+padding:20px;
+}
 
-  .image-left img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    object-fit: cover;
-  }
+.top-alert{
+background:#8b0000;
+padding:14px;
+border-radius:12px;
+text-align:center;
+font-weight:bold;
+margin-bottom:20px;
+animation:fadeIn 1.2s ease;
+}
 
-  .caption {
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 16px;
-    opacity: 0;
-    animation: fadeInText 2s forwards 1s;
-  }
+.hero{
+text-align:center;
+padding:15px;
+margin-bottom:25px;
+animation:fadeIn 2s ease;
+}
 
-  .text-right {
-    font-weight: bold;
-    color: #fff;
-    font-size: 16px;
-    line-height: 1.6;
-    opacity: 0;
-    animation: fadeInText 2s forwards 2s;
-    text-align: right;
-    max-width: 400px;
-  }
+.hero h1{
+font-size:30px;
+margin-bottom:15px;
+}
 
-  .cart-button {
-    display: inline-block;
-    margin: 25px auto 0 auto;
-    padding: 15px 30px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    background-color: #cc0000;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-  }
+.hero p{
+line-height:2;
+font-size:15px;
+}
 
-  @keyframes fadeIn {
-    to { opacity: 1; }
-  }
+.challenge{
+background:rgba(255,255,255,.08);
+padding:18px;
+border-radius:15px;
+margin-bottom:25px;
+line-height:2;
+text-align:center;
+}
 
-  @keyframes fadeInText {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
+.stats{
+background:rgba(255,255,255,.08);
+padding:18px;
+border-radius:15px;
+margin-bottom:30px;
+line-height:2;
+}
 
-  @media (min-width: 768px) {
-    .container {
-      flex-direction: row;
-      justify-content: center;
-    }
+.case-card{
+background:rgba(255,255,255,.08);
+border-radius:18px;
+overflow:hidden;
+margin-bottom:25px;
+backdrop-filter:blur(6px);
+box-shadow:0 0 20px rgba(0,0,0,.4);
+animation:fadeUp .8s ease;
+}
 
-    .image-left {
-      margin-bottom: 0;
-      margin-right: 20px;
-      max-width: 50%;
-    }
+.case-card img{
+width:100%;
+display:block;
+}
 
-    .text-right {
-      text-align: left;
-      font-size: 18px;
-      max-width: 50%;
-    }
+.case-content{
+padding:18px;
+}
 
-    .caption {
-      text-align: left;
-      font-size: 18px;
-    }
-  }
+.case-title{
+font-size:23px;
+font-weight:bold;
+margin-bottom:12px;
+}
+
+.status{
+display:inline-block;
+padding:6px 10px;
+border-radius:8px;
+margin-bottom:12px;
+font-size:14px;
+font-weight:bold;
+}
+
+.active{
+background:#145a14;
+}
+
+.unsolved{
+background:#8b0000;
+}
+
+.secret{
+background:#444;
+}
+
+.info{
+margin-bottom:8px;
+}
+
+.case-content p{
+line-height:2;
+margin-top:10px;
+}
+
+.btn{
+display:inline-block;
+margin-top:18px;
+padding:12px 18px;
+background:#a30000;
+color:white;
+text-decoration:none;
+border-radius:10px;
+font-weight:bold;
+}
+
+.btn:hover{
+background:#c10000;
+}
+
+.locked-card{
+border:2px dashed rgba(255,255,255,.3);
+}
+
+.footer{
+text-align:center;
+opacity:.7;
+margin-top:20px;
+font-size:14px;
+}
+
+@keyframes fadeIn{
+from{opacity:0}
+to{opacity:1}
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(25px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
 </style>
 </head>
+
 <body>
 
-<div class="container">
-  <div class="image-left">
-    <img src="anaa.png" alt="Game Image">
-    <img src="after.png" alt="After Image"> <!-- عکس جدید دقیقاً کنار قبلی -->
-  </div>
-  <p class="caption">پرونده جنایی قبل از فردا</p>
+<div class="overlay">
 
-  <div class="text-right">
-    <p>درباره بازی<br>
-    به دنیایی وارد شوید که هر گوشه‌اش رازآلود است و هیچ چیزی آن‌طور که به نظر می‌رسد نیست. در این پروندهٔ جنایی، شما تنها بازیکن نیستید؛ شما کارآگاه، شاهد و متهمی هستید که باید حقایق تاریک را از میان لایه‌های دروغ، رمز و اسرار کشف کنید.</p>
-    <p>هر اتاق، هر شیء و هر نوشته، سرنخی است که ذهن شما را به چالش می‌کشد. یک جعبه چوبی مخفی، یک دفترچه پنهان، یا یک تابلو قدیمی – همه ممکن است کلید حل معما باشند. اما مواظب باشید: هر قدم اشتباه شما را در مسیر خطر و توطئه‌های غیرمنتظره می‌برد.</p>
-    <p>آیا آماده‌اید پرده از رازهای تاریک بردارید؟ در این بازی، هیچ چیز امن نیست، هیچ چیزی ساده نیست، و هیچ پاسخی آن‌طور که فکر می‌کنید، آشکار نمی‌شود. فقط کسانی که با دقت، شجاعت و ذکاوت به دنبال حقیقت بروند، می‌توانند پایان شوکه‌کنندهٔ پرونده را کشف کنند.</p>
+<div class="top-alert">
+🚨 هشدار: پرونده جدید «عروس خونین» به آرشیو اضافه شد
+</div>
 
-    <a href="order.html" class="cart-button">🛒 سبد خرید</a> <!-- لینک به order.html -->
-  </div>
+<div class="hero">
+<h1>🕵🏻 مرکز بایگانی پرونده‌های جنایی</h1>
+
+<p>
+هر پرونده‌ای که در این مرکز ثبت شده شامل سرنخ‌ها، مدارک و رازهای مخصوص خود است.
+فقط کسانی که جزئیات را می‌بینند می‌توانند به حقیقت برسند.
+</p>
+</div>
+
+<div class="challenge">
+<h2>❓ آیا می‌توانی حلش کنی؟</h2>
+
+<p>
+بعضی پرونده‌ها هرگز حل نشده‌اند.
+<br>
+بعضی رازها نباید کشف می‌شدند.
+<br>
+حالا نوبت توست...
+</p>
+</div>
+
+<div class="stats">
+📂 پرونده‌های فعال: ۲ <br>
+🔒 پرونده‌های طبقه‌بندی شده: ۱ <br>
+📌 آخرین پرونده اضافه شده: عروس خونین <br>
+⚠️ پرونده بعدی: کارناوال مرگ
+</div>
+
+<!-- قبل از فردا -->
+
+<div class="case-card">
+
+<img src="fax.png" alt="قبل از فردا">
+
+<div class="case-content">
+
+<div class="case-title">
+📂 پرونده شماره ۰۱ — قبل از فردا
+</div>
+
+<div class="status active">
+🟢 پرونده فعال
+</div>
+
+<div class="info">
+🟡 درجه سختی: متوسط
+</div>
+
+<div class="info">
+📊 تنها ۳۸٪ موفق به حل پرونده شده‌اند
+</div>
+
+<div class="info">
+⚠️ ۵۴ نفر پرونده را نیمه‌کاره رها کرده‌اند
+</div>
+
+<p>
+دختری وارد یک سایت مخفی و مرموز می‌شود. چند روز بعد بدون هیچ رد و نشانی ناپدید می‌شود و تنها یک پیام رمزآلود از او باقی می‌ماند...
+</p>
+
+<a href="beforetomorrow.html" class="btn">
+🔎 ورود به پرونده
+</a>
+
+</div>
+</div>
+
+<!-- عروس خونین -->
+
+<div class="case-card">
+
+<img src="bride.png" alt="عروس خونین">
+
+<div class="case-content">
+
+<div class="case-title">
+📂 پرونده شماره ۰۲ — عروس خونین
+</div>
+
+<div class="status unsolved">
+🔴 پرونده حل نشده
+</div>
+
+<div class="info">
+🔴 درجه سختی: حرفه‌ای
+</div>
+
+<div class="info">
+📊 تنها ۱۲٪ موفق به حل پرونده شده‌اند
+</div>
+
+<div class="info">
+⚠️ ۷۳ نفر پرونده را نیمه‌کاره رها کرده‌اند
+</div>
+
+<p>
+در شب عروسی الا اندرسون، جشنی باشکوه به یک قتل مرموز تبدیل می‌شود. همه مظنون‌اند اما هیچ‌کس چیزی ندیده است...
+</p>
+
+<a href="bloodybride.html" class="btn">
+🔎 ورود به پرونده
+</a>
+
+</div>
+</div>
+
+<!-- کارناوال مرگ -->
+
+<div class="case-card locked-card">
+
+<div class="case-content">
+
+<div class="case-title">
+🔒 پرونده طبقه‌بندی شده — کارناوال مرگ
+</div>
+
+<div class="status secret">
+⚫ دسترسی محدود
+</div>
+
+<p>
+این پرونده هنوز در حال جمع‌آوری شواهد و بازسازی وقایع است.
+</p>
+
+<p>
+دسترسی عمومی در حال حاضر امکان‌پذیر نیست...
+</p>
+
+<a href="carnivalofdeath.html" class="btn">
+📁 مشاهده وضعیت پرونده
+</a>
+
+</div>
+</div>
+
+<div class="footer">
+© Crime Archive
+</div>
+
 </div>
 
 </body>
