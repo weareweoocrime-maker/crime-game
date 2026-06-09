@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>پرونده شماره ۰۱ | قبل از فردا</title>
+<title>پرونده کارناوال مرگ</title>
 
 <style>
 
@@ -15,248 +15,109 @@ box-sizing:border-box;
 
 body{
 font-family:tahoma,sans-serif;
-background:#090909;
+background:#070707;
 color:#fff;
 overflow-x:hidden;
 }
 
-.hero{
-position:relative;
+/* ===== COLORS ===== */
+:root{
+--red:#ff0033;
+--green:#39ff88;
+--purple:#b100ff;
 }
 
+/* ===== IMAGE ===== */
 .hero img{
 width:100%;
 display:block;
+max-height:420px;
+object-fit:cover;
+filter:contrast(1.3) saturate(1.2);
+animation:glitch 2.5s infinite;
+border-bottom:2px solid var(--red);
 }
 
-.overlay{
-background:rgba(0,0,0,.88);
-padding:20px;
-}
-
-.case-stamp{
-background:#8b0000;
-padding:15px;
-text-align:center;
-font-weight:bold;
-font-size:18px;
-border-radius:12px;
-margin-bottom:20px;
-box-shadow:0 0 20px rgba(139,0,0,.5);
-animation:pulse 2s infinite;
-}
-
-.poster-box{
-background:rgba(255,255,255,.05);
-border-radius:18px;
-overflow:hidden;
-margin-bottom:25px;
-backdrop-filter:blur(6px);
-}
-
-.poster-box img{
-width:100%;
-display:block;
-}
-
-.poster-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
-padding:10px;
-background:#111;
-}
-
-.poster-grid img{
-width:100%;
-border-radius:10px;
-}
-
-.card{
-background:rgba(255,255,255,.06);
-padding:20px;
-border-radius:18px;
-margin-bottom:20px;
-line-height:2;
-box-shadow:0 0 15px rgba(0,0,0,.3);
-}
-
+/* ===== TITLE ===== */
 .title{
-font-size:30px;
+font-size:32px;
 text-align:center;
-margin-bottom:15px;
+padding:20px;
+color:var(--red);
+animation:glitch 1.8s infinite;
+text-shadow:0 0 10px var(--red);
 }
 
 .subtitle{
 text-align:center;
-opacity:.8;
+opacity:.85;
 margin-bottom:20px;
 }
 
-.rating{
-text-align:center;
-font-size:22px;
-margin-top:10px;
-}
-
-.info-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
-margin-top:15px;
-}
-
-.info-box{
-background:rgba(255,255,255,.05);
-padding:15px;
-border-radius:12px;
-text-align:center;
-}
-
-.section-title{
-font-size:22px;
-margin-bottom:15px;
-color:#ffcc00;
-}
-
-.item{
-background:rgba(255,255,255,.04);
-padding:12px;
-border-radius:10px;
-margin-bottom:10px;
-}
-
-.warning{
-background:rgba(139,0,0,.3);
-border-right:4px solid #ff4444;
-padding:15px;
-border-radius:12px;
-line-height:2;
-}
-
-.review{
-background:rgba(255,255,255,.04);
-padding:15px;
-border-radius:12px;
-margin-bottom:12px;
-}
-
-.review-name{
-font-weight:bold;
-margin-bottom:8px;
-color:#ffcc00;
-}
-
-.form-input,
-.form-textarea{
-width:100%;
-padding:12px;
-border:none;
-border-radius:10px;
-margin-top:10px;
-background:#1b1b1b;
-color:white;
-}
-
-.form-textarea{
-height:120px;
-resize:none;
-}
-
-.btn{
-display:block;
-width:100%;
+/* ===== STAMP ===== */
+.stamp{
+background:#111;
+border:1px solid var(--purple);
 padding:14px;
-margin-top:15px;
-background:#8b0000;
-border:none;
-border-radius:10px;
-color:white;
-font-weight:bold;
-font-size:16px;
-cursor:pointer;
-}
-
-.btn:hover{
-background:#b30000;
-}
-
-.order-box{
-background:linear-gradient(135deg,#5d0000,#1d0000);
-padding:25px;
-border-radius:18px;
+margin:15px;
 text-align:center;
-line-height:2.2;
-}
-
-.order-btn{
-display:block;
-text-decoration:none;
-color:white;
-background:#a30000;
-padding:14px;
-margin-top:12px;
 border-radius:12px;
-font-weight:bold;
+animation:flicker 3s infinite;
 }
 
-.footer{
-text-align:center;
-margin-top:25px;
-opacity:.7;
+.update{
+color:var(--green);
 font-size:14px;
+margin-top:5px;
 }
 
-.gallery-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
+/* ===== CARDS ===== */
+.card{
+background:rgba(255,255,255,.04);
+margin:15px;
+padding:18px;
+border-radius:15px;
+border:1px solid rgba(255,0,51,.25);
+box-shadow:0 0 20px rgba(0,0,0,.6);
 }
 
-.gallery-grid img{
-width:100%;
-border-radius:12px;
-display:block;
+/* ===== SECTIONS ===== */
+.section-title{
+color:var(--green);
+margin-bottom:12px;
+font-size:20px;
 }
 
-.star-rating{
-font-size:32px;
-text-align:center;
-margin-top:15px;
+/* ===== ITEMS ===== */
+.item{
+background:#111;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+border-right:2px solid var(--purple);
 }
 
-.star{
-cursor:pointer;
-opacity:.5;
-transition:.3s;
-}
-
-.star.active{
-opacity:1;
-}
-
-.rating-result{
-text-align:center;
-margin-top:10px;
-color:#ffcc00;
-font-weight:bold;
-}
-
-.success-message{
-display:none;
-background:#0f5f2f;
+/* ===== LOCKED ===== */
+.locked{
+background:rgba(177,0,255,.1);
+border-right:4px solid var(--purple);
 padding:12px;
 border-radius:10px;
-margin-top:15px;
-text-align:center;
-color:white;
-font-weight:bold;
 }
 
-@keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.02);}
-100%{transform:scale(1);}
+/* ===== ANIMATIONS ===== */
+@keyframes glitch {
+0% { transform: translate(0); }
+20% { transform: translate(-2px,2px); }
+40% { transform: translate(2px,-2px); }
+60% { transform: translate(-1px,1px); }
+80% { transform: translate(1px,-1px); }
+100% { transform: translate(0); }
+}
+
+@keyframes flicker {
+0%,100% { opacity:1; }
+50% { opacity:0.4; }
 }
 
 </style>
@@ -265,330 +126,81 @@ font-weight:bold;
 <body>
 
 <div class="hero">
-
-<img src="rebe.png" alt="پوستر پرونده">
-
-<div class="overlay">
-
-<div class="case-stamp">
-🚨 پرونده مختومه نشده | بازگشایی مجدد برای کارآگاهان مستقل
+<img src="car.jpg" alt="carnival">
 </div>
 
-<div class="poster-box">
-<div class="poster-grid">
-<img src="rebe.png" alt="">
-<img src="ferfer.png" alt="">
-</div>
-</div>
-
-<div class="card">
-
-<div class="title">
-📂 پرونده شماره ۰۱ — قبل از فردا
-</div>
+<div class="title">🎪 کارناوال مرگ</div>
 
 <div class="subtitle">
-پرونده ناپدید شدن مرموز یک دختر پس از ورود به سایتی ناشناس
+یک کارناوال قدیمی که سال‌ها تعطیل بوده… دوباره یک شب بدون اطلاع باز شد.
+<br>
+بعد از آن شب چند نفر ناپدید شدند.
 </div>
 
-<div class="rating">
-⭐⭐⭐⭐☆ 4.0 / 5
-</div>
-
-<div class="info-grid">
-
-<div class="info-box">
-🧠 درجه سختی<br>
-متوسط
-</div>
-
-<div class="info-box">
-⏳ زمان تقریبی حل<br>
-۶۰ تا ۹۰ دقیقه
-</div>
-
-<div class="info-box">
-📊 نرخ موفقیت<br>
-۳۸٪
-</div>
-
-<div class="info-box">
-📁 وضعیت<br>
-حل نشده
-</div>
-
-</div>
+<div class="stamp">
+⚠️ پرونده در حال بازسازی
+<div class="update">آخرین به‌روزرسانی: ۲ ساعت پیش</div>
 </div>
 
 <div class="card">
 
-<div class="section-title">
-🕵🏻✨ خلاصه پرونده
-</div>
+<div class="section-title">📡 وضعیت پرونده</div>
 
-<p>
-دختری با کنجکاوی وارد یک سایت مخفی و مرموز می‌شود. سایتی که ظاهراً هیچ ارتباطی با دنیای واقعی ندارد، اما همه چیز از آنجا شروع می‌شود.
-</p>
+<div class="locked">
+این پرونده هنوز در حال جمع‌آوری اطلاعات است…
+</div>
 
 <br>
 
-<p>
-پس از ورود به این دنیای تاریک، اطلاعاتی که نباید به‌راحتی دست یافت، به دست افرادی می‌افتد که هیچ چیزی را نمی‌توانند فراموش کنند.
-</p>
-
-<br>
-
-<p>
-چند روز بعد، دختر ناپدید می‌شود. هیچ سرنخی، هیچ نشانه‌ای، فقط یک تماس کوتاه و یک پیام مرموز.
-</p>
-
-<br>
-
-<p>
-رازهای پشت پرده این سایت، چیزی بیشتر از یک جرم ساده است؛ چیزی که برای همیشه در تاریکی باقی خواهد ماند.
-</p>
-
+<div class="item">
+📌 داده‌ها ناقص هستند
 </div>
 
-<div class="card">
-
-<div class="section-title">
-📦 محتویات پرونده
-</div>
-
-<div class="item">🎤 ۶ عدد بازجویی</div>
-<div class="item">✉️ ۲ عدد نامه</div>
-<div class="item">📄 اوریگامی</div>
-<div class="item">⚕️ گواهی پزشکی قانونی</div>
-<div class="item">📋 گزارش گم شدن</div>
-<div class="item">📷 عکس دوربین مدار بسته</div>
-
-</div>
-
-<div class="card">
-
-<div class="section-title">
-📸 گالری مدارک پرونده
-</div>
-
-<div class="gallery-grid">
-
-<img src="ferfer.png" alt="">
-<img src="rob.png" alt="">
-<img src="file.png" alt="">
-<img src="rebe.png" alt="">
-
+<div class="item">
+📌 برخی فایل‌ها از بین رفته‌اند
 </div>
 
 </div>
 
 <div class="card">
 
-<div class="section-title">
-🏆 دیوار افتخار کارآگاهان
-</div>
+<div class="section-title">🎪 گزارش اولیه</div>
 
-<div class="item">🥇 سارا — حل پرونده در ۵۲ دقیقه</div>
-<div class="item">🥈 امیر — حل پرونده در ۶۱ دقیقه</div>
-<div class="item">🥉 محمد — حل پرونده در ۷۴ دقیقه</div>
+<div class="item">کارناوال در هیچ نقشه‌ای ثبت نشده</div>
+<div class="item">ورود و خروج افراد مشخص نیست</div>
+<div class="item">برخی فایل‌ها دچار خرابی شده‌اند</div>
 
 </div>
 
 <div class="card">
 
-<div class="section-title">
-⚠️ هشدار پرونده
-</div>
+<div class="section-title">👁 پیام ثبت‌شده</div>
 
-<div class="warning">
-
-برخی مدارک موجود در پرونده عمداً گمراه‌کننده هستند.
-
-<br><br>
-
-تمام سرنخ‌ها حقیقت را نشان نمی‌دهند.
-
-<br><br>
-
-حداقل یکی از فرضیه‌هایی که در طول تحقیق به آن می‌رسید اشتباه خواهد بود.
-
-<br><br>
-
-قبل از نتیجه‌گیری نهایی، تمامی مدارک را بررسی کنید.
-
-</div>
-
-</div> <div class="card">
-
-<div class="section-title">
-💬 نظرات کارآگاهان
-</div>
-
-<div class="review">
-<div class="review-name">کارآگاه ناشناس</div>
-⭐⭐⭐⭐⭐
-<br>
-فکر می‌کردم پرونده را حل کرده‌ام اما پایان آن کاملاً غافلگیرم کرد.
-</div>
-
-<div class="review">
-<div class="review-name">کارآگاه ناشناس</div>
-⭐⭐⭐⭐⭐
-<br>
-برای اولین بار حس کردم واقعاً در حال بررسی یک پرونده واقعی هستم.
-</div>
-
-<div class="review">
-<div class="review-name">کارآگاه ناشناس</div>
-⭐⭐⭐⭐
-<br>
-سرنخ‌ها بسیار هوشمندانه طراحی شده بودند.
+<div class="locked">
+"اگر این پیام را می‌بینید… یعنی هنوز تمام نشده."
 </div>
 
 </div>
 
 <div class="card">
 
-<div class="section-title">
-✍ ثبت نظر
-</div>
+<div class="section-title">💬 نظرات شاهدان</div>
 
-<input
-id="username"
-class="form-input"
-placeholder="نام شما">
+<div class="item">«من فقط صدا شنیدم… خنده‌ای که تموم نمی‌شد» — آرش</div>
 
-<textarea
-id="comment"
-class="form-textarea"
-placeholder="نظر خود را درباره پرونده بنویسید..."></textarea>
+<div class="item">«اونجا رفتم ولی نقشه‌ای نبود… انگار از اول وجود نداشت» — نازنین</div>
 
-<div class="star-rating">
+<div class="item">«فیلمی که گرفتم بعداً دیدم نصفش پاک شده» — میلاد</div>
 
-<span class="star" onclick="setRating(1)">⭐</span>
-<span class="star" onclick="setRating(2)">⭐</span>
-<span class="star" onclick="setRating(3)">⭐</span>
-<span class="star" onclick="setRating(4)">⭐</span>
-<span class="star" onclick="setRating(5)">⭐</span>
+<div class="item">«حس کردم یکی داره نگام می‌کنه ولی کسی نبود» — سارا</div>
+
+<div class="item">«این پرونده واقعی نیست… ولی من دیدمش» — کیان</div>
 
 </div>
 
-<div id="ratingResult" class="rating-result">
-امتیازی انتخاب نشده
+<div class="card" style="text-align:center;opacity:.6">
+© Crime Archive | Carnival Case (Unfinished)
 </div>
-
-<button class="btn" onclick="submitComment()">
-ثبت نظر
-</button>
-
-<div id="successMessage" class="success-message">
-✅ نظر شما با موفقیت ثبت شد
-</div>
-
-</div>
-
-<div class="order-box">
-
-<h2>🔒 دسترسی به مدارک اصلی پرونده</h2>
-
-<p>
-
-حقیقت در این صفحه قرار ندارد...
-
-<br><br>
-
-مدارک کامل، بازجویی‌ها، اسناد و سرنخ‌های اصلی تنها در اختیار کارآگاهانی قرار می‌گیرد که آماده ورود به تحقیقات هستند.
-
-<br><br>
-
-اگر فکر می‌کنی می‌توانی راز ناپدید شدن این دختر را کشف کنی، برای دریافت نسخه کامل پرونده از طریق پیام‌رسان‌های زیر اقدام کن.
-
-</p>
-
-<a class="order-btn"
-href="https://ble.ir/join/DYbDnaJMuz"
-target="_blank">
-
-💬 سفارش در بله
-<br>
-@weareweoo
-
-</a>
-
-<a class="order-btn"
-href="https://t.me/weareweoo"
-target="_blank">
-
-📨 سفارش در تلگرام
-<br>
-@weareweoo
-
-</a>
-
-</div>
-
-<div class="footer">
-© Crime Archive | Before Tomorrow Case
-</div>
-
-</div>
-</div>
-
-<script>
-
-let selectedRating = 0;
-
-function setRating(rating){
-
-selectedRating = rating;
-
-const stars =
-document.querySelectorAll(".star");
-
-stars.forEach((star,index)=>{
-
-if(index < rating){
-star.classList.add("active");
-}else{
-star.classList.remove("active");
-}
-
-});
-
-document.getElementById(
-"ratingResult"
-).innerHTML =
-"امتیاز انتخاب شده: "
-+ rating +
-" از 5";
-
-}
-
-function submitComment(){
-
-document.getElementById(
-"successMessage"
-).style.display = "block";
-
-document.getElementById(
-"username"
-).value = "";
-
-document.getElementById(
-"comment"
-).value = "";
-
-setTimeout(()=>{
-
-document.getElementById(
-"successMessage"
-).style.display = "none";
-
-},3000);
-
-}
-
-</script>
 
 </body>
 </html>
