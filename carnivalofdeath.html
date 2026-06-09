@@ -1,1 +1,226 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>پرونده کارناوال مرگ</title>
 
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:tahoma,sans-serif;
+background:#070707;
+color:#fff;
+overflow-x:hidden;
+}
+
+/* ===== MAIN GLITCH TITLE ===== */
+
+.title{
+font-size:32px;
+text-align:center;
+padding:20px;
+color:#ff0033;
+animation:glitch 1.5s infinite;
+text-shadow:0 0 10px #ff0033;
+}
+
+.subtitle{
+text-align:center;
+opacity:.8;
+margin-bottom:20px;
+}
+
+/* ===== STAMPS ===== */
+
+.stamp{
+background:#111;
+border:1px solid #ff0033;
+padding:14px;
+margin:15px;
+text-align:center;
+border-radius:12px;
+animation:flicker 3s infinite;
+}
+
+.update{
+color:#39ff88;
+font-size:14px;
+margin-top:5px;
+}
+
+/* ===== CAR IMAGE ===== */
+
+.hero img{
+width:100%;
+display:block;
+filter:contrast(1.2) saturate(1.2);
+animation:glitch 2s infinite;
+}
+
+/* ===== CARDS ===== */
+
+.card{
+background:rgba(255,255,255,.04);
+margin:15px;
+padding:18px;
+border-radius:15px;
+border:1px solid rgba(255,0,51,.2);
+box-shadow:0 0 20px rgba(0,0,0,.6);
+}
+
+/* ===== SECTIONS ===== */
+
+.section-title{
+color:#39ff88;
+margin-bottom:12px;
+font-size:20px;
+}
+
+/* ===== LOCKED ===== */
+
+.locked{
+background:rgba(255,0,51,.08);
+border-right:4px solid #ff0033;
+padding:12px;
+border-radius:10px;
+}
+
+/* ===== LIST ===== */
+
+.item{
+background:#111;
+padding:10px;
+margin-top:8px;
+border-radius:8px;
+}
+
+/* ===== GLITCH EFFECT ===== */
+
+@keyframes glitch {
+0% { transform: translate(0); }
+20% { transform: translate(-2px,2px); }
+40% { transform: translate(2px,-2px); }
+60% { transform: translate(-1px,1px); }
+80% { transform: translate(1px,-1px); }
+100% { transform: translate(0); }
+}
+
+/* ===== FLICKER ===== */
+
+@keyframes flicker {
+0%,100% { opacity:1; }
+50% { opacity:0.4; }
+}
+
+/* ===== MOVING TEXT ===== */
+
+.live{
+color:#ff0033;
+animation:flicker 2s infinite;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+<img src="car.png" alt="car carnival">
+</div>
+
+<div class="title">
+🎪 کارناوال مرگ
+</div>
+
+<div class="subtitle">
+یک کارناوال قدیمی که سال‌ها تعطیل بوده، دوباره یک شب بدون اطلاع باز می‌شود…
+<br>
+ولی بعد از آن شب، چند نفر ناپدید می‌شوند و فقط یک چیز باقی می‌ماند.
+</div>
+
+<div class="stamp">
+⚠️ پرونده در حال بازسازی
+<div class="update">آخرین به‌روزرسانی: ۲ ساعت پیش</div>
+</div>
+
+<div class="card">
+
+<div class="section-title">📡 وضعیت پرونده</div>
+
+<div class="live">
+در حال پردازش اطلاعات...
+</div>
+
+<br>
+
+<div class="locked">
+⚠️ برخی فایل‌ها هنوز ناقص هستند  
+<br>
+⚠️ داده‌ها در حال جمع‌آوری می‌باشند
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="section-title">🎪 گزارش اولیه</div>
+
+<div class="item">
+کارناوال در نقشه‌ها ثبت نشده است
+</div>
+
+<div class="item">
+ورود و خروج افراد ثبت نشده
+</div>
+
+<div class="item">
+برخی فایل‌های تصویری خراب هستند
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="section-title">🔒 فایل‌های در حال بررسی</div>
+
+<div class="item">🎥 video_01.mp4 — در حال پردازش</div>
+<div class="item">📸 image_03.jpg — خراب شده</div>
+<div class="item">📄 report_02 — ناقص</div>
+<div class="item">🎪 map_carnival — در حال بازسازی</div>
+
+</div>
+
+<div class="card">
+
+<div class="section-title">👁 پیام ثبت‌شده</div>
+
+<div class="locked">
+"اگر این پیام را می‌بینید، کارناوال هنوز تمام نشده است..."
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="section-title">💬 نظرات</div>
+
+<div class="item">«این پرونده انگار هنوز داره اتفاق میفته…»</div>
+<div class="item">«صداهایی تو فایل‌ها هست که توضیح ندارن»</div>
+<div class="item">«آخرش نفهمیدم چی واقعی بود چی نه»</div>
+<div class="item">«این یکی از همه عجیب‌تره»</div>
+
+</div>
+
+<div class="card" style="text-align:center;opacity:.6">
+© Crime Archive | Carnival Case (Unfinished)
+</div>
+
+</body>
+</html>
