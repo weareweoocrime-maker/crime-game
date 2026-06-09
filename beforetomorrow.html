@@ -1,8 +1,11 @@
-<!DOCTYPE html><html lang="fa" dir="rtl">
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>پرونده شماره ۰۱ | قبل از فردا</title><style>
+<title>پرونده شماره ۰۱ | قبل از فردا</title>
+
+<style>
 
 *{
 margin:0;
@@ -204,59 +207,202 @@ opacity:.7;
 font-size:14px;
 }
 
+.gallery-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+}
+
+.gallery-grid img{
+width:100%;
+border-radius:12px;
+display:block;
+}
+
+.star-rating{
+font-size:32px;
+text-align:center;
+margin-top:15px;
+}
+
+.star{
+cursor:pointer;
+opacity:.5;
+transition:.3s;
+}
+
+.star.active{
+opacity:1;
+}
+
+.rating-result{
+text-align:center;
+margin-top:10px;
+color:#ffcc00;
+font-weight:bold;
+}
+
+.success-message{
+display:none;
+background:#0f5f2f;
+padding:12px;
+border-radius:10px;
+margin-top:15px;
+text-align:center;
+color:white;
+font-weight:bold;
+}
+
 @keyframes pulse{
 0%{transform:scale(1);}
 50%{transform:scale(1.02);}
 100%{transform:scale(1);}
 }
 
-</style></head><body><div class="hero"><img src="rebe.png" alt="پوستر پرونده"><div class="overlay"><div class="case-stamp">
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+
+<img src="rebe.png" alt="پوستر پرونده">
+
+<div class="overlay">
+
+<div class="case-stamp">
 🚨 پرونده مختومه نشده | بازگشایی مجدد برای کارآگاهان مستقل
-</div><div class="poster-box"><div class="poster-grid">
+</div>
+
+<div class="poster-box">
+<div class="poster-grid">
 <img src="rebe.png" alt="">
 <img src="ferfer.png" alt="">
-</div></div><div class="card"><div class="title">
+</div>
+</div>
+
+<div class="card">
+
+<div class="title">
 📂 پرونده شماره ۰۱ — قبل از فردا
-</div><div class="subtitle">
+</div>
+
+<div class="subtitle">
 پرونده ناپدید شدن مرموز یک دختر پس از ورود به سایتی ناشناس
-</div><div class="rating">
+</div>
+
+<div class="rating">
 ⭐⭐⭐⭐☆ 4.0 / 5
-</div><div class="info-grid"><div class="info-box">
+</div>
+
+<div class="info-grid">
+
+<div class="info-box">
 🧠 درجه سختی<br>
 متوسط
-</div><div class="info-box">
+</div>
+
+<div class="info-box">
 ⏳ زمان تقریبی حل<br>
 ۶۰ تا ۹۰ دقیقه
-</div><div class="info-box">
+</div>
+
+<div class="info-box">
 📊 نرخ موفقیت<br>
 ۳۸٪
-</div><div class="info-box">
+</div>
+
+<div class="info-box">
 📁 وضعیت<br>
 حل نشده
-</div></div></div><div class="card"><div class="section-title">
+</div>
+
+</div>
+</div>
+
+<div class="card">
+
+<div class="section-title">
 🕵🏻✨ خلاصه پرونده
-</div><p>
+</div>
+
+<p>
 دختری با کنجکاوی وارد یک سایت مخفی و مرموز می‌شود. سایتی که ظاهراً هیچ ارتباطی با دنیای واقعی ندارد، اما همه چیز از آنجا شروع می‌شود.
-</p><br><p>
+</p>
+
+<br>
+
+<p>
 پس از ورود به این دنیای تاریک، اطلاعاتی که نباید به‌راحتی دست یافت، به دست افرادی می‌افتد که هیچ چیزی را نمی‌توانند فراموش کنند.
-</p><br><p>
+</p>
+
+<br>
+
+<p>
 چند روز بعد، دختر ناپدید می‌شود. هیچ سرنخی، هیچ نشانه‌ای، فقط یک تماس کوتاه و یک پیام مرموز.
-</p><br><p>
+</p>
+
+<br>
+
+<p>
 رازهای پشت پرده این سایت، چیزی بیشتر از یک جرم ساده است؛ چیزی که برای همیشه در تاریکی باقی خواهد ماند.
-</p></div><div class="card"><div class="section-title">
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="section-title">
 📦 محتویات پرونده
-</div><div class="item">🎤 ۶ عدد بازجویی</div>
+</div>
+
+<div class="item">🎤 ۶ عدد بازجویی</div>
 <div class="item">✉️ ۲ عدد نامه</div>
 <div class="item">📄 اوریگامی</div>
 <div class="item">⚕️ گواهی پزشکی قانونی</div>
 <div class="item">📋 گزارش گم شدن</div>
-<div class="item">📷 عکس دوربین مدار بسته</div></div><div class="card"><div class="section-title">
+<div class="item">📷 عکس دوربین مدار بسته</div>
+
+</div>
+
+<div class="card">
+
+<div class="section-title">
+📸 گالری مدارک پرونده
+</div>
+
+<div class="gallery-grid">
+
+<img src="ferfer.png" alt="">
+<img src="rob.png" alt="">
+<img src="file.png" alt="">
+<img src="rebe.png" alt="">
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="section-title">
 🏆 دیوار افتخار کارآگاهان
-</div><div class="item">🥇 سارا — حل پرونده در ۵۲ دقیقه</div>
+</div>
+
+<div class="item">🥇 سارا — حل پرونده در ۵۲ دقیقه</div>
 <div class="item">🥈 امیر — حل پرونده در ۶۱ دقیقه</div>
-<div class="item">🥉 محمد — حل پرونده در ۷۴ دقیقه</div></div><div class="card"><div class="section-title">
+<div class="item">🥉 محمد — حل پرونده در ۷۴ دقیقه</div>
+
+</div>
+
+<div class="card">
+
+<div class="section-title">
 ⚠️ هشدار پرونده
-</div><div class="warning">برخی مدارک موجود در پرونده عمداً گمراه‌کننده هستند.
+</div>
+
+<div class="warning">
+
+برخی مدارک موجود در پرونده عمداً گمراه‌کننده هستند.
 
 <br><br>
 
@@ -270,28 +416,84 @@ font-size:14px;
 
 قبل از نتیجه‌گیری نهایی، تمامی مدارک را بررسی کنید.
 
-</div></div><div class="card"><div class="section-title">
+</div>
+
+</div> <div class="card">
+
+<div class="section-title">
 💬 نظرات کارآگاهان
-</div><div class="review">
+</div>
+
+<div class="review">
 <div class="review-name">کارآگاه ناشناس</div>
 ⭐⭐⭐⭐⭐
 <br>
 فکر می‌کردم پرونده را حل کرده‌ام اما پایان آن کاملاً غافلگیرم کرد.
-</div><div class="review">
+</div>
+
+<div class="review">
 <div class="review-name">کارآگاه ناشناس</div>
 ⭐⭐⭐⭐⭐
 <br>
 برای اولین بار حس کردم واقعاً در حال بررسی یک پرونده واقعی هستم.
-</div><div class="review">
+</div>
+
+<div class="review">
 <div class="review-name">کارآگاه ناشناس</div>
 ⭐⭐⭐⭐
 <br>
 سرنخ‌ها بسیار هوشمندانه طراحی شده بودند.
-</div></div><div class="card"><div class="section-title">
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="section-title">
 ✍ ثبت نظر
-</div><input class="form-input" placeholder="نام شما"><textarea class="form-textarea" placeholder="نظر خود را درباره پرونده بنویسید..."></textarea><button class="btn">
+</div>
+
+<input
+id="username"
+class="form-input"
+placeholder="نام شما">
+
+<textarea
+id="comment"
+class="form-textarea"
+placeholder="نظر خود را درباره پرونده بنویسید..."></textarea>
+
+<div class="star-rating">
+
+<span class="star" onclick="setRating(1)">⭐</span>
+<span class="star" onclick="setRating(2)">⭐</span>
+<span class="star" onclick="setRating(3)">⭐</span>
+<span class="star" onclick="setRating(4)">⭐</span>
+<span class="star" onclick="setRating(5)">⭐</span>
+
+</div>
+
+<div id="ratingResult" class="rating-result">
+امتیازی انتخاب نشده
+</div>
+
+<button class="btn" onclick="submitComment()">
 ثبت نظر
-</button></div><div class="order-box"><h2>🔒 دسترسی به مدارک اصلی پرونده</h2><p>حقیقت در این صفحه قرار ندارد...
+</button>
+
+<div id="successMessage" class="success-message">
+✅ نظر شما با موفقیت ثبت شد
+</div>
+
+</div>
+
+<div class="order-box">
+
+<h2>🔒 دسترسی به مدارک اصلی پرونده</h2>
+
+<p>
+
+حقیقت در این صفحه قرار ندارد...
 
 <br><br>
 
@@ -301,16 +503,92 @@ font-size:14px;
 
 اگر فکر می‌کنی می‌توانی راز ناپدید شدن این دختر را کشف کنی، برای دریافت نسخه کامل پرونده از طریق پیام‌رسان‌های زیر اقدام کن.
 
-</p><a class="order-btn" href="#">
+</p>
+
+<a class="order-btn"
+href="https://ble.ir/join/DYbDnaJMuz"
+target="_blank">
+
 💬 سفارش در بله
 <br>
 @weareweoo
-</a><a class="order-btn" href="#">
+
+</a>
+
+<a class="order-btn"
+href="https://t.me/weareweoo"
+target="_blank">
+
 📨 سفارش در تلگرام
 <br>
 @weareweoo
-</a></div><div class="footer">
+
+</a>
+
+</div>
+
+<div class="footer">
 © Crime Archive | Before Tomorrow Case
-</div></div>
-</div></body>
+</div>
+
+</div>
+</div>
+
+<script>
+
+let selectedRating = 0;
+
+function setRating(rating){
+
+selectedRating = rating;
+
+const stars =
+document.querySelectorAll(".star");
+
+stars.forEach((star,index)=>{
+
+if(index < rating){
+star.classList.add("active");
+}else{
+star.classList.remove("active");
+}
+
+});
+
+document.getElementById(
+"ratingResult"
+).innerHTML =
+"امتیاز انتخاب شده: "
++ rating +
+" از 5";
+
+}
+
+function submitComment(){
+
+document.getElementById(
+"successMessage"
+).style.display = "block";
+
+document.getElementById(
+"username"
+).value = "";
+
+document.getElementById(
+"comment"
+).value = "";
+
+setTimeout(()=>{
+
+document.getElementById(
+"successMessage"
+).style.display = "none";
+
+},3000);
+
+}
+
+</script>
+
+</body>
 </html>
