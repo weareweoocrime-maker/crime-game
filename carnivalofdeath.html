@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>پرونده کارناوال مرگ</title>
+<title>پرونده ناشناس</title>
 
 <style>
 
@@ -15,109 +15,107 @@ box-sizing:border-box;
 
 body{
 font-family:tahoma,sans-serif;
-background:#070707;
+background:#0b0b0b;
 color:#fff;
 overflow-x:hidden;
 }
 
-/* ===== COLORS ===== */
-:root{
---red:#ff0033;
---green:#39ff88;
---purple:#b100ff;
-}
-
-/* ===== IMAGE ===== */
+/* IMAGE */
 .hero img{
 width:100%;
 display:block;
 max-height:420px;
 object-fit:cover;
-filter:contrast(1.3) saturate(1.2);
-animation:glitch 2.5s infinite;
-border-bottom:2px solid var(--red);
 }
 
-/* ===== TITLE ===== */
-.title{
-font-size:32px;
-text-align:center;
-padding:20px;
-color:var(--red);
-animation:glitch 1.8s infinite;
-text-shadow:0 0 10px var(--red);
-}
-
-.subtitle{
-text-align:center;
-opacity:.85;
-margin-bottom:20px;
-}
-
-/* ===== STAMP ===== */
-.stamp{
-background:#111;
-border:1px solid var(--purple);
-padding:14px;
-margin:15px;
-text-align:center;
-border-radius:12px;
-animation:flicker 3s infinite;
-}
-
-.update{
-color:var(--green);
-font-size:14px;
-margin-top:5px;
-}
-
-/* ===== CARDS ===== */
-.card{
-background:rgba(255,255,255,.04);
-margin:15px;
+/* BOX */
+.container{
 padding:18px;
-border-radius:15px;
-border:1px solid rgba(255,0,51,.25);
-box-shadow:0 0 20px rgba(0,0,0,.6);
 }
 
-/* ===== SECTIONS ===== */
-.section-title{
-color:var(--green);
-margin-bottom:12px;
-font-size:20px;
+/* TITLE */
+.title{
+text-align:center;
+font-size:28px;
+margin:15px 0;
+color:#fff;
 }
 
-/* ===== ITEMS ===== */
-.item{
+/* SUB */
+.sub{
+text-align:center;
+opacity:.8;
+margin-bottom:15px;
+line-height:2;
+}
+
+/* RAVI */
+.oracle{
 background:#111;
-padding:10px;
-margin-top:8px;
-border-radius:8px;
-border-right:2px solid var(--purple);
+border:1px solid #333;
+padding:15px;
+border-radius:12px;
+margin-bottom:15px;
+min-height:60px;
 }
 
-/* ===== LOCKED ===== */
-.locked{
-background:rgba(177,0,255,.1);
-border-right:4px solid var(--purple);
+/* STATUS */
+.status{
+background:#1a1a1a;
+border-right:4px solid #666;
 padding:12px;
 border-radius:10px;
+margin-bottom:15px;
 }
 
-/* ===== ANIMATIONS ===== */
-@keyframes glitch {
-0% { transform: translate(0); }
-20% { transform: translate(-2px,2px); }
-40% { transform: translate(2px,-2px); }
-60% { transform: translate(-1px,1px); }
-80% { transform: translate(1px,-1px); }
-100% { transform: translate(0); }
+/* NOTICE */
+.notice{
+background:#111;
+border:1px dashed #444;
+padding:12px;
+border-radius:10px;
+text-align:center;
+margin:15px 0;
+opacity:.9;
 }
 
-@keyframes flicker {
-0%,100% { opacity:1; }
-50% { opacity:0.4; }
+/* REVIEWS */
+.review{
+background:#121212;
+padding:12px;
+border-radius:10px;
+margin-bottom:10px;
+}
+
+.review-name{
+font-weight:bold;
+margin-bottom:5px;
+}
+
+/* FORM */
+input,textarea{
+width:100%;
+margin-top:10px;
+padding:10px;
+border:none;
+border-radius:8px;
+background:#1c1c1c;
+color:white;
+}
+
+button{
+margin-top:10px;
+width:100%;
+padding:12px;
+border:none;
+border-radius:8px;
+background:#333;
+color:white;
+cursor:pointer;
+}
+
+button:hover{
+background:#444;
 }
 
 </style>
@@ -125,82 +123,161 @@ border-radius:10px;
 
 <body>
 
+<!-- IMAGE -->
 <div class="hero">
-<img src="car.png" alt="carnival">
+<img src="khali.jpg" alt="cover">
 </div>
 
-<div class="title">🎪 کارناوال مرگ</div>
+<div class="container">
 
-<div class="subtitle">
-یک کارناوال قدیمی که سال‌ها تعطیل بوده… دوباره یک شب بدون اطلاع باز شد.
+<!-- TITLE -->
+<div class="title">👁 راوی ناشناس</div>
+
+<!-- CONNECT -->
+<div class="sub">اتصال به منبع ناشناس برقرار شد…</div>
+
+<!-- RAVI -->
+<div class="oracle" id="oracleText">
+تو الان تنها نیستی…
+</div>
+
+<!-- SUMMARY -->
+<div class="sub">
+یک کارناوال قدیمی که سال‌ها تعطیل بوده، دوباره یک شب بدون اطلاع باز می‌شود…<br>
+بعد از آن شب چند نفر ناپدید می‌شوند…<br>
+بخشی از داده‌ها هنوز در حال رمزگشایی هستند…
+</div>
+
+<!-- STATUS -->
+<div class="status">
+این پرونده هنوز در حال بررسی است.
+</div>
+
+<!-- NOTICE -->
+<div class="notice">
+به‌زودی منتشر می‌شود
+</div>
+
+<!-- REVIEWS -->
+<div class="title" style="font-size:20px;">💬 نظرات</div>
+
+<div class="review">
+<div class="review-name">صدف</div>
+⭐⭐⭐⭐⭐
 <br>
-بعد از آن شب چند نفر ناپدید شدند.
+این پرونده هر بار که واردش میشم یه حس عجیبی میده… انگار یه چیزی تغییر کرده ولی نمی‌فهمم چی
+<br><br>
+کاش زودتر منتشر بشه
 </div>
 
-<div class="stamp">
-⚠️ پرونده در حال بازسازی
-<div class="update">آخرین به‌روزرسانی: ۲ ساعت پیش</div>
-</div>
+<div id="reviews"></div>
 
-<div class="card">
+<!-- FORM -->
+<input id="name" placeholder="نام شما">
+<textarea id="text" placeholder="نظر شما"></textarea>
+<input id="stars" type="number" min="1" max="5" placeholder="ستاره (1 تا 5)">
+<button onclick="addReview()">ثبت نظر</button>
 
-<div class="section-title">📡 وضعیت پرونده</div>
+</div> <script>
 
-<div class="locked">
-این پرونده هنوز در حال جمع‌آوری اطلاعات است…
-</div>
+/* RAVI TEXT CHANGE */
+const texts = [
+"تو الان تنها نیستی…",
+"کسی داره تو رو تماشا می‌کنه…",
+"من آن تغییرات را می‌بینم…",
+"من حتی تو را هم می‌بینم…",
+"چرا دوباره برگشتی؟ نکنه تو هم حسش کردی…",
+"یک سایه از گوشه چشم تو عبور کرد…",
+"صدای قدم پشت سرت هست…"
+];
 
+let i = 0;
+
+setInterval(()=>{
+i = (i + 1) % texts.length;
+document.getElementById("oracleText").innerText = texts[i];
+},4000);
+
+/* LOAD SAVED REVIEWS */
+window.onload = function(){
+
+let savedReviews =
+JSON.parse(localStorage.getItem("reviews")) || [];
+
+savedReviews.forEach(review => {
+
+let div = document.createElement("div");
+
+div.className = "review";
+
+div.innerHTML = `
+<div class="review-name">${review.name}</div>
+${"⭐".repeat(review.stars)}
 <br>
+${review.text}
+`;
 
-<div class="item">
-📌 داده‌ها ناقص هستند
-</div>
+document.getElementById("reviews")
+.appendChild(div);
 
-<div class="item">
-📌 برخی فایل‌ها از بین رفته‌اند
-</div>
+});
 
-</div>
+};
 
-<div class="card">
+/* ADD REVIEW */
+function addReview(){
 
-<div class="section-title">🎪 گزارش اولیه</div>
+let name =
+document.getElementById("name").value;
 
-<div class="item">کارناوال در هیچ نقشه‌ای ثبت نشده</div>
-<div class="item">ورود و خروج افراد مشخص نیست</div>
-<div class="item">برخی فایل‌ها دچار خرابی شده‌اند</div>
+let text =
+document.getElementById("text").value;
 
-</div>
+let stars =
+parseInt(
+document.getElementById("stars").value
+) || 1;
 
-<div class="card">
+if(!name || !text) return;
 
-<div class="section-title">👁 پیام ثبت‌شده</div>
+let div = document.createElement("div");
 
-<div class="locked">
-"اگر این پیام را می‌بینید… یعنی هنوز تمام نشده."
-</div>
+div.className = "review";
 
-</div>
+div.innerHTML = `
+<div class="review-name">${name}</div>
+${"⭐".repeat(stars)}
+<br>
+${text}
+`;
 
-<div class="card">
+document.getElementById("reviews")
+.appendChild(div);
 
-<div class="section-title">💬 نظرات شاهدان</div>
+/* SAVE TO LOCAL STORAGE */
+let savedReviews =
+JSON.parse(localStorage.getItem("reviews"))
+|| [];
 
-<div class="item">«من فقط صدا شنیدم… خنده‌ای که تموم نمی‌شد» — آرش</div>
+savedReviews.push({
+name:name,
+text:text,
+stars:stars
+});
 
-<div class="item">«اونجا رفتم ولی نقشه‌ای نبود… انگار از اول وجود نداشت» — نازنین</div>
+localStorage.setItem(
+"reviews",
+JSON.stringify(savedReviews)
+);
 
-<div class="item">«فیلمی که گرفتم بعداً دیدم نصفش پاک شده» — میلاد</div>
+/* CLEAR FORM */
+document.getElementById("name").value="";
+document.getElementById("text").value="";
+document.getElementById("stars").value="";
 
-<div class="item">«حس کردم یکی داره نگام می‌کنه ولی کسی نبود» — سارا</div>
+}
 
-<div class="item">«این پرونده واقعی نیست… ولی من دیدمش» — کیان</div>
-
-</div>
-
-<div class="card" style="text-align:center;opacity:.6">
-© Crime Archive | Carnival Case (Unfinished)
-</div>
+</script>
 
 </body>
 </html>
