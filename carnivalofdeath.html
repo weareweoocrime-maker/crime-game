@@ -20,28 +20,44 @@ color:#fff;
 overflow-x:hidden;
 }
 
-/* ===== MAIN GLITCH TITLE ===== */
+/* ===== COLORS ===== */
+:root{
+--red:#ff0033;
+--green:#39ff88;
+--purple:#b100ff;
+}
 
+/* ===== IMAGE ===== */
+.hero img{
+width:100%;
+display:block;
+max-height:420px;
+object-fit:cover;
+filter:contrast(1.3) saturate(1.2);
+animation:glitch 2.5s infinite;
+border-bottom:2px solid var(--red);
+}
+
+/* ===== TITLE ===== */
 .title{
 font-size:32px;
 text-align:center;
 padding:20px;
-color:#ff0033;
-animation:glitch 1.5s infinite;
-text-shadow:0 0 10px #ff0033;
+color:var(--red);
+animation:glitch 1.8s infinite;
+text-shadow:0 0 10px var(--red);
 }
 
 .subtitle{
 text-align:center;
-opacity:.8;
+opacity:.85;
 margin-bottom:20px;
 }
 
-/* ===== STAMPS ===== */
-
+/* ===== STAMP ===== */
 .stamp{
 background:#111;
-border:1px solid #ff0033;
+border:1px solid var(--purple);
 padding:14px;
 margin:15px;
 text-align:center;
@@ -50,59 +66,46 @@ animation:flicker 3s infinite;
 }
 
 .update{
-color:#39ff88;
+color:var(--green);
 font-size:14px;
 margin-top:5px;
 }
 
-/* ===== CAR IMAGE ===== */
-
-.hero img{
-width:100%;
-display:block;
-filter:contrast(1.2) saturate(1.2);
-animation:glitch 2s infinite;
-}
-
 /* ===== CARDS ===== */
-
 .card{
 background:rgba(255,255,255,.04);
 margin:15px;
 padding:18px;
 border-radius:15px;
-border:1px solid rgba(255,0,51,.2);
+border:1px solid rgba(255,0,51,.25);
 box-shadow:0 0 20px rgba(0,0,0,.6);
 }
 
 /* ===== SECTIONS ===== */
-
 .section-title{
-color:#39ff88;
+color:var(--green);
 margin-bottom:12px;
 font-size:20px;
 }
 
-/* ===== LOCKED ===== */
-
-.locked{
-background:rgba(255,0,51,.08);
-border-right:4px solid #ff0033;
-padding:12px;
-border-radius:10px;
-}
-
-/* ===== LIST ===== */
-
+/* ===== ITEMS ===== */
 .item{
 background:#111;
 padding:10px;
 margin-top:8px;
 border-radius:8px;
+border-right:2px solid var(--purple);
 }
 
-/* ===== GLITCH EFFECT ===== */
+/* ===== LOCKED ===== */
+.locked{
+background:rgba(177,0,255,.1);
+border-right:4px solid var(--purple);
+padding:12px;
+border-radius:10px;
+}
 
+/* ===== ANIMATIONS ===== */
 @keyframes glitch {
 0% { transform: translate(0); }
 20% { transform: translate(-2px,2px); }
@@ -112,18 +115,9 @@ border-radius:8px;
 100% { transform: translate(0); }
 }
 
-/* ===== FLICKER ===== */
-
 @keyframes flicker {
 0%,100% { opacity:1; }
 50% { opacity:0.4; }
-}
-
-/* ===== MOVING TEXT ===== */
-
-.live{
-color:#ff0033;
-animation:flicker 2s infinite;
 }
 
 </style>
@@ -132,17 +126,15 @@ animation:flicker 2s infinite;
 <body>
 
 <div class="hero">
-<img src="car.png" alt="car carnival">
+<img src="car.png" alt="carnival">
 </div>
 
-<div class="title">
-🎪 کارناوال مرگ
-</div>
+<div class="title">🎪 کارناوال مرگ</div>
 
 <div class="subtitle">
-یک کارناوال قدیمی که سال‌ها تعطیل بوده، دوباره یک شب بدون اطلاع باز می‌شود…
+یک کارناوال قدیمی که سال‌ها تعطیل بوده… دوباره یک شب بدون اطلاع باز شد.
 <br>
-ولی بعد از آن شب، چند نفر ناپدید می‌شوند و فقط یک چیز باقی می‌ماند.
+بعد از آن شب چند نفر ناپدید شدند.
 </div>
 
 <div class="stamp">
@@ -154,16 +146,18 @@ animation:flicker 2s infinite;
 
 <div class="section-title">📡 وضعیت پرونده</div>
 
-<div class="live">
-در حال پردازش اطلاعات...
+<div class="locked">
+این پرونده هنوز در حال جمع‌آوری اطلاعات است…
 </div>
 
 <br>
 
-<div class="locked">
-⚠️ برخی فایل‌ها هنوز ناقص هستند  
-<br>
-⚠️ داده‌ها در حال جمع‌آوری می‌باشند
+<div class="item">
+📌 داده‌ها ناقص هستند
+</div>
+
+<div class="item">
+📌 برخی فایل‌ها از بین رفته‌اند
 </div>
 
 </div>
@@ -172,28 +166,9 @@ animation:flicker 2s infinite;
 
 <div class="section-title">🎪 گزارش اولیه</div>
 
-<div class="item">
-کارناوال در نقشه‌ها ثبت نشده است
-</div>
-
-<div class="item">
-ورود و خروج افراد ثبت نشده
-</div>
-
-<div class="item">
-برخی فایل‌های تصویری خراب هستند
-</div>
-
-</div>
-
-<div class="card">
-
-<div class="section-title">🔒 فایل‌های در حال بررسی</div>
-
-<div class="item">🎥 video_01.mp4 — در حال پردازش</div>
-<div class="item">📸 image_03.jpg — خراب شده</div>
-<div class="item">📄 report_02 — ناقص</div>
-<div class="item">🎪 map_carnival — در حال بازسازی</div>
+<div class="item">کارناوال در هیچ نقشه‌ای ثبت نشده</div>
+<div class="item">ورود و خروج افراد مشخص نیست</div>
+<div class="item">برخی فایل‌ها دچار خرابی شده‌اند</div>
 
 </div>
 
@@ -202,19 +177,24 @@ animation:flicker 2s infinite;
 <div class="section-title">👁 پیام ثبت‌شده</div>
 
 <div class="locked">
-"اگر این پیام را می‌بینید، کارناوال هنوز تمام نشده است..."
+"اگر این پیام را می‌بینید… یعنی هنوز تمام نشده."
 </div>
 
 </div>
 
 <div class="card">
 
-<div class="section-title">💬 نظرات</div>
+<div class="section-title">💬 نظرات شاهدان</div>
 
-<div class="item">«این پرونده انگار هنوز داره اتفاق میفته…»</div>
-<div class="item">«صداهایی تو فایل‌ها هست که توضیح ندارن»</div>
-<div class="item">«آخرش نفهمیدم چی واقعی بود چی نه»</div>
-<div class="item">«این یکی از همه عجیب‌تره»</div>
+<div class="item">«من فقط صدا شنیدم… خنده‌ای که تموم نمی‌شد» — آرش</div>
+
+<div class="item">«اونجا رفتم ولی نقشه‌ای نبود… انگار از اول وجود نداشت» — نازنین</div>
+
+<div class="item">«فیلمی که گرفتم بعداً دیدم نصفش پاک شده» — میلاد</div>
+
+<div class="item">«حس کردم یکی داره نگام می‌کنه ولی کسی نبود» — سارا</div>
+
+<div class="item">«این پرونده واقعی نیست… ولی من دیدمش» — کیان</div>
 
 </div>
 
