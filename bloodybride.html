@@ -101,15 +101,49 @@ padding:15px;
 border-radius:12px;
 }
 
-.poster-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
+.star-rating{
+font-size:28px;
+text-align:center;
+margin-top:10px;
 }
 
-.poster-grid img{
+.star{
+cursor:pointer;
+opacity:.4;
+transition:.2s;
+}
+
+.star.active{
+opacity:1;
+}
+
+.input{
 width:100%;
-border-radius:12px;
+padding:12px;
+margin-top:10px;
+border:none;
+border-radius:10px;
+background:#1a1a1a;
+color:white;
+}
+
+.btn{
+width:100%;
+padding:12px;
+margin-top:10px;
+background:#5a1020;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+border:1px solid #d4af37;
+}
+
+.review{
+background:rgba(255,255,255,.03);
+padding:10px;
+border-radius:10px;
+margin-top:10px;
 }
 
 </style>
@@ -125,35 +159,16 @@ border-radius:12px;
 
 <div class="card">
 
-<div class="title">
-🩰 پرونده شماره ۰۲ — عروس خونین
-</div>
+<div class="title">🩰 پرونده شماره ۰۲ — عروس خونین</div>
 
-<div class="subtitle">
-جشنی که قرار بود آغاز یک زندگی باشد... تبدیل شد به پایان یک نفر
-</div>
+<div class="subtitle">جشنی که به مرگ ختم شد...</div>
 
 <div class="info-grid">
 
-<div class="info-box">
-🧠 درجه سختی<br>
-حرفه‌ای
-</div>
-
-<div class="info-box">
-⏳ زمان تقریبی<br>
-۹۰ تا ۱۵۰ دقیقه
-</div>
-
-<div class="info-box">
-📁 وضعیت<br>
-حل نشده
-</div>
-
-<div class="info-box">
-📊 نرخ رهاسازی<br>
-۷۳ نفر نیمه‌کاره رها کردند
-</div>
+<div class="info-box">🧠 سختی<br>حرفه‌ای</div>
+<div class="info-box">⏳ ۹۰ تا ۱۵۰ دقیقه</div>
+<div class="info-box">📁 حل نشده</div>
+<div class="info-box">📊 ۷۳ نفر رها کردند</div>
 
 </div>
 
@@ -161,9 +176,7 @@ border-radius:12px;
 
 <div class="card">
 
-<div class="section-title">
-💍 آخرین جمله قربانی
-</div>
+<div class="section-title">💍 آخرین جمله قربانی</div>
 
 <div class="warning">
 💍 "اگر امشب اتفاقی برای من افتاد، به خانواده‌ام اعتماد نکنید."
@@ -173,148 +186,147 @@ border-radius:12px;
 
 <div class="card">
 
-<div class="section-title">
-🩰 خلاصه پرونده
-</div>
+<div class="section-title">🩰 خلاصه پرونده</div>
 
 <p>
-الا اندرسون، دوشیزه‌ای معصوم و مهربان، پس از ازدواج با وارث خاندان ثروتمند بومونت وارد عمارتی می‌شود که سال‌هاست سایه‌ی غم و راز روی دیوارهایش افتاده.
+الا اندرسون وارد عمارتی شد که پر از راز بود...
 </p>
 
-<br>
-
 <p>
-در شبی که قرار بود آغاز زندگی تازه‌اش باشد، جشن عروسی به کابوسی خونین تبدیل می‌شود.
-نیمه‌شب جسد الا با لباس عروس روی بالکن عمارت پیدا می‌شود.
-</p>
-
-<br>
-
-<p>
-درهای عمارت بسته بوده، هیچ غریبه‌ای وارد نشده... و تنها کسانی که می‌توانستند به او نزدیک شوند، اعضای همان خانواده‌اند.
-</p>
-
-<br>
-
-<p>
-با شروع تحقیقات، رازهای تاریک خاندان بومونت یکی‌یکی آشکار می‌شود...
+در شب عروسی، جسد او روی بالکن پیدا شد.
 </p>
 
 </div>
 
 <div class="card">
 
-<div class="section-title">
-👥 فهرست مظنونان
-</div>
+<div class="section-title">👥 مظنونان</div>
 
 <div class="item">داماد</div>
 <div class="item">مادر ناتنی</div>
 <div class="item">برادران داماد</div>
-<div class="item">🔒 سایر افراد حاضر در مراسم هنوز در حال بررسی هستند</div>
+<div class="item">🔒 برخی افراد هنوز محرمانه هستند</div>
 
 </div> <div class="card">
 
-<div class="section-title">
-📸 گالری مدارک سلطنتی
-</div>
+<div class="section-title">📸 گالری مدارک</div>
 
 <div class="gallery-grid">
-
-<img src="family.png" alt="">
-
-<img src="luna.png" alt="">
-
-<img src="dress.jpg" alt="">
-
-<img src="hari.png" alt="">
-
-<img src="sil.png" alt="">
-
+<img src="family.png">
+<img src="luna.png">
+<img src="dress.jpg">
+<img src="hari.png">
+<img src="sil.png">
 </div>
 
 </div>
 
 <div class="card">
 
-<div class="section-title">
-🏆 دیوار افتخار کارآگاهان
+<div class="section-title">⭐ امتیازدهی پرونده</div>
+
+<div class="star-rating">
+<span class="star">⭐</span>
+<span class="star">⭐</span>
+<span class="star">⭐</span>
+<span class="star">⭐</span>
+<span class="star">⭐</span>
 </div>
 
-<div class="item">🥇 حنا — حل پرونده در ۸9 دقیقه</div>
-<div class="item">🥈 هستی — حل پرونده در ۹7 دقیقه</div>
-<div class="item">🥉 احسان — حل پرونده در ۱۰۵ دقیقه</div>
+<input id="name" class="input" placeholder="نام شما">
+<textarea id="text" class="input" placeholder="نظر شما..."></textarea>
 
-</div>
-
-<div class="card">
-
-<div class="section-title">
-💬 نظرات کارآگاهان</div>
-
-<div class="item">«این پرونده خیلی ذهنمو درگیر کرد، تا آخرش شک داشتم به همه!»</div>
-
-<div class="item">«فضای عمارت خیلی واقعی بود، حس می‌کردم اونجام واقعاً»</div>
-
-<div class="item">«آخرش اصلاً چیزی که فکر می‌کردم نشد 😐»</div>
-
-<div class="item">«نسبت به قبل از فردا خیلی سخت‌تر و پیچیده‌تر بود»</div>
-
-<div class="item">«یه بار حلش کردم ولی برگشتم دوباره سرنخ‌ها رو چک کردم»</div>
+<button class="btn" onclick="addReview()">ثبت نظر</button>
 
 </div>
 
 <div class="card">
 
-<div class="section-title">
-🔎 نکته مهم پرونده
-</div>
+<div class="section-title">💬 نظرات کاربران</div>
 
-<div class="warning">
-
-همه چیز در این عمارت گفته نمی‌شود...  
-برخی حقیقت‌ها عمداً پنهان شده‌اند.
-
-<br><br>
-
-هر کسی در مراسم حضور داشته، چیزی برای مخفی کردن دارد.
-
-</div>
+<div id="reviews"></div>
 
 </div>
 
 <div class="card">
 
-<div class="section-title">
-📦 دسترسی به نسخه کامل پرونده
-</div>
-
-<p>
-
-اگر فکر می‌کنی می‌توانی راز مرگ الا اندرسون را حل کنی،  
-به نسخه کامل پرونده دسترسی بگیر.
-
-</p>
+<div class="section-title">📦 دسترسی به پرونده کامل</div>
 
 <a class="item" style="display:block;text-align:center;text-decoration:none;color:white;background:#5a1020;border:1px solid #d4af37;margin-top:10px;"
 href="https://ble.ir/join/DYbDnaJMuz"
-target="_blank">
-💬 سفارش در بله
-</a>
+target="_blank">💬 بله</a>
 
 <a class="item" style="display:block;text-align:center;text-decoration:none;color:white;background:#5a1020;border:1px solid #d4af37;margin-top:10px;"
 href="https://t.me/weareweoo"
-target="_blank">
-📨 سفارش در تلگرام
-</a>
+target="_blank">📨 تلگرام</a>
 
 </div>
 
 <div class="card" style="text-align:center;opacity:.7">
-
 © Crime Archive | Bloody Bride Case
-
 </div>
+
+<script>
+
+let stars = document.querySelectorAll(".star");
+let rating = 0;
+
+stars.forEach((s,i)=>{
+s.addEventListener("click",()=>{
+rating = i+1;
+stars.forEach((x,j)=>{
+x.classList.toggle("active", j<rating);
+});
+});
+});
+
+function addReview(){
+
+let name = document.getElementById("name").value;
+let text = document.getElementById("text").value;
+
+if(!name || !text) return;
+
+let reviews = JSON.parse(localStorage.getItem("reviews") || "[]");
+
+reviews.push({
+name:name,
+text:text,
+rate:rating
+});
+
+localStorage.setItem("reviews", JSON.stringify(reviews));
+
+document.getElementById("name").value="";
+document.getElementById("text").value="";
+
+loadReviews();
+}
+
+function loadReviews(){
+
+let reviews = JSON.parse(localStorage.getItem("reviews") || "[]");
+let box = document.getElementById("reviews");
+
+box.innerHTML="";
+
+reviews.forEach(r=>{
+
+box.innerHTML += `
+<div class="review">
+<b>${r.name}</b><br>
+${"⭐".repeat(r.rate || 0)}<br>
+${r.text}
+</div>
+`;
+
+});
+
+}
+
+loadReviews();
+
+</script>
 
 </body>
 </html>
