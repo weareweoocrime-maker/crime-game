@@ -20,7 +20,6 @@ color:#fff;
 overflow-x:hidden;
 }
 
-/* IMAGE */
 .hero img{
 width:100%;
 display:block;
@@ -28,12 +27,10 @@ max-height:420px;
 object-fit:cover;
 }
 
-/* BOX */
 .container{
 padding:18px;
 }
 
-/* TITLE */
 .title{
 text-align:center;
 font-size:28px;
@@ -41,7 +38,6 @@ margin:15px 0;
 color:#fff;
 }
 
-/* SUB */
 .sub{
 text-align:center;
 opacity:.8;
@@ -49,17 +45,48 @@ margin-bottom:15px;
 line-height:2;
 }
 
-/* RAVI */
+/* RAAVI */
 .oracle{
+position:fixed;
+right:-500px;
+top:25px;
 background:#111;
-border:1px solid #333;
-padding:15px;
+border:1px solid #444;
+padding:15px 20px;
 border-radius:12px;
-margin-bottom:15px;
-min-height:60px;
+z-index:999;
+min-width:280px;
+box-shadow:0 0 20px rgba(255,255,255,.08);
 }
 
-/* STATUS */
+.oracle.show{
+animation:slideMessage 4s ease;
+}
+
+@keyframes slideMessage{
+
+0%{
+right:-500px;
+opacity:0;
+}
+
+15%{
+right:20px;
+opacity:1;
+}
+
+85%{
+right:20px;
+opacity:1;
+}
+
+100%{
+right:-500px;
+opacity:0;
+}
+
+}
+
 .status{
 background:#1a1a1a;
 border-right:4px solid #666;
@@ -68,18 +95,32 @@ border-radius:10px;
 margin-bottom:15px;
 }
 
-/* NOTICE */
 .notice{
-background:#111;
-border:1px dashed #444;
-padding:12px;
-border-radius:10px;
+background:linear-gradient(
+90deg,
+#4a001f,
+#7a0033,
+#b8860b
+);
+color:#ffd700;
+font-weight:bold;
+font-size:18px;
+padding:14px;
+border-radius:12px;
 text-align:center;
 margin:15px 0;
-opacity:.9;
+animation:glow 2s infinite alternate;
 }
 
-/* REVIEWS */
+@keyframes glow{
+from{
+box-shadow:0 0 10px rgba(255,215,0,.2);
+}
+to{
+box-shadow:0 0 25px rgba(255,215,0,.6);
+}
+}
+
 .review{
 background:#121212;
 padding:12px;
@@ -92,7 +133,6 @@ font-weight:bold;
 margin-bottom:5px;
 }
 
-/* FORM */
 input,textarea{
 width:100%;
 margin-top:10px;
@@ -118,69 +158,92 @@ button:hover{
 background:#444;
 }
 
+.star-box{
+margin-top:15px;
+font-size:28px;
+text-align:center;
+}
+
+.star{
+cursor:pointer;
+opacity:.35;
+transition:.2s;
+}
+
+.star.active{
+opacity:1;
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- IMAGE -->
 <div class="hero">
 <img src="khali.jpg" alt="cover">
 </div>
 
-<div class="container">
-
-<!-- TITLE -->
-<div class="title">👁 راوی ناشناس</div>
-
-<!-- CONNECT -->
-<div class="sub">اتصال به منبع ناشناس برقرار شد…</div>
-
-<!-- RAVI -->
-<div class="oracle" id="oracleText">
+<div id="oracleText" class="oracle">
 تو الان تنها نیستی…
 </div>
 
-<!-- SUMMARY -->
+<div class="container">
+
+<div class="title">👁 راوی ناشناس</div>
+
+<div class="sub">
+اتصال به منبع ناشناس برقرار شد…
+</div>
+
 <div class="sub">
 یک کارناوال قدیمی که سال‌ها تعطیل بوده، دوباره یک شب بدون اطلاع باز می‌شود…<br>
 بعد از آن شب چند نفر ناپدید می‌شوند…<br>
 بخشی از داده‌ها هنوز در حال رمزگشایی هستند…
 </div>
 
-<!-- STATUS -->
 <div class="status">
 این پرونده هنوز در حال بررسی است.
 </div>
 
-<!-- NOTICE -->
 <div class="notice">
-به‌زودی منتشر می‌شود
+✨ به‌زودی منتشر می‌شود ✨
 </div>
 
-<!-- REVIEWS -->
-<div class="title" style="font-size:20px;">💬 نظرات</div>
+<div class="title" style="font-size:20px;">
+💬 نظرات
+</div>
 
 <div class="review">
 <div class="review-name">صدف</div>
 ⭐⭐⭐⭐⭐
 <br>
-این پرونده هر بار که واردش میشم یه حس عجیبی میده… انگار یه چیزی تغییر کرده ولی نمی‌فهمم چی
+این پرونده هر بار که واردش میشم یه حس عجیبی میده…
+انگار یه چیزی تغییر کرده ولی نمی‌فهمم چی
 <br><br>
 کاش زودتر منتشر بشه
 </div>
 
 <div id="reviews"></div>
 
-<!-- FORM -->
 <input id="name" placeholder="نام شما">
-<textarea id="text" placeholder="نظر شما"></textarea>
-<input id="stars" type="number" min="1" max="5" placeholder="ستاره (1 تا 5)">
-<button onclick="addReview()">ثبت نظر</button>
 
-</div> <script>
+<textarea id="text"
+placeholder="نظر شما"></textarea>
 
-/* RAVI TEXT CHANGE */
+<div class="star-box">
+
+<span class="star" onclick="setStars(1)">⭐</span>
+<span class="star" onclick="setStars(2)">⭐</span>
+<span class="star" onclick="setStars(3)">⭐</span>
+<span class="star" onclick="setStars(4)">⭐</span>
+<span class="star" onclick="setStars(5)">⭐</span>
+
+</div>
+
+<button onclick="addReview()">
+ثبت نظر
+</button> <script>
+
 const texts = [
 "تو الان تنها نیستی…",
 "کسی داره تو رو تماشا می‌کنه…",
@@ -191,40 +254,91 @@ const texts = [
 "صدای قدم پشت سرت هست…"
 ];
 
-let i = 0;
+let currentText = 0;
 
-setInterval(()=>{
-i = (i + 1) % texts.length;
-document.getElementById("oracleText").innerText = texts[i];
-},4000);
+function showOracle(){
 
-/* LOAD SAVED REVIEWS */
+const box =
+document.getElementById("oracleText");
+
+box.innerText =
+texts[currentText];
+
+box.classList.remove("show");
+
+void box.offsetWidth;
+
+box.classList.add("show");
+
+currentText++;
+
+if(currentText >= texts.length){
+currentText = 0;
+}
+
+}
+
+showOracle();
+
+setInterval(showOracle,5000);
+
+let selectedStars = 5;
+
+function setStars(num){
+
+selectedStars = num;
+
+let stars =
+document.querySelectorAll(".star");
+
+stars.forEach((star,index)=>{
+
+if(index < num){
+star.classList.add("active");
+}else{
+star.classList.remove("active");
+}
+
+});
+
+}
+
+setStars(5);
+
 window.onload = function(){
 
 let savedReviews =
-JSON.parse(localStorage.getItem("reviews")) || [];
+JSON.parse(
+localStorage.getItem("reviews")
+) || [];
 
-savedReviews.forEach(review => {
+savedReviews.forEach(review=>{
 
-let div = document.createElement("div");
+let div =
+document.createElement("div");
 
-div.className = "review";
+div.className="review";
 
-div.innerHTML = `
-<div class="review-name">${review.name}</div>
+div.innerHTML=`
+<div class="review-name">
+${review.name}
+</div>
+
 ${"⭐".repeat(review.stars)}
+
 <br>
+
 ${review.text}
 `;
 
-document.getElementById("reviews")
+document
+.getElementById("reviews")
 .appendChild(div);
 
 });
 
 };
 
-/* ADD REVIEW */
 function addReview(){
 
 let name =
@@ -233,36 +347,40 @@ document.getElementById("name").value;
 let text =
 document.getElementById("text").value;
 
-let stars =
-parseInt(
-document.getElementById("stars").value
-) || 1;
+if(!name || !text){
+return;
+}
 
-if(!name || !text) return;
+let div =
+document.createElement("div");
 
-let div = document.createElement("div");
+div.className="review";
 
-div.className = "review";
+div.innerHTML=`
+<div class="review-name">
+${name}
+</div>
 
-div.innerHTML = `
-<div class="review-name">${name}</div>
-${"⭐".repeat(stars)}
+${"⭐".repeat(selectedStars)}
+
 <br>
+
 ${text}
 `;
 
-document.getElementById("reviews")
+document
+.getElementById("reviews")
 .appendChild(div);
 
-/* SAVE TO LOCAL STORAGE */
 let savedReviews =
-JSON.parse(localStorage.getItem("reviews"))
-|| [];
+JSON.parse(
+localStorage.getItem("reviews")
+) || [];
 
 savedReviews.push({
 name:name,
 text:text,
-stars:stars
+stars:selectedStars
 });
 
 localStorage.setItem(
@@ -270,14 +388,14 @@ localStorage.setItem(
 JSON.stringify(savedReviews)
 );
 
-/* CLEAR FORM */
 document.getElementById("name").value="";
 document.getElementById("text").value="";
-document.getElementById("stars").value="";
 
 }
 
 </script>
+
+</div>
 
 </body>
 </html>
