@@ -188,86 +188,6 @@ margin-bottom:20px;
 <div class="info-box">📁 حل نشده</div>
 <div class="info-box">📊 ۷۳ نفر رها کردند</div>
 
-</div>
-
-</div>
-
-<div class="card">
-
-<div class="section-title">💍 آخرین جمله قربانی</div>
-
-<div class="warning">
-💍 "اگر امشب اتفاقی برای من افتاد، به خانواده‌ام اعتماد نکنید."
-</div>
-
-</div>
-
-<div class="card">
-
-<div class="section-title">🩰 خلاصه پرونده</div>
-
-<p>
-الا اندرسون، دوشیزه ای معصوم و مهربان، پس از ازدواج با وارث خاندان ثروتمند بومونت وارد عمارتی می‌شود که سال‌هاست سایه‌ی غم و راز روی دیوارهایش افتاده.
-</p>
-
-<p>
-خدمتکاران از راهروهای سرد عمارت می‌ترسند، اعضای خانواده به‌ندرت با یکدیگر صحبت می‌کنند، و درباره‌ی مرگ‌های قدیمی خاندان، زمزمه‌هایی خاموش میان مردم شهر جریان دارد.
-</p>
-
-<p>
-اما درست در شبی که قرار بود آغاز زندگی تازه‌ی الا باشد، جشن عروسی به کابوسی خونین تبدیل می‌شود.
-</p>
-
-<p>
-نیمه‌شب، جسد الا با لباس عروس روی بالکن عمارت پیدا می‌شود؛ در حالی که باران شدیدی می‌بارد و تمام مهمانان ادعا می‌کنند هیچ‌چیز ندیده‌اند.
-</p>
-
-<p>
-درهای عمارت بسته بوده، هیچ غریبه‌ای وارد نشده، و تنها کسانی که می‌توانستند به او نزدیک شوند، اعضای همان خانواده‌اند.
-</p>
-
-<p>
-با آغاز تحقیقات، رازهای تاریک خاندان بامونت یکی‌یکی آشکار می‌شود؛ نامه‌های مخفی، دشمنی‌های قدیمی، خیانت، و حقیقتی ترسناک که نشان می‌دهد شاید قتل الا، اولین جنایت این خانواده نبوده باشد…
-</p>
-
-</div>
-
-<div class="card">
-
-<div class="section-title">📦 محتویات پرونده</div>
-
-<div class="item">🎤 ۷ عدد بازجویی</div>
-<div class="item">⚕️ برگه پزشکی قانونی</div>
-<div class="item">🏥 اطلاعیه تیمارستان</div>
-<div class="item">📄 اطلاعیه محرمانه بیمارستان</div>
-<div class="item">💌 دعوت نامه عروسی</div>
-<div class="item">🔢 اعداد ناشناخته</div>
-<div class="item">📑 اظهارنامه</div>
-
-</div>
-
-<div class="card">
-
-<div class="section-title">📸 گالری مدارک</div>
-
-<div class="gallery-grid">
-<img src="family.png">
-<img src="luna.png">
-<img src="dress.jpg">
-<img src="hari.png">
-<img src="sil.png">
-</div>
-
-</div>
-
-<div class="card">
-
-<div class="section-title">🏆 دیوار افتخار کارآگاهان</div>
-
-<div class="item">🥇 حنا — حل پرونده در ۴۸ دقیقه</div>
-<div class="item">🥈 هستی — حل پرونده در ۵۶ دقیقه</div>
-<div class="item">🥉 احسان — حل پرونده در ۶۴ دقیقه</div>
-
 </div> <div class="card">
 
 <div class="section-title">⚠️ هشدار پرونده</div>
@@ -402,10 +322,9 @@ target="_blank">
 
 <div class="card" style="text-align:center;opacity:.7">
 © Crime Archive | Bloody Bride Case
-</div> 
-<script>
+</div>
 
-const API = "https://sheetdb.io/api/v1/wbzlweevctfbs";
+<script>
 
 let stars = document.querySelectorAll(".star");
 let rating = 0;
@@ -424,30 +343,34 @@ x.classList.toggle("active",j<rating);
 
 });
 
-function getTime(){
-  const d = new Date();
-  return d.toLocaleString("fa-IR");
-}
-
 function addReview(){
 
-let name = document.getElementById("name").value;
-let text = document.getElementById("text").value;
+let name =
+document.getElementById("name").value;
+
+let text =
+document.getElementById("text").value;
 
 if(!name || !text) return;
 
-fetch(API, {
-  method: "POST",
-  headers: {"Content-Type":"application/json"},
-  body: JSON.stringify({
-    data:{
-      name:name,
-      text:text,
-      rate:rating,
-      time:getTime()
-    }
-  })
+let reviews =
+JSON.parse(
+localStorage.getItem("bloodyBrideReviews")
+|| "[]"
+);
+
+reviews.push({
+
+name:name,
+text:text,
+rate:rating
+
 });
+
+localStorage.setItem(
+"bloodyBrideReviews",
+JSON.stringify(reviews)
+);
 
 document.getElementById("name").value="";
 document.getElementById("text").value="";
@@ -458,26 +381,34 @@ loadReviews();
 
 function loadReviews(){
 
-let box = document.getElementById("reviews");
-box.innerHTML="Loading...";
+let reviews =
+JSON.parse(
+localStorage.getItem("bloodyBrideReviews")
+|| "[]"
+);
 
-fetch(API)
-.then(res => res.json())
-.then(data => {
+let box =
+document.getElementById("reviews");
 
 box.innerHTML="";
 
-data.reverse().forEach(r=>{
+reviews.forEach(r=>{
 
-box.innerHTML += 
+box.innerHTML += `
+
 <div class="review">
-<b>${r.name}</b> — <small>${r.time || ""}</small><br>
-${"⭐".repeat(r.rate || 0)}<br>
-${r.text}
-</div>
-;
 
-});
+<b>${r.name}</b><br>
+
+${"⭐".repeat(r.rate || 0)}
+
+<br>
+
+${r.text}
+
+</div>
+
+`;
 
 });
 
@@ -487,6 +418,6 @@ loadReviews();
 
 </script>
 
-
 </body>
 </html>
+
