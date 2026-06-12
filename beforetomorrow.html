@@ -279,7 +279,9 @@ font-weight:bold;
 <img src="rebe.png" alt="">
 <img src="ferfer.png" alt="">
 </div>
-</div> <div class="card">
+</div>
+
+<div class="card">
 
 <div class="title">
 📂 پرونده شماره ۰۱ — قبل از فردا
@@ -346,9 +348,8 @@ font-weight:bold;
 رازهای پشت پرده این سایت، چیزی بیشتر از یک جرم ساده است؛ چیزی که برای همیشه در تاریکی باقی خواهد ماند.
 </p>
 
-</div>
-
-<div class="card">
+</div> 
+  <div class="card">
 
 <div class="section-title">
 📦 محتویات پرونده
@@ -416,31 +417,37 @@ font-weight:bold;
 
 </div>
 
-</div> <div class="card">
+</div>
+
+<div class="card">
 
 <div class="section-title">
 💬 نظرات کارآگاهان
 </div>
 
+<div id="reviewsContainer">
+
 <div class="review">
-<div class="review-name">کارآگاه ناشناس</div>
+<div class="review-name">مبینا</div>
 ⭐⭐⭐⭐⭐
 <br>
 فکر می‌کردم پرونده را حل کرده‌ام اما پایان آن کاملاً غافلگیرم کرد.
 </div>
 
 <div class="review">
-<div class="review-name">کارآگاه ناشناس</div>
+<div class="review-name">کارن</div>
 ⭐⭐⭐⭐⭐
 <br>
 برای اولین بار حس کردم واقعاً در حال بررسی یک پرونده واقعی هستم.
 </div>
 
 <div class="review">
-<div class="review-name">کارآگاه ناشناس</div>
+<div class="review-name">تیم احمقا</div>
 ⭐⭐⭐⭐
 <br>
 سرنخ‌ها بسیار هوشمندانه طراحی شده بودند.
+</div>
+
 </div>
 
 </div>
@@ -564,6 +571,32 @@ document.getElementById(
 
 function submitComment(){
 
+let username =
+document.getElementById("username").value;
+
+let comment =
+document.getElementById("comment").value;
+
+if(username.trim()==="" || comment.trim()===""){
+return;
+}
+
+let comments =
+JSON.parse(
+localStorage.getItem("beforeTomorrowComments")
+) || [];
+
+comments.push({
+name:username,
+text:comment,
+rating:selectedRating
+});
+
+localStorage.setItem(
+"beforeTomorrowComments",
+JSON.stringify(comments)
+);
+
 document.getElementById(
 "successMessage"
 ).style.display = "block";
@@ -576,6 +609,20 @@ document.getElementById(
 "comment"
 ).value = "";
 
+selectedRating = 0;
+
+document.querySelectorAll(".star")
+.forEach(star=>{
+star.classList.remove("active");
+});
+
+document.getElementById(
+"ratingResult"
+).innerHTML =
+"امتیازی انتخاب نشده";
+
+loadComments();
+
 setTimeout(()=>{
 
 document.getElementById(
@@ -585,6 +632,62 @@ document.getElementById(
 },3000);
 
 }
+
+function loadComments(){
+
+let comments =
+JSON.parse(
+localStorage.getItem("beforeTomorrowComments")
+) || [];
+
+let container =
+document.getElementById(
+"reviewsContainer"
+);
+
+let defaultReviews = `
+
+<div class="review">
+<div class="review-name">مبینا</div>
+⭐⭐⭐⭐⭐
+<br>
+فکر می‌کردم پرونده را حل کرده‌ام اما پایان آن کاملاً غافلگیرم کرد.
+</div>
+
+<div class="review">
+<div class="review-name">کارن</div>
+⭐⭐⭐⭐⭐
+<br>
+برای اولین بار حس کردم واقعاً در حال بررسی یک پرونده واقعی هستم.
+</div>
+
+<div class="review">
+<div class="review-name">تیم احمقا</div>
+⭐⭐⭐⭐
+<br>
+سرنخ‌ها بسیار هوشمندانه طراحی شده بودند.
+</div>
+
+`;
+
+container.innerHTML = defaultReviews;
+
+comments.forEach(comment=>{
+
+container.innerHTML += `
+<div class="review">
+<div class="review-name">${comment.name}</div>
+${"⭐".repeat(comment.rating)}
+<br>
+${comment.text}
+</div>
+`;
+
+});
+
+}
+
+loadComments();
 
 </script>
 
