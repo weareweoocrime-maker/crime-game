@@ -2,400 +2,102 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>پرونده ناشناس</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>پرونده شماره ۰۳ | کارناوال مرگ</title>
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family:tahoma,sans-serif;
-background:#0b0b0b;
-color:#fff;
-overflow-x:hidden;
-}
-
-.hero img{
-width:100%;
-display:block;
-max-height:420px;
-object-fit:cover;
-}
-
-.container{
-padding:18px;
-}
-
-.title{
-text-align:center;
-font-size:28px;
-margin:15px 0;
-color:#fff;
-}
-
-.sub{
-text-align:center;
-opacity:.8;
-margin-bottom:15px;
-line-height:2;
-}
-
-/* RAAVI */
-.oracle{
-position:fixed;
-right:-500px;
-top:25px;
-background:#111;
-border:1px solid #444;
-padding:15px 20px;
-border-radius:12px;
-z-index:999;
-min-width:280px;
-box-shadow:0 0 20px rgba(255,255,255,.08);
-}
-
-.oracle.show{
-animation:slideMessage 4s ease;
-}
-
-@keyframes slideMessage{
-
-0%{
-right:-500px;
-opacity:0;
-}
-
-15%{
-right:20px;
-opacity:1;
-}
-
-85%{
-right:20px;
-opacity:1;
-}
-
-100%{
-right:-500px;
-opacity:0;
-}
-
-}
-
-.status{
-background:#1a1a1a;
-border-right:4px solid #666;
-padding:12px;
-border-radius:10px;
-margin-bottom:15px;
-}
-
-.notice{
-background:linear-gradient(
-90deg,
-#4a001f,
-#7a0033,
-#b8860b
-);
-color:#ffd700;
-font-weight:bold;
-font-size:18px;
-padding:14px;
-border-radius:12px;
-text-align:center;
-margin:15px 0;
-animation:glow 2s infinite alternate;
-}
-
-@keyframes glow{
-from{
-box-shadow:0 0 10px rgba(255,215,0,.2);
-}
-to{
-box-shadow:0 0 25px rgba(255,215,0,.6);
-}
-}
-
-.review{
-background:#121212;
-padding:12px;
-border-radius:10px;
-margin-bottom:10px;
-}
-
-.review-name{
-font-weight:bold;
-margin-bottom:5px;
-}
-
-input,textarea{
-width:100%;
-margin-top:10px;
-padding:10px;
-border:none;
-border-radius:8px;
-background:#1c1c1c;
-color:white;
-}
-
-button{
-margin-top:10px;
-width:100%;
-padding:12px;
-border:none;
-border-radius:8px;
-background:#333;
-color:white;
-cursor:pointer;
-}
-
-button:hover{
-background:#444;
-}
-
-.star-box{
-margin-top:15px;
-font-size:28px;
-text-align:center;
-}
-
-.star{
-cursor:pointer;
-opacity:.35;
-transition:.2s;
-}
-
-.star.active{
-opacity:1;
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="hero">
-<img src="khali.jpg" alt="cover">
-</div>
-
-<div id="oracleText" class="oracle">
-تو الان تنها نیستی…
-</div>
-
-<div class="container">
-
-<div class="title">👁 راوی ناشناس</div>
-
-<div class="sub">
-اتصال به منبع ناشناس برقرار شد…
-</div>
-
-<div class="sub">
-یک کارناوال قدیمی که سال‌ها تعطیل بوده، دوباره یک شب بدون اطلاع باز می‌شود…<br>
-بعد از آن شب چند نفر ناپدید می‌شوند…<br>
-بخشی از داده‌ها هنوز در حال رمزگشایی هستند…
-</div>
-
-<div class="status">
-این پرونده هنوز در حال بررسی است.
-</div>
-
-<div class="notice">
-✨ به‌زودی منتشر می‌شود ✨
-</div>
-
-<div class="title" style="font-size:20px;">
-💬 نظرات
-</div>
-
-<div class="review">
-<div class="review-name">صدف</div>
-⭐⭐⭐⭐⭐
-<br>
-این پرونده هر بار که واردش میشم یه حس عجیبی میده…
-انگار یه چیزی تغییر کرده ولی نمی‌فهمم چی
-<br><br>
-کاش زودتر منتشر بشه
-</div>
-
-<div id="reviews"></div>
-
-<input id="name" placeholder="نام شما">
-
-<textarea id="text"
-placeholder="نظر شما"></textarea>
-
-<div class="star-box">
-
-<span class="star" onclick="setStars(1)">⭐</span>
-<span class="star" onclick="setStars(2)">⭐</span>
-<span class="star" onclick="setStars(3)">⭐</span>
-<span class="star" onclick="setStars(4)">⭐</span>
-<span class="star" onclick="setStars(5)">⭐</span>
-
-</div>
-
-<button onclick="addReview()">
-ثبت نظر
-</button> <script>
-
-const texts = [
-"تو الان تنها نیستی…",
-"کسی داره تو رو تماشا می‌کنه…",
-"من آن تغییرات را می‌بینم…",
-"من حتی تو را هم می‌بینم…",
-"چرا دوباره برگشتی؟ نکنه تو هم حسش کردی…",
-"یک سایه از گوشه چشم تو عبور کرد…",
-"صدای قدم پشت سرت هست…"
-];
-
-let currentText = 0;
-
-function showOracle(){
-
-const box =
-document.getElementById("oracleText");
-
-box.innerText =
-texts[currentText];
-
-box.classList.remove("show");
-
-void box.offsetWidth;
-
-box.classList.add("show");
-
-currentText++;
-
-if(currentText >= texts.length){
-currentText = 0;
-}
-
-}
-
-showOracle();
-
-setInterval(showOracle,5000);
-
-let selectedStars = 5;
-
-function setStars(num){
-
-selectedStars = num;
-
-let stars =
-document.querySelectorAll(".star");
-
-stars.forEach((star,index)=>{
-
-if(index < num){
-star.classList.add("active");
-}else{
-star.classList.remove("active");
-}
-
-});
-
-}
-
-setStars(5);
-
-window.onload = function(){
-
-let savedReviews =
-JSON.parse(
-localStorage.getItem("reviews")
-) || [];
-
-savedReviews.forEach(review=>{
-
-let div =
-document.createElement("div");
-
-div.className="review";
-
-div.innerHTML=`
-<div class="review-name">
-${review.name}
-</div>
-
-${"⭐".repeat(review.stars)}
-
-<br>
-
-${review.text}
-`;
-
-document
-.getElementById("reviews")
-.appendChild(div);
-
-});
-
-};
-
-function addReview(){
-
-let name =
-document.getElementById("name").value;
-
-let text =
-document.getElementById("text").value;
-
-if(!name || !text){
-return;
-}
-
-let div =
-document.createElement("div");
-
-div.className="review";
-
-div.innerHTML=`
-<div class="review-name">
-${name}
-</div>
-
-${"⭐".repeat(selectedStars)}
-
-<br>
-
-${text}
-`;
-
-document
-.getElementById("reviews")
-.appendChild(div);
-
-let savedReviews =
-JSON.parse(
-localStorage.getItem("reviews")
-) || [];
-
-savedReviews.push({
-name:name,
-text:text,
-stars:selectedStars
-});
-
-localStorage.setItem(
-"reviews",
-JSON.stringify(savedReviews)
-);
-
-document.getElementById("name").value="";
-document.getElementById("text").value="";
-
-}
-
+body{margin:0;font-family:tahoma;background:#090909;color:#fff;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;background:
+radial-gradient(circle at 20% 20%,rgba(255,140,0,.15),transparent 25%),
+radial-gradient(circle at 80% 30%,rgba(255,0,0,.12),transparent 25%),
+radial-gradient(circle at 50% 80%,rgba(255,215,0,.08),transparent 30%);
+animation:glow 8s linear infinite alternate;pointer-events:none}
+@keyframes glow{to{filter:hue-rotate(25deg) brightness(1.2)}}
+.balloon{position:fixed;bottom:-80px;width:24px;height:34px;border-radius:50%;opacity:.25;animation:rise linear infinite}
+.balloon:after{content:"";position:absolute;left:11px;top:34px;width:2px;height:35px;background:#aaa}
+@keyframes rise{to{transform:translateY(-120vh)}}
+.hero img{width:100%;display:block}
+.card{margin:18px;padding:18px;border-radius:18px;background:rgba(255,255,255,.06);backdrop-filter:blur(8px);box-shadow:0 0 25px rgba(255,80,0,.15)}
+h1,h2{text-align:center}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.info,.item,.choice{background:#161616;padding:14px;border-radius:12px;border:1px solid #533}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.gallery img{width:100%;border-radius:10px}
+.choice:hover,.item:hover,.info:hover{transform:translateY(-3px);transition:.3s}
+.btn{display:block;text-align:center;padding:14px;margin:10px 0;background:#9a1400;color:#fff;text-decoration:none;border-radius:10px;box-shadow:0 0 20px rgba(255,80,0,.4)}
+</style></head><body>
+<script>
+for(let i=0;i<12;i++){let b=document.createElement('div');b.className='balloon';b.style.left=Math.random()*100+'vw';b.style.animationDuration=(10+Math.random()*10)+'s';b.style.animationDelay=(-Math.random()*20)+'s';b.style.background=['#ff3b30','#ff9500','#ffd60a'][i%3];document.body.appendChild(b);}
 </script>
+<div class="hero"><img src="jeld.png"></div>
+<div class="card"><h1>🎪 پرونده شماره ۰۳ | کارناوال مرگ</h1>
+<p style="text-align:center">⭐ ۴.۵ از ۵</p>
+<div class="grid">
+<div class="info">⏳ ۱۲۰ تا ۱۸۰ دقیقه</div>
+<div class="info">📊 نرخ موفقیت ۱۷٪</div>
+<div class="info">📁 وضعیت: حل‌نشده</div>
+<div class="info">🧠 مناسب کارآگاهان حرفه‌ای</div>
+</div></div>
 
+<div class="card"><h2>🃏 خلاصه پرونده</h2>
+<p>سال‌ها پیش،سال‌ها پیش، مجموعه‌ای از قتل‌های هولناک در اطراف یک سیرک دوره‌گرد، آرامش روستایی کوچک را بر هم زد. عامل این جنایت‌ها هرگز شناسایی نشد و درست زمانی که وحشت به اوج خود رسیده بود، قتل‌ها ناگهان متوقف شدند.
+اهالی روستا باور داشتند روح دلقکی که سال‌ها قبل در همان سیرک خود را حلق‌آویز کرده بود، مسئول این کشتارها بوده است. با گذشت زمان، داستان «کارناوال مرگ» به افسانه‌ای محلی تبدیل شد؛ افسانه‌ای که مردم تنها در شب‌های تاریک جرئت زمزمه کردنش را داشتند.
+اما اکنون، پس از سال‌ها سکوت، قتل‌ها دوباره آغاز شده‌اند. قربانیان یکی پس از دیگری پیدا می‌شوند و نشانه‌هایی عجیب در صحنه‌های جرم دیده می‌شود؛ بادکنک‌هایی رها شده، قایق‌های کاغذی، یادداشت‌های رمزآلود و ردپای گذشته‌ای که هرگز دفن نشده است.
+آیا قاتل اصلی بازگشته؟ آیا فردی در حال تقلید از جنایت‌های گذشته است؟ یا شاید افسانه‌های روستا حقیقتی ترسناک را پنهان کرده‌اند؟ </p></div>
+
+<div class="card"><h2>📦 محتویات پرونده</h2>
+<div class="item">برگه‌های بازجویی، پزشک قانونی، روزنامه، نامه و برگه سوخته، دفترچه خاطرات دلقک، بلیط سیرک، نقشه سیرک، بادکنک، اوریگامی قایق، عکس اتاق، ویدیوی صحنه جرم</div></div>
+
+<div class="card"><h2>📸 گالری</h2>
+<div class="gallery"><img src="sh.jpg"><img src="fire.jpg"><img src="anime.png"></div></div>
+
+<div class="card"><h2>🎭 انتخاب نسخه</h2>
+<div class="grid">
+<div class="choice"><b>نسخه رئال</b><br>تجربه‌ای کاملاً واقعی و جنایی.</div>
+<div class="choice"><b>نسخه انیمه</b><br>همان معما با طراحی هنری منحصربه‌فرد.</div>
+</div>
+<p style="text-align:center">دو دنیا، یک راز... حقیقت همیشه یکسان است؛ فقط انتخاب با توست.</p>
 </div>
 
-</body>
-</html>
+
+<div class="card"><h2>💬 نظرات کارآگاهان</h2>
+<div id="reviews"></div>
+<input id="name" placeholder="نام شما" style="width:100%;margin:8px 0;padding:10px;">
+<textarea id="comment" placeholder="نظر شما" style="width:100%;margin:8px 0;padding:10px;"></textarea>
+<select id="stars" style="width:100%;margin:8px 0;padding:10px;">
+<option value="5">★★★★★</option><option value="4">★★★★☆</option><option value="3">★★★☆☆</option><option value="2">★★☆☆☆</option><option value="1">★☆☆☆☆</option>
+</select>
+<a href="#" class="btn" onclick="addReview();return false;">ثبت نظر</a>
+</div>
+<script>
+const defaultReviews=[
+{name:"آرمان",stars:5,text:"پرونده فوق‌العاده غافلگیرکننده بود."},
+{name:"سارا",stars:5,text:"تا آخرین لحظه قاتل را حدس نزدم."},
+{name:"محمد",stars:4,text:"فضاسازی عالی بود."}
+];
+function loadReviews(){
+const saved=JSON.parse(localStorage.getItem("km_reviews")||"[]");
+const all=[...defaultReviews,...saved];
+let h="";
+all.forEach(r=>{h+=`<div class="item"><b>${r.name}</b><br><span style="color:#ffd54f">${"★".repeat(r.stars)}</span><br>${r.text}</div>`;});
+document.getElementById("reviews").innerHTML=h;
+}
+function addReview(){
+const n=document.getElementById("name").value.trim();
+const c=document.getElementById("comment").value.trim();
+const s=parseInt(document.getElementById("stars").value);
+if(!n||!c){alert("لطفاً نام و نظر را وارد کنید.");return;}
+const saved=JSON.parse(localStorage.getItem("km_reviews")||"[]");
+saved.push({name:n,text:c,stars:s});
+localStorage.setItem("km_reviews",JSON.stringify(saved));
+document.getElementById("name").value="";
+document.getElementById("comment").value="";
+loadReviews();
+alert("نظر شما ثبت شد.");
+}
+window.addEventListener("load",loadReviews);
+</script>
+<div class="card"><h2>🔒 سفارش</h2>
+<a class="btn" href="https://ble.ir/join/DYbDnaJMuz">سفارش در بله</a>
+<a class="btn" href="https://t.me/weareweoo">سفارش در تلگرام</a>
+</div>
+</body></html>
