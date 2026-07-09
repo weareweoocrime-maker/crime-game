@@ -1,42 +1,517 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>کابوس‌های خاموش | به زودی</title>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>کابوس‌های خاموش</title>
+
 <style>
-html,body{margin:0;height:100%;overflow:hidden;background:#000;font-family:tahoma}
-body{background:url("background.jpg") center/cover no-repeat;cursor:none}
-body:before{content:"";position:fixed;inset:0;background:radial-gradient(circle at var(--x,50%) var(--y,50%),transparent 0 130px,rgba(0,0,0,.88) 250px);pointer-events:none}
-body:after{content:"";position:fixed;inset:-20%;background:url("back.jpg") center/cover;opacity:.06;filter:blur(8px);animation:fog 18s ease-in-out infinite alternate;pointer-events:none}
-@keyframes fog{from{transform:translate(-2%,0) scale(1.03)}to{transform:translate(2%,-1%) scale(1.08)}}
-#v{position:fixed;inset:0;background:radial-gradient(circle,transparent 55%,rgba(0,0,0,.7));pointer-events:none}
-.c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;padding:20px}
-h1{font-size:clamp(40px,8vw,82px);margin:0;text-shadow:0 0 18px #000}
-p{max-width:700px}
-.small{opacity:.75}
-#shadow{position:fixed;width:220px;height:420px;background:rgba(0,0,0,.55);filter:blur(10px);border-radius:45% 45% 35% 35%;opacity:0;transition:.5s;pointer-events:none}
-.glitch{animation:g .12s linear 2}
-@keyframes g{50%{transform:translate(2px,-1px)}}
-</style></head>
-<body>
-<div id="shadow"></div><div id="v"></div>
-<div class="c">
-<h1>کابوس‌های خاموش</h1>
-<p>همه خوابیده‌اند... اما کابوس هنوز بیدار است.</p>
-<p class="small">این فقط یک پرونده نیست؛ آغاز یک کابوس است.</p>
-<h3 style="margin-top:35px;color:#cfcfcf">به‌زودی منتشر می‌شود</h3>
-</div>
-<audio id="a" src="nafas.mp3" loop></audio>
-<script>
-const b=document.body,s=document.getElementById('shadow'),a=document.getElementById('a');
-let started=false;
-function start(){if(!started){started=true;a.volume=.25;a.play().catch(()=>{});}}
-function mv(e){start();let x=(e.touches?e.touches[0].clientX:e.clientX),y=(e.touches?e.touches[0].clientY:e.clientY);b.style.setProperty('--x',x+'px');b.style.setProperty('--y',y+'px');}
-addEventListener('mousemove',mv);addEventListener('touchmove',mv);
-function showShadow(){
- let x=Math.random()*(innerWidth-220),y=Math.random()*(innerHeight-420);
- s.style.left=x+'px';s.style.top=y+'px';s.style.opacity=.28;
- document.body.classList.add('glitch');
- setTimeout(()=>{s.style.opacity=0;document.body.classList.remove('glitch');},700);
- setTimeout(showShadow,12000+Math.random()*18000);
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
-setTimeout(showShadow,8000);
-</script></body></html>
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:tahoma;
+background:#050505 url("back.jpg") center center/cover fixed;
+color:white;
+overflow-x:hidden;
+
+}
+
+/* ===== ویگنت ===== */
+
+body::after{
+
+content:"";
+position:fixed;
+inset:0;
+pointer-events:none;
+
+background:radial-gradient(circle,
+transparent 40%,
+rgba(0,0,0,.35) 70%,
+rgba(0,0,0,.82) 100%);
+
+z-index:999;
+
+}
+
+/* ===== مه ===== */
+
+.fog{
+
+position:fixed;
+
+left:-20%;
+top:-20%;
+
+width:140%;
+height:140%;
+
+background:
+radial-gradient(circle at 20% 20%,rgba(255,255,255,.05),transparent 30%),
+radial-gradient(circle at 70% 50%,rgba(255,255,255,.04),transparent 35%),
+radial-gradient(circle at 50% 80%,rgba(255,255,255,.03),transparent 40%);
+
+animation:fogMove 30s linear infinite;
+
+pointer-events:none;
+
+z-index:-1;
+
+}
+
+@keyframes fogMove{
+
+0%{
+
+transform:translateX(-30px);
+
+}
+
+50%{
+
+transform:translateX(30px);
+
+}
+
+100%{
+
+transform:translateX(-30px);
+
+}
+
+}
+
+/* ===== Hero ===== */
+
+.hero{
+
+height:100vh;
+
+background:url("asl.jpg") center center/cover no-repeat;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:rgba(0,0,0,.55);
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:850px;
+
+padding:30px;
+
+}
+
+.hero h1{
+
+font-size:52px;
+
+margin-bottom:20px;
+
+}
+
+.hero h2{
+
+font-size:30px;
+
+font-weight:normal;
+
+color:#dddddd;
+
+margin-bottom:25px;
+
+}
+
+.hero p{
+
+line-height:2.1;
+
+font-size:18px;
+
+color:#cfcfcf;
+
+}
+
+/* ===== دکمه ===== */
+
+.btn{
+
+display:inline-block;
+
+margin-top:35px;
+
+padding:16px 38px;
+
+border-radius:12px;
+
+background:#7d1010;
+
+color:white;
+
+text-decoration:none;
+
+transition:.35s;
+
+box-shadow:0 0 20px rgba(255,0,0,.2);
+
+}
+
+.btn:hover{
+
+background:#991616;
+
+transform:translateY(-4px);
+
+}
+
+/* ===== کارت ===== */
+
+.card{
+
+width:min(1000px,92%);
+
+margin:70px auto;
+
+padding:30px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,.07);
+
+backdrop-filter:blur(10px);
+
+border:1px solid rgba(255,255,255,.08);
+
+transition:.35s;
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+.card.show{
+
+opacity:1;
+
+transform:none;
+
+}
+
+.card:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 15px 35px rgba(0,0,0,.45);
+
+}
+
+.card h2{
+
+margin-bottom:20px;
+
+font-size:30px;
+
+}
+
+.card p{
+
+line-height:2.1;
+
+color:#ddd;
+
+}
+
+/* ===== سایه انسان ===== */
+
+.shadow{
+
+position:fixed;
+
+bottom:0;
+
+left:8%;
+
+width:170px;
+
+height:420px;
+
+background:linear-gradient(to top,
+rgba(0,0,0,.85),
+rgba(0,0,0,.2));
+
+filter:blur(12px);
+
+opacity:0;
+
+pointer-events:none;
+
+transition:opacity 1s;
+
+z-index:500;
+
+}
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:35px;
+
+}
+
+.hero h2{
+
+font-size:22px;
+
+}
+
+.card{
+
+padding:22px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="fog"></div>
+
+<div class="shadow" id="shadow"></div>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>
+
+همه خوابیده‌اند...
+
+اما کابوس هنوز بیدار است.
+
+</h1>
+
+<h2>
+
+این آغاز یک پرونده نیست؛
+
+این آغاز یک کابوس است.
+
+</h2>
+
+<p>
+
+سال‌هاست حقیقت در سکوت دفن شده است.
+
+اکنون زمان آن رسیده که پرده از رازهایی برداشته شود
+
+که هیچ‌کس جرئت روبه‌رو شدن با آن‌ها را نداشت.
+
+</p>
+
+<a href="#about" class="btn">
+
+مشاهده پرونده
+
+</a>
+
+</div>
+
+</section>
+
+<section id="about" class="card">
+
+<h2>
+
+کابوس‌های خاموش
+
+</h2>
+
+<p>
+این فقط یک داستان نیست؛
+اینجا هر نشانه می‌تواند حقیقت را آشکار کند...
+یا تو را برای همیشه در تاریکی رها کند.
+
+<br><br>
+
+<b style="color:#d33;">
+پرونده هنوز اجازه انتشار ندارد.
+</b>
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>
+
+ویژگی‌های پرونده
+
+</h2>
+
+<p>
+
+✔ تجربه‌ای کاملاً داستان‌محور
+
+<br><br>
+
+✔ معماهای چندمرحله‌ای
+
+<br><br>
+
+✔ اسناد و مدارک واقعی
+
+<br><br>
+
+✔ فضای رازآلود و سینمایی
+
+<br><br>
+
+✔ مناسب بازی گروهی
+
+</p>
+
+</section>
+
+<section class="card">
+
+<h2>
+
+آیا آماده‌ای؟
+
+</h2>
+
+<p>
+
+از این لحظه به بعد،
+هیچ تضمینی وجود ندارد که حقیقت،
+همان چیزی باشد که انتظارش را داری...
+
+</p>
+
+<a class="btn" href="#">
+
+ورود به کابوس
+
+</a>
+
+</section>
+
+<audio
+id="nafas"
+src="nafas.mp3"
+loop>
+</audio>
+
+<script>
+
+/* پخش صدا */
+
+let played=false;
+
+document.addEventListener("click",()=>{
+
+if(!played){
+
+document
+.getElementById("nafas")
+.play()
+.catch(()=>{});
+
+played=true;
+
+}
+
+},{once:true});
+
+/* Fade هنگام اسکرول */
+
+const cards=document.querySelectorAll(".card");
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},{
+threshold:.15
+});
+
+cards.forEach(card=>observer.observe(card));
+
+/* سایه انسان */
+
+const shadow=document.getElementById("shadow");
+
+function showShadow(){
+
+shadow.style.opacity=".18";
+
+setTimeout(()=>{
+
+shadow.style.opacity="0";
+
+},1000);
+
+const next=40000+Math.random()*20000;
+
+setTimeout(showShadow,next);
+
+}
+
+setTimeout(showShadow,10000);
+
+</script>
+
+</body>
+
+</html>
