@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>کابوس‌های خاموش | به زودی</title>
+<style>
+html,body{margin:0;height:100%;overflow:hidden;background:#000;font-family:tahoma}
+body{background:url("background.jpg") center/cover no-repeat;cursor:none}
+body:before{content:"";position:fixed;inset:0;background:radial-gradient(circle at var(--x,50%) var(--y,50%),transparent 0 130px,rgba(0,0,0,.88) 250px);pointer-events:none}
+body:after{content:"";position:fixed;inset:-20%;background:url("back.jpg") center/cover;opacity:.06;filter:blur(8px);animation:fog 18s ease-in-out infinite alternate;pointer-events:none}
+@keyframes fog{from{transform:translate(-2%,0) scale(1.03)}to{transform:translate(2%,-1%) scale(1.08)}}
+#v{position:fixed;inset:0;background:radial-gradient(circle,transparent 55%,rgba(0,0,0,.7));pointer-events:none}
+.c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;padding:20px}
+h1{font-size:clamp(40px,8vw,82px);margin:0;text-shadow:0 0 18px #000}
+p{max-width:700px}
+.small{opacity:.75}
+#shadow{position:fixed;width:220px;height:420px;background:rgba(0,0,0,.55);filter:blur(10px);border-radius:45% 45% 35% 35%;opacity:0;transition:.5s;pointer-events:none}
+.glitch{animation:g .12s linear 2}
+@keyframes g{50%{transform:translate(2px,-1px)}}
+</style></head>
+<body>
+<div id="shadow"></div><div id="v"></div>
+<div class="c">
+<h1>کابوس‌های خاموش</h1>
+<p>همه خوابیده‌اند... اما کابوس هنوز بیدار است.</p>
+<p class="small">این فقط یک پرونده نیست؛ آغاز یک کابوس است.</p>
+<h3 style="margin-top:35px;color:#cfcfcf">به‌زودی منتشر می‌شود</h3>
+</div>
+<audio id="a" src="nafas.mp3" loop></audio>
+<script>
+const b=document.body,s=document.getElementById('shadow'),a=document.getElementById('a');
+let started=false;
+function start(){if(!started){started=true;a.volume=.25;a.play().catch(()=>{});}}
+function mv(e){start();let x=(e.touches?e.touches[0].clientX:e.clientX),y=(e.touches?e.touches[0].clientY:e.clientY);b.style.setProperty('--x',x+'px');b.style.setProperty('--y',y+'px');}
+addEventListener('mousemove',mv);addEventListener('touchmove',mv);
+function showShadow(){
+ let x=Math.random()*(innerWidth-220),y=Math.random()*(innerHeight-420);
+ s.style.left=x+'px';s.style.top=y+'px';s.style.opacity=.28;
+ document.body.classList.add('glitch');
+ setTimeout(()=>{s.style.opacity=0;document.body.classList.remove('glitch');},700);
+ setTimeout(showShadow,12000+Math.random()*18000);
+}
+setTimeout(showShadow,8000);
+</script></body></html>
