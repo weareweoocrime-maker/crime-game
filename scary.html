@@ -1,0 +1,22 @@
+<!doctype html><html lang='fa' dir='rtl'><meta charset='utf-8'><style>
+body{margin:0;background:#000;color:#fff;font-family:tahoma;text-align:center;overflow:hidden}
+#device{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);max-width:80vw}
+#tape{position:absolute;left:12%;top:34%;width:22%;transition:2.5s}
+#ui{position:absolute;top:5%;width:100%}#msg{position:absolute;bottom:8%;width:100%;white-space:pre-line;font-size:28px}
+input,button{padding:10px;font-size:18px}
+</style><img id=device src=das.png><img id=tape src=navar.png>
+<div id=ui><h2>معما: حقیقت نامه را پیدا کن</h2><input id=a><button onclick='c()'>تأیید</button></div><div id=msg></div>
+<audio id=i src=in.mp3></audio><audio id=e src=evil.mp3></audio><audio id=o src=out.mp3></audio>
+<script>
+const ok=[
+"تماشاگرها فقط تا وقتی می خندن می مونه بعدش فراموش می کنن من فراموش نمی کنم",
+"تماشاگرها فقط وقتی می خنده ن می مونه بعدش فراموش می کنن من فراموش نمی کنم",
+"تماشاگرها فقط وقتی می خندن می مونه بعدش فراموش می کنن من فراموش نمی کنم"
+];
+function c(){
+let t=a.value.trim().replace(/‌/g,'');
+if(!ok.includes(t)){alert('پاسخ اشتباه است.');return;}
+ui.style.display='none';tape.style.left='44%';tape.style.top='43%';tape.style.width='8%';i.play();
+setTimeout(()=>{e.play();type("اگر تا اینجا رسیدی... یعنی بیشتر از چیزی که باید فهمیدی.\n\nاما این نوار را به هر کسی نشان نمی‌دهم...\n\nاگر واقعاً جرئت داری، به @shodowll در تلگرام پیام بده...\n\nشاید اجازه بدهم اجرامو را ببینی.");},2600)}
+function type(x){let n=0,s=setInterval(()=>{msg.textContent+=x[n++]||'';if(n>=x.length){clearInterval(s);e.pause();e.currentTime=0;o.play();}},55)}
+</script>
