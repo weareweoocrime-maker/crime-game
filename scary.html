@@ -1,12 +1,128 @@
-<!doctype html><html lang='fa' dir='rtl'><meta charset='utf-8'><style>
-body{margin:0;background:#000;color:#fff;font-family:tahoma;text-align:center;overflow:hidden}
-#device{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);max-width:80vw}
-#tape{position:absolute;left:12%;top:34%;width:22%;transition:2.5s}
-#ui{position:absolute;top:5%;width:100%}#msg{position:absolute;bottom:8%;width:100%;white-space:pre-line;font-size:28px}
-input,button{padding:10px;font-size:18px}
-</style><img id=device src=das.png><img id=tape src=navar.png>
-<div id=ui><h2>معما: حقیقت نامه را پیدا کن</h2><input id=a><button onclick='c()'>تأیید</button></div><div id=msg></div>
-<audio id=i src=in.mp3></audio><audio id=e src=evil.mp3></audio><audio id=o src=out.mp3></audio>
+<!doctype html>
+<html lang="fa" dir="rtl">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+background:#000;
+color:#fff;
+font-family:tahoma;
+text-align:center;
+overflow:hidden;
+width:100vw;
+height:100vh;
+position:relative;
+}
+
+#device{
+position:absolute;
+left:50%;
+top:52%;
+transform:translate(-50%,-50%);
+width:92vw;
+max-width:520px;
+height:auto;
+}
+
+#tape{
+position:absolute;
+left:12%;
+top:34%;
+width:22%;
+max-width:120px;
+transition:2.5s;
+}
+
+#ui{
+position:absolute;
+top:5%;
+left:50%;
+transform:translateX(-50%);
+width:92%;
+max-width:420px;
+}
+
+#ui h2{
+font-size:clamp(20px,5vw,30px);
+margin-bottom:15px;
+}
+
+#msg{
+position:absolute;
+left:50%;
+transform:translateX(-50%);
+bottom:8%;
+width:90%;
+max-width:420px;
+white-space:pre-line;
+font-size:clamp(16px,4vw,28px);
+line-height:1.8;
+}
+
+input{
+width:100%;
+padding:10px;
+font-size:18px;
+border:none;
+border-radius:8px;
+text-align:center;
+margin-bottom:10px;
+}
+
+button{
+width:100%;
+padding:10px;
+font-size:18px;
+border:none;
+border-radius:8px;
+background:#222;
+color:#fff;
+cursor:pointer;
+}
+
+@media (max-width:480px){
+#device{
+width:96vw;
+}
+
+#tape{
+width:24%;
+}
+
+#msg{
+font-size:17px;
+}
+
+input,
+button{
+font-size:16px;
+}
+}
+</style>
+
+<img id="device" src="das.png">
+<img id="tape" src="navar.png">
+
+<div id="ui">
+<h2>معما: حقیقت نامه را پیدا کن</h2>
+<input id="a">
+<button onclick="c()">تأیید</button>
+</div>
+
+<div id="msg"></div>
+
+<audio id="i" src="in.mp3"></audio>
+<audio id="e" src="evil.mp3"></audio>
+<audio id="o" src="out.mp3"></audio>
+
 <script>
 const ok=[
 "من فراموش نمی کنم",
@@ -29,5 +145,16 @@ type("اگر تا اینجا رسیدی... یعنی بیشتر از چیزی ک�
 alert('پاسخ اشتباه است.');
 }
 }
-function type(x){let n=0,s=setInterval(()=>{msg.textContent+=x[n++]||'';if(n>=x.length){clearInterval(s);e.pause();e.currentTime=0;o.play();}},55)}
+
+function type(x){
+let n=0,s=setInterval(()=>{
+msg.textContent+=x[n++]||'';
+if(n>=x.length){
+clearInterval(s);
+e.pause();
+e.currentTime=0;
+o.play();
+}
+},55)
+}
 </script>
