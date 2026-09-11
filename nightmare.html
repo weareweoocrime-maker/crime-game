@@ -2,490 +2,1027 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<title>کابوس‌های خاموش</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>پرونده شماره ۰۴ | کابوس خاموش</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Rye&family=Special+Elite&family=Vazirmatn:wght@400;500;600;700;800&display=swap');
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-html{
-scroll-behavior:smooth;
+:root{
+    --paper:#bda77d;
+    --paper-light:#d0bc91;
+    --paper-dark:#927955;
+    --ink:#24170f;
+    --brown:#3a2115;
+    --brown2:#5b3623;
+    --red:#6d2019;
+    --red-dark:#42130f;
+    --gold:#b18a4a;
+    --shadow:rgba(20,10,5,.55);
 }
 
 body{
-
-font-family:tahoma;
-background:#050505 url("back.jpg") center center/cover fixed;
-color:white;
-overflow-x:hidden;
-
+    font-family:'Vazirmatn',Tahoma,sans-serif;
+    background:
+        radial-gradient(circle at 20% 10%,rgba(177,138,74,.10),transparent 25%),
+        radial-gradient(circle at 80% 70%,rgba(109,32,25,.10),transparent 28%),
+        linear-gradient(135deg,#1b100b,#2a170e 45%,#140b07);
+    color:var(--ink);
+    overflow-x:hidden;
+    min-height:100vh;
 }
 
-/* ===== ویگنت ===== */
-
-body::after{
-
-content:"";
-position:fixed;
-inset:0;
-pointer-events:none;
-
-background:radial-gradient(circle,
-transparent 40%,
-rgba(0,0,0,.35) 70%,
-rgba(0,0,0,.82) 100%);
-
-z-index:999;
-
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.18;
+    background-image:
+        repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 4px),
+        repeating-linear-gradient(90deg,rgba(0,0,0,.035) 0 1px,transparent 1px 5px);
+    z-index:0;
 }
 
-/* ===== مه ===== */
-
-.fog{
-
-position:fixed;
-
-left:-20%;
-top:-20%;
-
-width:140%;
-height:140%;
-
-background:
-radial-gradient(circle at 20% 20%,rgba(255,255,255,.05),transparent 30%),
-radial-gradient(circle at 70% 50%,rgba(255,255,255,.04),transparent 35%),
-radial-gradient(circle at 50% 80%,rgba(255,255,255,.03),transparent 40%);
-
-animation:fogMove 30s linear infinite;
-
-pointer-events:none;
-
-z-index:-1;
-
+body:after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:radial-gradient(circle,transparent 45%,rgba(0,0,0,.48) 100%);
+    z-index:0;
 }
 
-@keyframes fogMove{
-
-0%{
-
-transform:translateX(-30px);
-
+.page{
+    width:min(760px,94%);
+    margin:auto;
+    position:relative;
+    z-index:1;
+    padding:18px 0 30px;
 }
 
-50%{
-
-transform:translateX(30px);
-
+.card{
+    background:
+        linear-gradient(rgba(190,168,124,.96),rgba(158,132,91,.96)),
+        repeating-linear-gradient(0deg,rgba(70,40,20,.04) 0 2px,transparent 2px 6px);
+    padding:20px;
+    border-radius:5px;
+    margin-bottom:20px;
+    line-height:2;
+    border:1px solid rgba(70,38,20,.65);
+    box-shadow:0 10px 28px var(--shadow),inset 0 0 24px rgba(74,42,18,.09);
+    isolation:isolate;
+    position:relative;
+    overflow:hidden;
 }
 
-100%{
-
-transform:translateX(-30px);
-
+.card:before{
+    content:"";
+    position:absolute;
+    inset:6px;
+    border:1px solid rgba(68,38,20,.20);
+    pointer-events:none;
 }
 
+.card:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    opacity:.055;
+    background:
+        radial-gradient(circle at 18% 22%,#24170f 0 1px,transparent 2px),
+        radial-gradient(circle at 82% 64%,#6d2019 0 1px,transparent 2px),
+        repeating-linear-gradient(92deg,transparent 0 42px,rgba(36,23,15,.16) 43px,transparent 44px);
+    mix-blend-mode:multiply;
 }
 
-/* ===== Hero ===== */
-
-.hero{
-
-height:100vh;
-
-background:url("asl.jpg") center center/cover no-repeat;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-text-align:center;
-
-position:relative;
-
-overflow:hidden;
-
+.section-title{
+    font-family:'Rye','Special Elite',serif;
+    font-size:21px;
+    margin-bottom:15px;
+    color:var(--brown);
+    letter-spacing:.4px;
 }
 
-.hero::before{
-
-content:"";
-
-position:absolute;
-
-inset:0;
-
-background:rgba(0,0,0,.55);
-
+.title{
+    font-family:'Rye','Special Elite',serif;
+    font-size:31px;
+    text-align:center;
+    margin-bottom:8px;
+    color:var(--brown);
 }
 
-.hero-content{
-
-position:relative;
-
-z-index:2;
-
-max-width:850px;
-
-padding:30px;
-
+.subtitle{
+    text-align:center;
+    color:#563421;
+    margin-bottom:20px;
+    font-family:'Special Elite',monospace;
 }
 
-.hero h1{
-
-font-size:52px;
-
-margin-bottom:20px;
-
+.case-stamp{
+    background:
+        linear-gradient(135deg,rgba(231,210,169,.97),rgba(188,151,96,.97));
+    text-align:center;
+    font-weight:700;
+    border-radius:5px;
+    border:2px solid #563421;
+    margin-bottom:20px;
+    box-shadow:0 12px 30px var(--shadow),inset 0 0 30px rgba(60,30,10,.18);
 }
 
-.hero h2{
-
-font-size:30px;
-
-font-weight:normal;
-
-color:#dddddd;
-
-margin-bottom:25px;
-
+.case-stamp .archive-head{
+    font-family:'Special Elite',monospace;
+    direction:ltr;
+    letter-spacing:2px;
+    color:var(--red-dark);
+    font-size:14px;
 }
 
-.hero p{
-
-line-height:2.1;
-
-font-size:18px;
-
-color:#cfcfcf;
-
+.main-poster{
+    width:100%;
+    border-radius:2px;
+    display:block;
+    margin-top:16px;
+    border:8px solid #432719;
+    box-shadow:0 8px 22px rgba(30,12,5,.55);
+    filter:sepia(.15) contrast(1.04);
 }
 
-/* ===== دکمه ===== */
+.case-number{
+    font-family:'Special Elite',monospace;
+    direction:ltr;
+    font-size:12px;
+    margin-top:9px;
+    color:#563421;
+}
+
+.rating-top{
+    text-align:center;
+    font-size:21px;
+    color:#70451f;
+    margin-bottom:20px;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.info-box{
+    background:rgba(67,39,25,.075);
+    padding:14px;
+    border-radius:4px;
+    text-align:center;
+    border:1px solid rgba(67,39,25,.28);
+    font-weight:700;
+}
+
+.item{
+    background:rgba(67,39,25,.07);
+    padding:12px;
+    border-radius:4px;
+    margin-bottom:10px;
+    border:1px solid rgba(67,39,25,.18);
+}
+
+.warning{
+    background:rgba(109,32,25,.10);
+    border-right:5px solid var(--red);
+    padding:15px;
+    border-radius:3px;
+    color:#3a1712;
+}
+
+.archive-paper{
+    background:#bda77d;
+    padding:24px 20px;
+    border:1px solid #5b3a22;
+    box-shadow:inset 0 0 35px rgba(63,35,14,.22),0 8px 20px rgba(20,10,5,.35);
+    position:relative;
+}
+
+.archive-paper:after{
+    content:"";
+    position:absolute;
+    inset:11px;
+    border:1px dashed rgba(62,34,16,.35);
+    pointer-events:none;
+}
+
+.archive-title{
+    direction:ltr;
+    text-align:center;
+    font-family:'Special Elite',monospace;
+    font-size:18px;
+    letter-spacing:2px;
+    color:#402519;
+    margin-bottom:4px;
+}
+
+.archive-sub{
+    text-align:center;
+    font-family:'Special Elite',monospace;
+    direction:ltr;
+    font-size:12px;
+    color:#6d2019;
+    margin-bottom:18px;
+}
+
+.archive-row{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    border-bottom:1px solid rgba(65,35,15,.25);
+    padding:8px 0;
+    font-size:14px;
+}
+
+.redact{
+    position:relative;
+    display:inline-block;
+    min-width:96px;
+    padding:2px 9px;
+    background:#17110d;
+    color:transparent;
+    border-radius:1px;
+    letter-spacing:1px;
+    cursor:pointer;
+    box-shadow:-2px 0 0 #17110d, 2px 1px 0 #17110d, 0 2px 0 rgba(23,17,13,.9);
+    transform:rotate(-.25deg);
+    transition:.18s ease;
+    user-select:none;
+}
+.redact:before{
+    content:"";
+    position:absolute;
+    left:4px;right:5px;top:4px;
+    height:2px;
+    background:rgba(82,61,42,.55);
+}
+.redact.revealed{
+    background:rgba(67,39,25,.08);
+    color:#24170f;
+    box-shadow:none;
+    cursor:default;
+    letter-spacing:0;
+}
+.redact.revealed:before{display:none;}
+.redact.revealed:after{
+    content:"REVEALED";
+    position:absolute;
+    left:5px;
+    top:-15px;
+    font:9px 'Special Elite',monospace;
+    color:#6d2019;
+    opacity:.8;
+    direction:ltr;
+}
+
+.archive-note{
+    margin-top:18px;
+    font-family:'Special Elite',monospace;
+    font-size:13px;
+    direction:rtl;
+    color:#3c2417;
+}
+
+.stamp{
+    display:inline-block;
+    border:3px double #6d2019;
+    color:#6d2019;
+    padding:5px 12px;
+    font-family:'Special Elite',monospace;
+    font-weight:bold;
+    letter-spacing:1px;
+    transform:rotate(-5deg);
+    opacity:.85;
+    margin:10px 0;
+}
+
+.pull-quote{
+    text-align:center;
+    padding:32px 15px;
+    background:#2a180f;
+    color:#e5cf9f;
+    border:1px solid #8d6b3d;
+    box-shadow:0 8px 22px rgba(0,0,0,.4);
+}
+
+.pull-quote .big{
+    font-family:'Rye','Special Elite',serif;
+    font-size:21px;
+    line-height:1.9;
+}
+
+.pull-quote .small{
+    margin-top:14px;
+    opacity:.75;
+    font-family:'Special Elite',monospace;
+    direction:ltr;
+}
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:13px;
+}
+
+.gallery-item{
+    position:relative;
+    background:#bda47a;
+    padding:8px 8px 25px;
+    border:1px solid #563421;
+    box-shadow:0 7px 15px rgba(35,15,7,.35);
+}
+
+.gallery-item:nth-child(2){transform:rotate(1.5deg);}
+.gallery-item:nth-child(3){transform:rotate(-1deg);}
+.gallery-item:nth-child(4){transform:rotate(1deg);}
+.gallery-item:nth-child(5){transform:rotate(-1.5deg);}
+
+.gallery-item img{
+    width:100%;
+    display:block;
+    border:1px solid rgba(40,20,10,.5);
+    filter:sepia(.12) contrast(1.05);
+}
+
+.gallery-caption{
+    position:absolute;
+    bottom:2px;
+    right:10px;
+    left:10px;
+    text-align:center;
+    font-family:'Special Elite',monospace;
+    font-size:10px;
+    color:#4a2c1c;
+    direction:ltr;
+}
+
+.matchbox{
+    display:grid;
+    grid-template-columns:90px 1fr;
+    gap:18px;
+    align-items:center;
+}
+
+.matches{
+    height:100px;
+    width:90px;
+    background:#4b2b1a;
+    border:2px solid #25140c;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#e5cf9f;
+    font-family:'Rye',serif;
+    font-size:30px;
+    box-shadow:4px 5px 12px rgba(0,0,0,.35);
+}
+
+.letter{
+    background:#c7b184;
+    border:1px solid #654329;
+    padding:17px;
+    box-shadow:inset 0 0 18px rgba(50,25,10,.16);
+    font-family:'Special Elite',monospace;
+    direction:ltr;
+    text-align:left;
+}
+
+.newspaper{
+    background:#b9a277;
+    border:1px solid #59402a;
+    padding:15px;
+    box-shadow:3px 5px 12px rgba(30,15,5,.3);
+    transform:rotate(-.8deg);
+}
+
+.newspaper:nth-child(2){transform:rotate(.8deg);}
+
+.news-head{
+    font-family:'Rye',serif;
+    font-size:17px;
+    text-align:center;
+    color:#321d12;
+    border-bottom:2px solid #321d12;
+    padding-bottom:8px;
+    margin-bottom:10px;
+}
+
+.news-small{
+    font-family:'Special Elite',monospace;
+    direction:ltr;
+    font-size:11px;
+    text-align:center;
+    margin-bottom:8px;
+}
+
+.news-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.wall{
+    background:
+        linear-gradient(90deg,#3a2115,#5a351e 50%,#351d13);
+    color:#e8d3a7;
+    padding:22px 15px;
+    border:8px solid #25130c;
+    box-shadow:inset 0 0 30px rgba(0,0,0,.6),0 10px 25px rgba(0,0,0,.5);
+}
+
+.wall-title{
+    font-family:'Rye',serif;
+    text-align:center;
+    font-size:24px;
+    direction:ltr;
+    color:#e8d3a7;
+    margin-bottom:5px;
+}
+
+.wall-sub{
+    text-align:center;
+    font-size:13px;
+    opacity:.85;
+    margin-bottom:18px;
+}
+
+.plaque{
+    background:linear-gradient(#c8aa72,#a78751);
+    color:#2a180e;
+    border:2px solid #62401f;
+    padding:12px;
+    margin:10px auto;
+    max-width:90%;
+    text-align:center;
+    box-shadow:inset 0 0 12px rgba(0,0,0,.18),0 4px 8px rgba(0,0,0,.3);
+    font-family:'Special Elite',monospace;
+    direction:ltr;
+}
+
+.plaque.empty{
+    opacity:.72;
+    letter-spacing:5px;
+}
+
+.star-rating{
+    font-size:28px;
+    text-align:center;
+    margin-top:10px;
+}
+
+.star{
+    cursor:pointer;
+    opacity:.35;
+    transition:.2s;
+}
+
+.star.active{
+    opacity:1;
+}
+
+.input{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:1px solid #654329;
+    border-radius:3px;
+    background:#c8b184;
+    color:#24170f;
+    font-family:'Vazirmatn',Tahoma,sans-serif;
+    outline:none;
+}
+
+.input:focus{
+    border-color:#6d2019;
+}
 
 .btn{
-
-display:inline-block;
-
-margin-top:35px;
-
-padding:16px 38px;
-
-border-radius:12px;
-
-background:#7d1010;
-
-color:white;
-
-text-decoration:none;
-
-transition:.35s;
-
-box-shadow:0 0 20px rgba(255,0,0,.2);
-
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    background:#5a2419;
+    color:#f0dcb6;
+    border:none;
+    border-radius:3px;
+    cursor:pointer;
+    border:1px solid #a17c45;
+    font-family:'Vazirmatn',Tahoma,sans-serif;
+    font-weight:700;
 }
 
-.btn:hover{
-
-background:#991616;
-
-transform:translateY(-4px);
-
+.review{
+    background:rgba(67,39,25,.07);
+    padding:12px;
+    border-radius:3px;
+    margin-top:10px;
+    border:1px solid rgba(67,39,25,.18);
 }
 
-/* ===== کارت ===== */
-
-.card{
-
-width:min(1000px,92%);
-
-margin:70px auto;
-
-padding:30px;
-
-border-radius:20px;
-
-background:rgba(255,255,255,.07);
-
-backdrop-filter:blur(10px);
-
-border:1px solid rgba(255,255,255,.08);
-
-transition:.35s;
-
-opacity:0;
-
-transform:translateY(40px);
-
+.order-btn{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    color:#f0dcb6;
+    background:#5a2419;
+    border:1px solid #a17c45;
+    margin-top:10px;
+    padding:13px;
+    border-radius:3px;
 }
 
-.card.show{
-
-opacity:1;
-
-transform:none;
-
+.order-btn:hover{
+    background:#6d2019;
 }
 
-.card:hover{
-
-transform:translateY(-6px);
-
-box-shadow:0 15px 35px rgba(0,0,0,.45);
-
+.red-accent{
+    color:#6d2019;
+    font-weight:700;
 }
 
-.card h2{
-
-margin-bottom:20px;
-
-font-size:30px;
-
+.secret-line{
+    text-align:center;
+    font-family:'Special Elite',monospace;
+    direction:ltr;
+    color:#6d2019;
+    font-size:12px;
+    margin-top:15px;
 }
 
-.card p{
-
-line-height:2.1;
-
-color:#ddd;
-
+.full-report{
+    display:none;
+    margin-top:15px;
 }
 
-/* ===== سایه انسان ===== */
-
-.shadow{
-
-position:fixed;
-
-bottom:0;
-
-left:8%;
-
-width:170px;
-
-height:420px;
-
-background:linear-gradient(to top,
-rgba(0,0,0,.85),
-rgba(0,0,0,.2));
-
-filter:blur(12px);
-
-opacity:0;
-
-pointer-events:none;
-
-transition:opacity 1s;
-
-z-index:500;
-
+.report-toggle{
+    width:100%;
+    padding:12px;
+    border:1px solid #70451f;
+    background:#9f855c;
+    color:#2a180f;
+    cursor:pointer;
+    font-family:'Vazirmatn',Tahoma,sans-serif;
+    font-weight:700;
 }
 
-@media(max-width:768px){
-
-.hero h1{
-
-font-size:35px;
-
+@media(max-width:520px){
+    .page{width:95%;}
+    .card{padding:16px;}
+    .title{font-size:25px;}
+    .section-title{font-size:18px;}
+    .info-grid{gap:8px;}
+    .info-box{padding:11px 6px;font-size:13px;}
+    .matchbox{grid-template-columns:70px 1fr;gap:12px;}
+    .matches{width:70px;height:82px;font-size:24px;}
+    .pull-quote .big{font-size:18px;}
 }
-
-.hero h2{
-
-font-size:22px;
-
-}
-
-.card{
-
-padding:22px;
-
-}
-
-}
-
 </style>
-
 </head>
 
 <body>
+<div class="page">
 
-<div class="fog"></div>
+<div class="card case-stamp">
+    <div class="archive-head">DEADWOOD COUNTY ARCHIVE</div>
+    <div style="font-size:14px;color:#563421;margin-top:4px;">
+        پرونده ثبت‌شده در بایگانی دِدوود — سال ۱۸۸۷
+    </div>
 
-<div class="shadow" id="shadow"></div>
+    <img src="nightmare.jpg" class="main-poster" alt="کابوس خاموش">
 
-<section class="hero">
+    <div class="case-number">CASE FILE No. 04 — SILENT NIGHTMARE</div>
+    <div class="stamp">ARCHIVED</div>
+</div>
 
-<div class="hero-content">
+<div class="card">
+    <div class="title">🌑 پرونده شماره ۰۴ — کابوس خاموش</div>
+    <div class="subtitle">A DEADWOOD CASE — 1887</div>
 
-<h1>
+    <div class="rating-top">⭐⭐⭐⭐⭐ 5.0 / 5</div>
 
-همه خوابیده‌اند...
+    <div class="info-grid">
+        <div class="info-box">🧠 درجه بررسی<br>★★★★★</div>
+        <div class="info-box">⏳ ۱۵۰ تا ۲۴۰ دقیقه</div>
+        <div class="info-box">📁 پرونده حل‌نشده</div>
+        <div class="info-box">📜 ثبت مجدد در بایگانی</div>
+    </div>
 
-اما کابوس هنوز بیدار است.
+    <div class="secret-line">RESERVATIONS OPENED — THE FILE REMAINS UNRESOLVED.</div>
+</div>
 
-</h1>
+<div class="card">
+    <div class="section-title">🕯️ پرونده را باز کنید</div>
 
-<h2>
+    <div class="warning">
+        یک شب، روستای دِدوود شاهد ناپدیدشدن چند کودک شد.
+        هیچ‌کس چیزی ندید و هیچ صدایی شنیده نشد.
+        <br><br>
+        تنها چیزی که باقی ماند، ردپاهایی بود که به هیچ‌جا نمی‌رسیدند.
+        <br><br>
+        سال‌ها گذشت؛ اما حقیقت هرگز پیدا نشد.
+    </div>
 
-این آغاز یک پرونده نیست؛
+    <button class="report-toggle" onclick="toggleReport()">
+        مشاهده بخش عمومی پرونده
+    </button>
 
-این آغاز یک کابوس است.
+    <div id="fullReport" class="full-report">
+    <p>
+        و عجیب‌تر از همه...هیچ‌کدام از بچه‌ها حتی فرصت نکردند برای کمک فریاد بزنند...اما صبح که رسید، جنگل دیگر مثل شب قبل نبود.
+    </p>
+    <p style="margin-top:12px;">
+        ردپاهایی که به جایی نمی‌رسیدند، خانه‌هایی که ناگهان ساکت شده بودند و جسد کودکی که پیدا شد، فقط شروع ماجرا بود.
+    </p>
+    <p style="margin-top:12px;">
+        مردم شهر از چیزی حرف می‌زدند که سال‌ها جرئت نداشتند اسمش را بیاورند؛ مردی بی‌چهره که شب‌ها در تاریکی دیده می‌شد...و زنی که بعضی‌ها او را جادوگر می‌دانستند.
+    </p>
+    <p style="margin-top:12px;">
+        مردی با لبخندی خونین، می‌گفتند اگر لبخندش را دیدی، دیگر به پشت سرت نگاه نکن.
+    </p>
+    <p style="margin-top:12px;">
+        اما ترسناک‌ترین بخش ماجرا این نبود؛ این بود که کسی در این شهر حقیقت را می‌دانست.
+    </p>
+    <p style="margin-top:12px;">
+        و آن‌قدر خوب پنهانش کرده بود که شاید تمام این سال‌ها، قاتل درست جلوی چشم همه ایستاده بود...
+    </p>
+    <p style="margin-top:12px;">
+        پرونده را که باز کنی، دیگر نمی‌توانی ببندی؛ چون شاید چیزی که سال‌ها در تاریکی پنهان شده، هنوز هم دارد تو را تماشا می‌کند.
+    </p>
+</div>
 
-</h2>
+<div class="card archive-paper">
+    <div class="archive-title">ARCHIVE RECORD — 1887</div>
+    <div class="archive-sub">DEADWOOD COUNTY / CASE 04</div>
 
-<p>
+    <div class="archive-row"><span>نام قربانی</span><span>آلیس میلر</span></div>
+    <div class="archive-row"><span>محل وقوع</span><span class="redact" data-reveal="حاشیه جنگل، شمال دِدوود" title="برای مشاهده کلیک کنید">████████████</span></div>
+    <div class="archive-row"><span>تاریخ حادثه</span><span>۲ نوامبر ۱۸۸۷</span></div>
+    <div class="archive-row"><span>آخرین مشاهده</span><span class="redact" data-reveal="۲۲:۴۰ — نزدیک جاده شمالی دِدوود" title="برای مشاهده کلیک کنید">████████████</span></div>
+    <div class="archive-row"><span>وضعیت پرونده</span><span class="redact" data-reveal="باز — بدون نتیجه قطعی" title="برای مشاهده کلیک کنید">████████████</span></div>
 
-سال‌هاست حقیقت در سکوت دفن شده است.
+    <div class="stamp">FILED — DEADWOOD</div>
 
-اکنون زمان آن رسیده که پرده از رازهایی برداشته شود
+    <div class="archive-note">
+        «اطلاعات تکمیلی پرونده از گزارش اصلی حذف شده است.»
+        <br><br>
+        علت حذف: <span class="redact" data-reveal="دستور مستقیم کلانتر شهرستان — ۳ نوامبر ۱۸۸۷" title="برای مشاهده کلیک کنید">████████████████</span>
+    </div>
+</div>
 
-که هیچ‌کس جرئت روبه‌رو شدن با آن‌ها را نداشت.
+<div class="card">
+    <div class="section-title">📦 محتویات پرونده</div>
 
-</p>
+    <div class="item">🎤 ۶ عدد برگه بازجویی</div>
+    <div class="item">⚕️ ۱ عدد برگه پزشکی قانونی</div>
+    <div class="item">🩸 ۱ عدد برگه امتیازدهی قاتل</div>
+    <div class="item">✉️ ۲ عدد نامه قاتل</div>
+    <div class="item">🔥 ۴ عدد کبریت</div>
+    <div class="item">📷 ۸ عدد عکس آلبوم و پاکت نامه</div>
+    <div class="item">👤 ۶ عدد عکس مظنونین</div>
+    <div class="item">🚔 ۱ عدد گزارش کلانتری</div>
+    <div class="item">📄 ۱ عدد برگه اظهارنامه</div>
+    <div class="item">📰 ۲ عدد روزنامه</div>
+    <div class="item">🪶 ۱ عدد برگه باستانی</div>
+</div>
 
-<a href="#about" class="btn">
+<div class="card">
+    <div class="section-title">📸 آرشیو مدارک پرونده</div>
 
-مشاهده پرونده
+    <div class="gallery-grid">
+        <div class="gallery-item">
+            <img src="mahrokh.png" alt="مدرک پرونده">
+            <div class="gallery-caption">EVIDENCE — 01</div>
+        </div>
 
-</a>
+        <div class="gallery-item">
+            <img src="faceless.png" alt="مدرک پرونده">
+            <div class="gallery-caption">EVIDENCE — 02</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="forest.png" alt="جنگل ددوود">
+            <div class="gallery-caption">DEADWOOD FOREST</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="deadwood.jpg" alt="دد وود">
+            <div class="gallery-caption">DEADWOOD — 1887</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="footprint.jpg" alt="ردپا">
+            <div class="gallery-caption">EVIDENCE #07 — FOOTPRINT</div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="section-title">🔥 EVIDENCE — FOUR MATCHES</div>
+
+    <div class="matchbox">
+        <div class="matches">04</div>
+
+        <div>
+            چهار کبریت در میان مدارک پرونده ثبت شده است.
+            دلیل وجود آنها در گزارش مشخص نیست.
+            <br><br>
+            <b>«اگر چراغ خاموش شد، چهار بار تلاش نکن.»</b>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="section-title">✉️ EVIDENCE — CORRESPONDENCE</div>
+
+    <div class="correspondence-frame">
+        <img src="Name.png" alt="مدرک تصویری مربوط به نامه‌های پرونده">
+    </div>
+    <div class="evidence-caption">EVIDENCE PHOTOGRAPH — CORRESPONDENCE / IDENTITY UNCONFIRMED</div>
+
+    <p style="margin-top:14px;">
+        دو نامه با یک دست‌خط در میان مدارک پرونده باقی مانده‌اند.
+        <span class="red-accent">محتوای کامل نامه‌ها در نسخه اصلی پرونده قرار دارد.</span>
+    </p>
+</div>
+
+<div class="card">
+    <div class="section-title">📰 روزنامه‌های دِدوود</div>
+
+    <div class="news-grid">
+        <div class="newspaper">
+            <div class="news-small">DEADWOOD GAZETTE — 1887</div>
+            <div class="news-head">ناپدیدشدن‌های دِدوود ادامه دارد</div>
+            <p style="font-size:12px;">
+                مقامات از مردم خواستند پس از تاریکی از خانه خارج نشوند.
+                گزارش‌های جدید، نگرانی‌ها درباره حوادث شبانه را افزایش داده است...
+            </p>
+        </div>
+
+        <div class="newspaper">
+            <div class="news-small">COUNTY REPORT — 1887</div>
+            <div class="news-head">ردپاهایی که به هیچ‌جا نرسیدند</div>
+            <p style="font-size:12px;">
+                شاهدان از صداهایی در نزدیکی جنگل سخن گفته‌اند؛
+                اما هیچ توضیح رسمی برای آنها ثبت نشده است...
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="section-title">🪶 سندی که نباید اینجا می‌بود</div>
+
+    <div class="archive-paper">
+        <p style="text-align:center;font-family:'Special Elite',monospace;">
+            THIS DOCUMENT PREDATES THE CASE.
+        </p>
+
+        <p style="margin-top:14px;">
+            این سند پیش از آغاز پرونده پیدا شده است و تاریخ دقیق آن مشخص نیست.
+            نام <b>Deadwood</b> در آن دیده می‌شود؛ اما هیچ سابقه‌ای توضیح نمی‌دهد چرا.
+        </p>
+
+        <p style="margin-top:12px;">
+            یک توضیح می‌گوید این فقط ردپای یک انسان بوده است.
+            <span class="red-accent">توضیح دیگر، انسانی نیست.</span>
+        </p>
+
+        <div class="stamp">UNIDENTIFIED</div>
+    </div>
+</div>
+
+<div class="card pull-quote">
+    <div class="big">
+        «مشکل این پرونده این نیست که قاتل پیدا نشد.»
+        <br>
+        «مشکل این است که شاید همه می‌دانستند چه کسی بود.»
+    </div>
+    <div class="small">— EXTRACTED FROM CASE NOTES / 1887</div>
+</div>
+
+<div class="card">
+    <div class="section-title">⚠️ هشدار پرونده</div>
+
+    <div class="warning">
+        این پرونده بر پایه اسناد، شهادت‌ها و مدارکی طراحی شده که باید در کنار یکدیگر بررسی شوند.
+        <br><br>
+        هیچ مدرکی را به‌تنهایی قطعی فرض نکنید.
+        <br><br>
+        بعضی چیزها در این پرونده همان چیزی نیستند که در نگاه اول به نظر می‌رسند.
+    </div>
+</div>
+
+<div class="card">
+    <div class="section-title">💬 نظرات کارآگاهان</div>
+
+    <div class="review">
+        <b>رها</b><br>
+        ⭐⭐⭐⭐⭐<br>
+        هنوز پرونده به دستم نرسیده، ولی همین عکس‌ها باعث شد برای رزروش کنجکاو بشم.
+    </div>
+
+    <div class="review">
+        <b>یلدا</b><br>
+        ⭐⭐⭐⭐⭐<br>
+        رزروش که باز شد، فضای ۱۸۸۷ و مدارکش خیلی توجهم رو گرفت. منتظرم ببینم داخلش چه خبره.
+    </div>
+
+    <div class="review">
+        <b>کیان</b><br>
+        ⭐⭐⭐⭐⭐<br>
+        از معرفی‌ش معلومه با پرونده‌های قبلی فرق داره. فعلاً فقط منتظرم نسخه‌اش به دستم برسه.
+    </div>
+
+    <div class="review">
+        <b>نوید</b><br>
+        ⭐⭐⭐⭐⭐<br>
+        اون عکس وسط پرونده واقعاً کنجکاوم کرده؛ امیدوارم چیزی که حدس می‌زنم نباشه...
+    </div>
+
+    <div id="reviews"></div>
+</div>
+
+<div class="card wall">
+    <div class="wall-title">THE BRAVE ONES</div>
+    <div class="wall-sub">دیوار کسانی که وارد کابوس شدند</div>
+
+    <p style="text-align:center;font-size:13px;line-height:2;">
+        این دیوار هنوز منتظر اولین نام‌هاست.
+        <br>
+        اولین کارآگاهانی که وارد پرونده «کابوس خاموش» شوند،
+        نامشان برای همیشه در اینجا ثبت خواهد شد.
+    </p>
+
+    <div class="plaque">FIRST INVESTIGATORS</div>
+    <div class="plaque empty">???</div>
+    <div class="plaque empty">???</div>
+    <div class="plaque empty">???</div>
+
+    <p style="text-align:center;font-size:12px;margin-top:15px;opacity:.8;">
+        شاید یکی از این نام‌ها، نام تو باشد.
+    </p>
+</div>
+
+<div class="card">
+    <div class="section-title">⭐ امتیازدهی پرونده</div>
+
+    <div class="star-rating" aria-label="امتیازدهی پرونده">
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+    </div>
+
+    <input id="name" class="input" placeholder="نام شما">
+    <textarea id="text" class="input" placeholder="نظر شما..."></textarea>
+
+    <button class="btn" onclick="addReview()">ثبت نظر</button>
+</div>
+
+<div class="card">
+    <div class="section-title">📦 دسترسی به نسخه اصلی پرونده</div>
+
+    <p>
+        حقیقت در این صفحه قرار ندارد.
+        <br><br>
+        مدارک کامل، بازجویی‌ها، نامه‌ها، عکس‌ها و سرنخ‌های اصلی
+        در نسخه فیزیکی پرونده قرار گرفته‌اند.
+        <br><br>
+        اگر آماده‌ای وارد پرونده دِدوود شوی، برای رزرو نسخه کامل از طریق پیام‌رسان‌های زیر اقدام کن.
+    </p>
+
+    <a class="order-btn"
+       href="https://ble.ir/join/DYbDnaJMuz"
+       target="_blank">
+        💬 رزرو در بله
+        <br>
+        @weareweoo
+    </a>
+
+    <a class="order-btn"
+       href="https://t.me/weareweoo"
+       target="_blank">
+        📨 رزرو در تلگرام
+        <br>
+        @weareweoo
+    </a>
+</div>
+
+<div class="card" style="text-align:center;opacity:.72;">
+    © Crime Archive | Silent Nightmare Case 04
+</div>
 
 </div>
 
-</section>
-
-<section id="about" class="card">
-
-<h2>
-
-کابوس‌های خاموش
-
-</h2>
-
-<p>
-این فقط یک داستان نیست؛
-اینجا هر نشانه می‌تواند حقیقت را آشکار کند...
-یا تو را برای همیشه در تاریکی رها کند.
-
-<br><br>
-
-<b style="color:#d33;">
-پرونده هنوز اجازه انتشار ندارد.
-</b>
-
-</p>
-
-</section>
-
-<section class="card">
-
-<h2>
-  
-</section>
-
-<section class="card">
-
-<h2>
-
-آیا آماده‌ای؟
-
-</h2>
-
-<p>
-
-از این لحظه به بعد،
-هیچ تضمینی وجود ندارد که حقیقت،
-همان چیزی باشد که انتظارش را داری...
-
-</p>
-
-<a class="btn" href="#">
-
-ورود به کابوس
-
-</a>
-
-</section>
-
-<audio
-id="nafas"
-src="nafas.mp3"
-loop>
-</audio>
-
 <script>
+let stars = document.querySelectorAll(".star");
+let rating = 0;
 
-/* پخش صدا */
+stars.forEach((s,i)=>{
+    s.addEventListener("click",()=>{
+        rating=i+1;
 
-let played=false;
-
-document.addEventListener("click",()=>{
-
-if(!played){
-
-document
-.getElementById("nafas")
-.play()
-.catch(()=>{});
-
-played=true;
-
-}
-
-},{once:true});
-
-/* Fade هنگام اسکرول */
-
-const cards=document.querySelectorAll(".card");
-
-const observer=new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("show");
-
-}
-
+        stars.forEach((x,j)=>{
+            x.classList.toggle("active",j<rating);
+        });
+    });
 });
 
-},{
-threshold:.15
-});
+function addReview(){
+    let name=document.getElementById("name").value.trim();
+    let text=document.getElementById("text").value.trim();
 
-cards.forEach(card=>observer.observe(card));
+    if(!name || !text) return;
 
-/* سایه انسان */
+    let reviews=JSON.parse(
+        localStorage.getItem("silentNightmareReviews") || "[]"
+    );
 
-const shadow=document.getElementById("shadow");
+    reviews.push({
+        name:name,
+        text:text,
+        rate:rating
+    });
 
-function showShadow(){
+    localStorage.setItem(
+        "silentNightmareReviews",
+        JSON.stringify(reviews)
+    );
 
-shadow.style.opacity=".18";
+    document.getElementById("name").value="";
+    document.getElementById("text").value="";
+    rating=0;
 
-setTimeout(()=>{
+    stars.forEach(x=>x.classList.remove("active"));
 
-shadow.style.opacity="0";
-
-},1000);
-
-const next=40000+Math.random()*20000;
-
-setTimeout(showShadow,next);
-
+    loadReviews();
 }
 
-setTimeout(showShadow,10000);
+function loadReviews(){
+    let reviews=JSON.parse(
+        localStorage.getItem("silentNightmareReviews") || "[]"
+    );
 
+    let box=document.getElementById("reviews");
+    box.innerHTML="";
+
+    reviews.forEach(r=>{
+        box.innerHTML += `
+        <div class="review">
+            <b>${escapeHTML(r.name)}</b><br>
+            ${"⭐".repeat(r.rate || 0)}
+            <br>
+            ${escapeHTML(r.text)}
+        </div>`;
+    });
+}
+
+function escapeHTML(str){
+    return str.replace(/[&<>"']/g,function(m){
+        return {
+            "&":"&amp;",
+            "<":"&lt;",
+            ">":"&gt;",
+            '"':"&quot;",
+            "'":"&#039;"
+        }[m];
+    });
+}
+
+document.querySelectorAll(".redact").forEach(el=>{
+    el.addEventListener("click",()=>{
+        if(el.classList.contains("revealed")) return;
+        el.textContent=el.dataset.reveal || "";
+        el.classList.add("revealed");
+    });
+});
+
+function toggleReport(){
+    let report=document.getElementById("fullReport");
+    let btn=document.querySelector(".report-toggle");
+
+    if(report.style.display==="block"){
+        report.style.display="none";
+        btn.textContent="مشاهده بخش عمومی پرونده";
+    }else{
+        report.style.display="block";
+        btn.textContent="بستن بخش عمومی";
+    }
+}
+
+loadReviews();
 </script>
 
 </body>
-
 </html>
